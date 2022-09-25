@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+  html{
+    @apply text-[18px] md:text-[20px] scroll-smooth
+  }
+  body{
+    @apply bg-primary text-default
+  }
+  h1{
+    @apply font-robotoCondensed font-light text-title
+  }
+  h2,h3{
+    @apply font-roboto text-title
+  }
+  h3{
+    @apply text-xl
+  }
+  nav a{
+    @apply font-inter text-nav
+
+  }
+  p, span{
+    @apply font-inter text-articles leading-5 font-light 
+  }
+  header{
+    @apply border-b-header
+  }
+  footer{
+    @apply bg-footer
+  }
+  input[type="text"], textarea{
+    @apply bg-input-contact font-light text-sm hover:bg-hover-input-contact transition-colors resize-none
+  }
+  section{
+    @apply px-12 relative
+  }
+}
