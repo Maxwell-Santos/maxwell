@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 
 export function Contact() {
 
-  const {register, handleSubmit} = useForm();
+  const {register, handleSubmit, formState:{errors} } = useForm();
 
   function submit(d:any){
     const data = JSON.stringify(d)
@@ -21,7 +21,7 @@ export function Contact() {
       <TitleSection title='Contato' />
 
       <div 
-      className='w-[90%] my-10 flex items-center h-[500px] mx-auto bg-contact overflow-hidden rounded-xl border border-skills'
+      className='w-[95%] md:w-[80%] max-w-4xl my-10 flex items-center h-fit md:h-[500px] mx-auto bg-contact overflow-hidden rounded-xl'
       >
         <Image
         src={contact}
@@ -30,35 +30,54 @@ export function Contact() {
         />
         <form 
         onSubmit={handleSubmit(submit)}
-        className='flex-[1.3] flex flex-col gap-4 p-6 px-10'
+        className='flex-[1.3] flex flex-col gap-4 p-6 px-5 md:px-10'
         >
           <label>
             <input 
             type="text" 
-            {...register('name')} 
+            {...register('name',{
+              required: {
+                value: true,
+                message: ""
+              }
+            })} 
             placeholder='name'
             className='py-2 px-3 w-full rounded-md'
-            required
             />
           </label>
-
+          
           <label>
             <input 
             type="text" 
-            {...register('email')} 
+            {...register('email', {
+              required: {
+                value: true,
+                message: "Insira um email"
+              },
+              pattern: {
+                value: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i,
+                message: "Por favor, insira um email válido"
+              }
+            })} 
             placeholder='email'
             className='py-2 px-3 w-full rounded-md'
-            required
             />
           </label>
-
           <label>
             <textarea 
-            {...register('feedback')}  
+            {...register('feedback', {
+              required: {
+                value: true,
+                message: ""
+              },
+              maxLength: {
+                value: 600,
+                message: "Por favor, mande uma mensagem mais curta"
+              }
+            })}  
             placeholder='mensagem'
             className='py-2 px-3 w-full rounded-md '
             rows={5}
-            required
             />
           </label>
 

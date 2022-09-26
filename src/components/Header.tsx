@@ -1,33 +1,116 @@
-export function Header() {
-  
-  return (
-    <header
-      className="fixed top-0 left-0 right-0 z-10 backdrop-blur-sm p-5 md:px-16 flex justify-between items-center border-b-2 border-b-header"
-    >
-      <div><h2>MINHA LOGO</h2></div>
-      <nav
-        className="text-[16px] flex gap-3 md:gap-5 items-center"
-      >
-        <a href="#Sobre">
-          Sobre
-        </a>
-        <a 
-        href="#Contato"
-        className="border border-btn-secondary rounded-md p-1 px-2"
-        >
-          Contato
-        </a>
-        
-        <a 
-        href=""
-        className="bg-secondary p-1 px-2 text-btn uppercase font-robotoCondensed rounded-md flex items-center font-medium tracking-wider transition-colors hover:bg-hover-btn"
-        >
-          Portfólio
-        </a>
-        <a href="">
+import Link from "next/link"
+import { useEffect, useState } from "react";
+interface HeaderProps {
+  page?: string;
+}
 
-        </a>
-      </nav>
-    </header>
+type header = 'hidden' | 'block'
+
+export function Header({ page }: HeaderProps) {
+  let largura = 0;
+  const [expand, setExapnd] = useState('hidden')
+
+  function setTop() {
+    window.scrollTo(0, 0)
+  }
+
+  useEffect(() => {
+    largura = screen.width
+  }, [])
+
+  return (
+    <>
+      {page == "portfolio" ?
+        (
+          <header
+            className="fixed top-0 left-0 right-0 z-10 backdrop-blur-sm p-3 md:px-16 flex justify-between items-center border-b-2 border-b-header"
+          >
+            <Link
+              href="/"
+            >
+              <h2
+                className="cursor-pointer"
+              >
+                MINHA LOGO</h2>
+            </Link>
+
+          </header>
+
+        ) : (
+
+          <header
+            className="fixed bottom-0 md:bottom-auto md:top-0 left-0 right-0 z-10 
+            backdrop-blur-sm p-3 md:px-16 flex justify-between md:items-center 
+            border-t-2 border-t-header 
+            md:border-b-2 md:border-b-header 
+            transition-all
+            "
+          >
+            <div
+              onClick={() => setTop()}
+            >
+              <h2>MINHA LOGO</h2>
+            </div>
+
+
+            {
+              largura < 768 ? (
+                <>
+
+                  <nav
+                    className="text-[16px] flex flex-col gap-3 md:gap-5 items-end"
+                  >
+                    <button
+                      className="ml-auto"
+                      onClick={() => setExapnd(value => value == 'hidden' ? value = 'flex' : 'hidden')}
+                    >
+                      <div
+                      className="w-7 h-[2px] bg-white"
+                      ></div>
+                      <div
+                      className="w-7 h-[2px] bg-white my-[6px]"
+                      ></div>
+                      <div
+                      className="w-7 h-[2px] bg-white"
+                      ></div>
+                    </button>
+
+                    <div
+                      className={`${expand} flex-col gap-2 items-end transition-all`}
+                    >
+                      <a
+                        href="#Sobre"
+                        className="hover:text-secondary focus:text-secondary transition-all"
+                      >
+                        Sobre
+                      </a>
+                      <a
+                        href="#Contato"
+                        className="border border-btn-secondary rounded-md p-1 px-2 hover:text-secondary hover:border-secondary focus:text-secondary focus:border-secondary transition-colors"
+                      >
+                        Contato
+                      </a>
+
+                      <Link
+                        href="/portfolio"
+                      >
+                        <a
+                          className="bg-secondary p-1 px-2 text-btn uppercase font-robotoCondensed rounded-md flex items-center font-medium tracking-wider transition-colors hover:bg-hover-btn w-full md:w-fit"
+                        >Portfólio</a>
+                      </Link>
+                    </div>
+
+                  </nav>
+                </>
+              ) : (
+                <></>
+              )
+
+            }
+          </header>
+        )}
+    </>
   )
 }
+
+

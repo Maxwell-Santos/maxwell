@@ -4,7 +4,7 @@
 
 @layer base{
   html{
-    @apply text-[18px] md:text-[20px] scroll-smooth
+    @apply text-[16px] md:text-[18px] scroll-smooth
   }
   body{
     @apply bg-primary text-default
@@ -32,9 +32,9 @@
     @apply bg-footer
   }
   input[type="text"], textarea{
-    @apply bg-input-contact font-light text-sm hover:bg-hover-input-contact transition-colors resize-none
+    @apply bg-input-contact font-light text-sm transition-colors resize-none hover:ring-2 
   }
   section{
-    @apply px-12 relative
+    @apply px-6 md:px-12 relative
   }
 }

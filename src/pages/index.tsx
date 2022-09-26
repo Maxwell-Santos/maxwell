@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Header />
       <main
-      className='mt-24'
+        className='md:mt-24'
       >
         <Intro />
         <About />
