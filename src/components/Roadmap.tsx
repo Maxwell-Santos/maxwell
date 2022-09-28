@@ -9,7 +9,7 @@ interface StackProps {
 function Stack({ date, place, title, primary, id }: StackProps) {
   return (
 
-    <a href={`https://www.dio.me/certificate/${id}/`} target={"_blank"}>
+    <a href={`https://www.dio.me/certificate/${id}/`} target={"_blank"} rel="noopener">
       <li
         className={`
       ${primary ? "bg-[#0055ff98]" : "bg-cards"}

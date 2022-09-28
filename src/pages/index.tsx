@@ -4,10 +4,12 @@ import { Intro } from '../components/Intro'
 import { About } from '../components/About'
 import { Skills } from '../components/Skills/'
 import { Contact } from '../components/Contact'
+import Head from '../components/Head'
 
 export default function Home() {
   return (
     <>
+    <Head />
       <Header />
       <main
         className='md:mt-24'

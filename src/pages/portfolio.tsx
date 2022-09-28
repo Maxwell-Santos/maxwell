@@ -3,10 +3,14 @@ import { Header } from "../components/Header";
 import { ProjectComponent } from "../components/ProjectComponent";
 import { TitleSection } from "../components/TitleSection";
 
+import Head from '../components/Head'
+
 export default function Portfolio({repositories}:any) {
 
   return (
     <>
+    <Head />
+        
       <Header page="portfolio"/>
 
       <section
