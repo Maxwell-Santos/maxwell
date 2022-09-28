@@ -4,10 +4,10 @@ import { TitleSection } from "./TitleSection";
 export function About() {
 
   return (
-    <section className="relative">
+    <section>
       <TitleSection title='Sobre' />
 
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-9">
+      <div className="flex flex-col sm:flex-row justify-center items-start gap-9">
 
         <div className="flex-1">
           <Roadmap />
@@ -22,7 +22,7 @@ export function About() {
             </p>
             <br />
             <p>
-              Quero trabalhar resolvendo problemas usando a tecnologia e fazer diferença na vida das pessoas e de como elas se relacionam com a internet.
+             Quero trabalhar resolvendo problemas usando a tecnologia e fazer diferença na forma as pessoas se relacionam com a internet.
             </p>
           </div>
 

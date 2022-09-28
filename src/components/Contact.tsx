@@ -21,12 +21,12 @@ export function Contact() {
       <TitleSection title='Contato' />
 
       <div 
-      className='w-[95%] md:w-[80%] max-w-4xl my-10 flex items-center h-fit md:h-[500px] mx-auto bg-contact overflow-hidden rounded-xl'
+      className='w-[95%] lg:w-[70%] max-w-4xl my-10 flex items-center h-fit md:h-[400px] mx-auto bg-contact overflow-hidden rounded-xl'
       >
         <Image
         src={contact}
         alt="contact image"
-        className='flex-1 object-cover hidden md:block'
+        className='flex-1 object-cover overflow-hidden hidden md:block'
         />
         <form 
         onSubmit={handleSubmit(submit)}
@@ -92,7 +92,7 @@ export function Contact() {
       <Image
       src={Circle3}
       alt="circle 3"
-      className='absolute right-0 -top-40 -z-50'
+      className='absolute right-0 -top-[500px] -z-50'
       />
     </section>
   )

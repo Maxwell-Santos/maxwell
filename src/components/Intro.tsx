@@ -28,7 +28,7 @@ export function Intro() {
         </p>
 
         <a
-          href='../file/Currículo-Maxwell.pdf' type='application/pdf' download="Currículo-Maxwell.pdf"
+          href='/curriculoMaxwell.pdf' download
           className="bg-secondary text-btn px-6 py-2 rounded-md font-bold font-roboto text-base w-fit transition-colors hover:bg-hover-btn"
         >
           Baixar CV
@@ -50,3 +50,5 @@ export function Intro() {
     </section>
   )
 }
+
+
