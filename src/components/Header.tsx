@@ -91,7 +91,7 @@ export function Header({ page }: HeaderProps) {
               </div>
             </nav>
 
-            {/*VERSÃO DESKTOP*/}
+            {/*HEADER VERSÃO DESKTOP*/}
 
             <nav
               className="hidden md:flex text-[16px]"

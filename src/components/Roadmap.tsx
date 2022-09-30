@@ -9,12 +9,13 @@ interface StackProps {
 function Stack({ date, place, title, primary, id }: StackProps) {
   return (
 
-    <a href={`https://www.dio.me/certificate/${id}/`} target={"_blank"} rel="noreferrer" >
+    <a href={`https://www.dio.me/certificate/${id}/`} target={"_blank"} rel="noreferrer" 
+    className="flex-1 w-full"
+    >
       <li
         className={`
       ${primary ? "bg-[#0055ff98]" : "bg-cards"}
-      px-2 py-3 md:px-4 md:py-6  rounded-lg max-h-max rounded-tl-none rounded-bl-none border-l-4 border-secondary mb-2
-      max-w-lg hover:bg-[#0057ff66] transition-all
+      px-2 py-3 md:px-4 md:py-6 rounded-lg max-h-max rounded-tl-none rounded-bl-none border-l-4 border-secondary mb-2 hover:bg-[#0057ff66] transition-all
       `}
       >
         <span className="text-sm">
@@ -35,11 +36,11 @@ function Stack({ date, place, title, primary, id }: StackProps) {
 export function Roadmap() {
 
   return (
-    <ul>
+    <ul className="flex flex-col items-center max-w-lg mx-auto">
       <li
       className='
       bg-[#0055ff98]
-      px-2 py-3 md:px-4 md:py-6  rounded-lg max-h-max rounded-tl-none rounded-bl-none border-l-4 border-secondary mb-2 max-w-lg'
+      px-2 py-3 md:px-4 md:py-6  rounded-lg max-h-max rounded-tl-none rounded-bl-none border-l-4 border-secondary mb-2 flex-1 w-full'
       >
         <span className="text-sm">
           ▪ fev 2019 - dez 2021

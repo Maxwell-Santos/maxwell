@@ -36,6 +36,6 @@
     hover:ring-2 hover:ring-indigo-400 focus:ring-2 focus:ring-indigo-400 focus:outline-none placeholder:text-zinc-500 placeholder:font-normal
   }
   section{
-    @apply px-6 md:px-12 relative mt-20
+    @apply px-6 md:px-12 2xl:px-24 relative mt-20
   }
 }

@@ -1,5 +1,4 @@
 import Circle1 from '../../public/circle1.svg';
-import qrcode from '../assets/qrcode.png';
 import Image from 'next/future/image';
 
 export function Intro() {
@@ -8,7 +7,7 @@ export function Intro() {
     <section
       className="mt-10 w-full"
     >
-      <div className="w-full md:w-3/4 flex flex-col gap-4">
+      <div className="w-full md:w-3/4 2xl:w-4/5 flex flex-col gap-4">
         <div
           className="border-l-8 border-secondary p-3 md:p-5 md:py-7"
         >
@@ -33,18 +32,11 @@ export function Intro() {
         >
           Baixar CV
         </a>
-
-        {/* <Image
-        src={qrcode}
-        alt="QR Maxwell Currículo"
-        /> */}
       </div>
-
 
       <Image
         src={Circle1}
         alt="circle1"
-        // height={1000}
         className='absolute right-0 -top-9 -z-50'
       />
     </section>
