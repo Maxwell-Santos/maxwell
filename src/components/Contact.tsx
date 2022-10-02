@@ -1,12 +1,17 @@
+import AOS from 'aos';
 import Image from 'next/future/image';
-import contact from '../../public/Frame 19.png';
 import Circle3 from '../../public/contact.svg';
+import contact from '../../public/Frame 19.png';
 
 
-import { TitleSection } from "./TitleSection";
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { TitleSection } from "./TitleSection";
 
 export function Contact() {
+
+  useEffect(() => {AOS.init()},[])
+
 
   const {register, handleSubmit, formState:{errors} } = useForm();
 
@@ -22,6 +27,7 @@ export function Contact() {
 
       <div 
       className='w-[95%] lg:w-[70%] max-w-4xl my-10 flex items-center h-fit md:h-[400px] mx-auto bg-contact overflow-hidden rounded-xl'
+      data-aos="fade-up"
       >
         <Image
         src={contact}

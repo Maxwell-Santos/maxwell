@@ -1,0 +1,8 @@
+.swiper{
+  overflow-y: visible;
+}
+.swiper-pagination span{
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+}

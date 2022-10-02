@@ -38,6 +38,7 @@ module.exports = {
         'skills': '#FFFFFF34',
         'btn-secondary': '#FFFFFFB3',
         'secondary': '#0047FF',
+        'projects': '#12121280'
   
       },
 

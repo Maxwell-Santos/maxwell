@@ -1,19 +1,26 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 import { Roadmap } from "./Roadmap";
 import { TitleSection } from "./TitleSection";
 
 export function About() {
+  useEffect(() => {AOS.init()},[])
 
   return (
-    <section>
+    <section
+    className='overflow-x-hidden'
+    >
+
       <TitleSection title='Sobre' />
 
       <div className="flex flex-col sm:flex-row justify-center items-start gap-9">
 
-        <div className="flex-1">
+        <div className="flex-1" data-aos="fade-right">
           <Roadmap />
         </div>
 
-        <div className="flex-1">
+        <div className="flex-1" data-aos="fade-left">
 
           <div className="mb-7">
             <h3>Introdução</h3>

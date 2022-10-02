@@ -1,13 +1,16 @@
-import Circle1 from '../../public/circle1.svg';
+import AOS from 'aos';
 import Image from 'next/future/image';
+import { useEffect } from 'react';
+import Circle1 from '../../public/circle1.svg';
 
 export function Intro() {
+  useEffect(() => {AOS.init()},[])
 
   return (
     <section
       className="mt-10 w-full"
     >
-      <div className="w-full md:w-3/4 2xl:w-4/5 flex flex-col gap-4">
+      <div className="w-full md:w-3/4 2xl:w-4/5 flex flex-col gap-4" data-aos="fade-right">
         <div
           className="border-l-8 border-secondary p-3 md:p-5 md:py-7"
         >

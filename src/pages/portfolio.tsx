@@ -21,6 +21,7 @@ import 'swiper/css';
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+
 interface RepositoriesPropsShow extends ProjectProps {
   img: any
 }
@@ -29,36 +30,36 @@ export default function Portfolios({ repositories }: any) {
 
   const repositoriesParse = JSON.parse(repositories)
 
-  // const pagination = {
-  //   clickable: true,
-  //   renderBullet: function (index, className) {
-  //     return '<span class="' + className + '">' + (index + 1) + "</span>";
-  //   },
-  // };
-
-
   return (
     <>
       <Head />
 
       <Header page="portfolio" />
 
-      <section className="mt-24">
+      <section className="my-24">
         <TitleSection title="portfólio" />
 
         <Swiper
-        pagination={{
-          dynamicBullets: true,
-        }}
-        modules={[Pagination]}
+          className="overflow-visible flex items-center md:h-[65vh] "
+          pagination={{
+            dynamicBullets: true,
+          }}
+          modules={[Pagination]}
+          spaceBetween={10}
+          slidesPerView={2}
+          centeredSlides
         >
-          {repositoriesParse.map((repo: any) => {
-            return (
-              <SwiperSlide>
-                <ProjectComponent key={repo.id} data={repo} />
-              </SwiperSlide>
-            )
-          })
+          {
+            repositoriesParse.map((repo: any) => {
+              return (
+                <SwiperSlide
+                className='h-64 flex justify-center overflow-hidden'
+                key={repo.id}
+                >
+                  <ProjectComponent key={repo.id} data={repo} />
+                </SwiperSlide>
+              )
+            })
           }
         </Swiper>
 
@@ -93,7 +94,7 @@ class Portfolio {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  
+
   const api = await fetch('https://api.github.com/users/Maxwell-Santos/repos')
   const response = await api.json()
 
@@ -107,20 +108,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
    */
   const escopoRepositories = [
     {
-      img: CalcGorjeta,
-      id: 482375390
-    },
-    {
-      img: CardNFT,
-      id: 481977497
-    },
-    {
       img: LandPage,
       id: 485900216
-    },
-    {
-      img: Insta,
-      id: 534835307
     },
     {
       img: Movies,
@@ -130,7 +119,18 @@ export const getServerSideProps: GetServerSideProps = async () => {
       img: Turismo,
       id: 533521470
     },
-
+    {
+      img: CalcGorjeta,
+      id: 482375390
+    },
+    {
+      img: CardNFT,
+      id: 481977497
+    },
+    {
+      img: Insta,
+      id: 534835307
+    },
   ]
 
   //Esse array é o que mostra na tela os projetos ja formatados 
