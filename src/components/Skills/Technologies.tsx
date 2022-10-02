@@ -8,7 +8,7 @@ export function Technologies({name, img}:TechProps) {
 
   return (
    <div
-   className="p-4 py-4 md:py-6 border border-skills rounded-md flex items-center gap-2"
+   className="p-4 py-4 md:p-6 border border-skills rounded-md flex flex-col md:flex-row items-center justify-center md:justify-start gap-2"
    >
     <Image
     src={img}
@@ -16,7 +16,7 @@ export function Technologies({name, img}:TechProps) {
     width={50}    
     />
     <span
-    className="text-lg font-medium font-roboto uppercase"
+    className="text-sm md:text-base font-medium uppercase"
     >
     {name}
     </span>
