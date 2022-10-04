@@ -3,7 +3,6 @@ import Image from 'next/future/image';
 import Circle3 from '../../public/contact.svg';
 import contact from '../../public/Frame 19.png';
 
-
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { TitleSection } from "./TitleSection";
@@ -15,12 +14,16 @@ export function Contact() {
 
   const {register, handleSubmit, formState:{errors} } = useForm();
 
-  function submit(d:any){
-    const data = JSON.stringify(d)
+  function submit(event: any){
+    const data = JSON.stringify(event)
     console.log(data)
-    d.value = ''
+    event.value = ''
   }
-
+  
+  const varName = errors?.name?.message
+  const varEmail = errors?.email?.message
+  const varFeedback = errors?.feedback?.message
+  
   return (
     <section>
       <TitleSection title='Contato' />
@@ -34,9 +37,10 @@ export function Contact() {
         alt="contact image"
         className='flex-1 object-cover overflow-hidden hidden md:block'
         />
+
         <form 
         onSubmit={handleSubmit(submit)}
-        className='flex-[1.3] flex flex-col gap-4 p-6 px-5 md:px-10'
+        className='flex-[1.3] flex flex-col gap-3 p-6 px-5 md:px-10'
         >
           <label>
             <input 
@@ -44,31 +48,34 @@ export function Contact() {
             {...register('name',{
               required: {
                 value: true,
-                message: ""
+                message: "Qual seu vulgo?"
               }
             })} 
             placeholder='name'
             className='py-2 px-3 w-full rounded-md'
             />
+          <span data-aos="fade-right">{varName?.toString()}</span>   
           </label>
-          
+
           <label>
             <input 
             type="text" 
             {...register('email', {
               required: {
                 value: true,
-                message: "Insira um email"
+                message: "Insira um email válido"
               },
               pattern: {
-                value: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i,
+                value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                 message: "Por favor, insira um email válido"
               }
             })} 
-            placeholder='email'
+            placeholder='max@exemplo.com'
             className='py-2 px-3 w-full rounded-md'
             />
+          <span data-aos="fade-right">{varEmail?.toString()}</span>   
           </label>
+
           <label>
             <textarea 
             {...register('feedback', {
@@ -85,6 +92,7 @@ export function Contact() {
             className='py-2 px-3 w-full rounded-md '
             rows={5}
             />
+          <span data-aos="fade-right">{varFeedback?.toString()}</span>   
           </label>
 
           <input 

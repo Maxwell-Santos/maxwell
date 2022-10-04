@@ -1,3 +1,4 @@
+import DownloadIcon from '@mui/icons-material/Download';
 import AOS from 'aos';
 import Image from 'next/future/image';
 import { useEffect } from 'react';
@@ -33,7 +34,7 @@ export function Intro() {
           href='/curriculoMaxwell.pdf' download
           className="bg-secondary text-btn px-6 py-2 rounded-md font-bold font-roboto text-base w-fit transition-colors hover:bg-hover-btn"
         >
-          Baixar CV
+          <DownloadIcon/> Baixar CV
         </a>
       </div>
 

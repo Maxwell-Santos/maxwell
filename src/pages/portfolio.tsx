@@ -50,13 +50,13 @@ export default function Portfolios({ repositories }: any) {
           centeredSlides
         >
           {
-            repositoriesParse.map((repo: any) => {
+            repositoriesParse.map((repository: any) => {
               return (
                 <SwiperSlide
-                className='h-64 flex justify-center overflow-hidden'
-                key={repo.id}
+                  className='flex justify-center items-center overflow-hidden aspect-video'
+                  key={repository.id}
                 >
-                  <ProjectComponent key={repo.id} data={repo} />
+                  <ProjectComponent key={repository.id} data={repository} />
                 </SwiperSlide>
               )
             })
@@ -73,16 +73,17 @@ class Portfolio {
   name: string;
   html_url: string;
   homepage?: string;
-  languages_url: string;
+  languages_url: any;
   img: any;
 
   constructor(
     id: number,
     name: string,
     html_url: string,
-    languages_url: string,
+    languages_url: any,
     img: any,
     homepage?: string,
+
   ) {
     this.id = id;
     this.name = name;
@@ -142,13 +143,16 @@ export const getServerSideProps: GetServerSideProps = async () => {
       if (escopo.id == repository.id) {
         const newPortfolio = new Portfolio(repository.id, repository.name, repository.html_url, repository.languages_url, escopo.img, repository?.homepage)
 
-        finallyRepositories.push(newPortfolio)
-      }
+          finallyRepositories.push(newPortfolio)
+        }
+
     })
   })
 
+
   //precisei fazer isso, porque estava dando erro para passar o array de objetos pelas props. Ai aqui transforma em string e quando é recuperado la na função, volta a ser JSON
   const props = JSON.stringify(finallyRepositories)
+
   return {
     props: {
       repositories: props,

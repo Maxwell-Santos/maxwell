@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
-import '../styles/b.css';
 import '../styles/globals.css';
 import '../styles/scrollbar.css';
+import '../styles/swiper.css';
 
 
 function MyApp({ Component, pageProps }: AppProps) {

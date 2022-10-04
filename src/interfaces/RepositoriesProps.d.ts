@@ -11,6 +11,6 @@ export interface ProjectWithImageProps {
   name: string;
   html_url: string;
   homepage?: string;
-  languages_url: string;
   img?: any;
+  languages_url: string;
 }

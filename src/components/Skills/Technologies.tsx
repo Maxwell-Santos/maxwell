@@ -16,7 +16,7 @@ export function Technologies({name, img}:TechProps) {
     width={50}    
     />
     <span
-    className="text-sm md:text-base font-medium uppercase"
+    className="text-sm hidden md:block md:text-base font-medium uppercase"
     >
     {name}
     </span>

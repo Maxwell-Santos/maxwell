@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 interface HeaderProps {
   page?: string;
 }
@@ -86,7 +86,9 @@ export function Header({ page }: HeaderProps) {
                 >
                   <a
                     className="bg-secondary p-1 px-2 text-btn uppercase font-robotoCondensed rounded-md flex items-center font-medium tracking-wider transition-colors hover:bg-hover-btn w-full md:w-fit"
-                  >Portfólio</a>
+                  >
+                    Portfólio
+                  </a>
                 </Link>
               </div>
             </nav>
@@ -115,9 +117,11 @@ export function Header({ page }: HeaderProps) {
                 <Link
                   href="/portfolio"
                 >
-                  <a
-                    className="bg-secondary p-1 px-2 text-btn uppercase font-robotoCondensed rounded-md flex items-center font-medium tracking-wider transition-colors hover:bg-hover-btn w-full md:w-fit"
-                  >Portfólio</a>
+                  <span
+                    className="bg-secondary p-1 px-2 text-btn uppercase font-robotoCondensed rounded-md flex items-center font-medium tracking-wider transition-colors hover:bg-hover-btn w-full md:w-fit cursor-pointer"
+                  >
+                    Portfólio
+                  </span>
                 </Link>
               </div>
 
