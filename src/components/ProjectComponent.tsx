@@ -62,14 +62,15 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
         </div>
 
       </div>
-      <Image
-        src={data.img}
-        alt="Banner do projeto"
-        height={360}
-        width={640}
-        objectFit={"cover"}
-      />
-
+      {data.img && 
+        <Image
+          src={data.img}
+          alt="Banner do projeto"
+          height={360}
+          width={640}
+          objectFit={"cover"}
+        />
+      }
       {/* <h1>{data.name}</h1> */}
     </div>
   )
