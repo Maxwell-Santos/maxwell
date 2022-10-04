@@ -9,12 +9,12 @@ import { TitleSection } from "../components/TitleSection";
 //INTERFACE
 import { ProjectProps } from '../interfaces/RepositoriesProps';
 
-import CalcGorjeta from '/calcgorjetas.png';
-import CardNFT from '/cardnft.jpg';
-import Insta from '/insta.jpg';
-import LandPage from '/landpage.jpg';
-import Movies from '/movies.png';
-import Turismo from '/turismo.png';
+import CalcGorjeta from '../../public/img/calcgorjetas.png';
+import CardNFT from '../../public/img/cardnft.jpg';
+import Insta from '../../public/img/insta.jpg';
+import LandPage from '../../public/img/landpage.jpg';
+import Movies from '../../public/img/movies.png';
+import Turismo from '../../public/img/turismo.png';
 
 import { Pagination } from 'swiper';
 import 'swiper/css';

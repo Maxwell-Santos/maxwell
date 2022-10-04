@@ -62,7 +62,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
         </div>
 
       </div>
-      {data.img && 
+      {data.img ? 
         <Image
           src={data.img}
           alt="Banner do projeto"
@@ -70,8 +70,8 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
           width={640}
           objectFit={"cover"}
         />
+      : 'não carregou ainda a img'
       }
-      {/* <h1>{data.name}</h1> */}
     </div>
   )
 }
