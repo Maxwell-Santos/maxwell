@@ -12,7 +12,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
 
   const [languages, setLanguages] = useState(null)
 
-  useEffect(() => {
+  data.languages_url && useEffect(() => {
     fetch(data.languages_url)
       .then(response => response.json())
       .then(data => setLanguages(data))
@@ -36,7 +36,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
         <p>
           {languages ? (
             Object.keys(languages).map(language => {
-              return <span className=' mx-1 p-1 px-2 rounded-full bg-stone-100/20 text-xs'>{language}</span>
+              return <span key={language} className=' mx-1 p-1 px-2 rounded-full bg-stone-100/20 text-xs'>{language}</span>
             })
 
           ) : 'bom dia'
