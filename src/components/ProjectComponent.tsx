@@ -12,11 +12,11 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
 
   const [languages, setLanguages] = useState(null)
 
-  data.languages_url && useEffect(() => {
+  useEffect(() => {
     fetch(data.languages_url)
       .then(response => response.json())
       .then(data => setLanguages(data))
-  }, [])
+  }, [data.languages_url])
 
   const name = data.name.replaceAll("-", " ")
 
