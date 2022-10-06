@@ -36,6 +36,7 @@ module.exports = {
       borderColor: {
         'header': '#FFFFFF1A',
         'skills': '#FFFFFF34',
+        'cards': '#FFFFFF34',
         'btn-secondary': '#FFFFFFB3',
         'secondary': '#0047FF',
         'projects': '#12121280'

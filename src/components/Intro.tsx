@@ -19,7 +19,7 @@ export function Intro() {
   }, []);
 
   useEffect(() => { AOS.init() }, [])
-
+  
   return (
     <section
       className="w-full h-[80vh] md:h-auto flex flex-col justify-center"
@@ -59,7 +59,7 @@ export function Intro() {
         activeClass="active"
         to='about'
         offset={-60}
-        className='mx-auto flex justify-center items-center flex-col group w-fit'
+        className='mx-auto flex justify-center items-center flex-col group w-fit mt-5'
       >
         <KeyboardArrowDownIcon
           titleAccess='Arraste para baixo'

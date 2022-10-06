@@ -16,6 +16,7 @@ import LandPage from '../../public/img/landpage.jpg';
 import Movies from '../../public/img/movies.png';
 import Turismo from '../../public/img/turismo.png';
 
+import { useEffect, useState } from 'react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
 import "swiper/css/pagination";
@@ -54,14 +55,15 @@ class Portfolio {
 }
 
 export default function Portfolios({ repositories }: any) {
+  const [width, setWidth] = useState(0)
+  
   const repositoriesParsed = JSON.parse(repositories)
 
   //Esse array é o que mostra na tela os projetos ja formatados 
   const finallyRepositories: RepositoriesPropsShow[] = [];
 
-
   /**
- * O único fim desse array, é ajudar a sincronizar as img estáticas com os repositórios pelo id;
+ * esse array serve para sincronizar as img estáticas com os repositórios pelo id;
  * Os ids desses objetos, batem com o id do projeto no repositório, e a img corresponde também;
  * A finalidade disso, é porque eu quero prints dos meus projetos.
  */
@@ -103,30 +105,35 @@ export default function Portfolios({ repositories }: any) {
     })
   })
 
+  useEffect(()=>{
+    setWidth(screen.width)
+  },[])
+
   return (
     <>
       <Head />
 
+      <section className="my-24">
       <Header page="portfolio" />
 
-      <section className="my-24">
         <TitleSection title="portfólio" />
 
         <Swiper
-          className="overflow-visible flex items-center md:h-[65vh] "
+          className="overflow-visible flex items-center"
           pagination={{
             dynamicBullets: true,
+            clickable: true,
           }}
           modules={[Pagination]}
-          spaceBetween={20}
-          slidesPerView={2}
+          spaceBetween={10}
+          slidesPerView={width >= 770 ? 2 : 1}
           centeredSlides
         >
           {
             finallyRepositories.map((repository: any) => {
               return (
                 <SwiperSlide
-                  className='flex justify-center items-center overflow-hidden aspect-video'
+                  className='flex justify-center items-center aspect-square md:aspect-video'
                   key={repository.id}
                 >
                   <ProjectComponent key={repository.id} data={repository} />
@@ -135,7 +142,6 @@ export default function Portfolios({ repositories }: any) {
             })
           }
         </Swiper>
-
       </section>
     </>
   )

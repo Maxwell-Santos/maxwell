@@ -22,13 +22,17 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
 
   return (
     <div
-      className="relative transition-all overflow-hidden group z-0"
+      className="relative transition-all md:overflow-hidden group h-full z-0 flex flex-col-reverse"
     >
       <div
-        className="absolute inset-0 top-20 duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-full bg-black opacity-0 z-10 p-6 transition-all delay-150 flex flex-col"
+        className="static md:absolute left-0 right-0 bottom-6 duration-500 transition-all delay-150 z-10 p-2 h-fit flex flex-col gap-3 md:gap-8 md:bg-black border border-cards
+        
+         md:p-6 md:bottom-0 md:opacity-0
+         md:group-hover:translate-y-0 md:group-hover:opacity-100 
+         md:translate-y-full"
       >
         <h3
-          className="uppercase text-title text-2xl font-thin flex-1"
+          className="uppercase text-title text-base sm:text-md md:text-2xl font-thin inline-block"
         >
           {name}
         </h3>
@@ -37,13 +41,13 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
           {languages ? (
             Object.keys(languages).map((language, index) => {
               return (
-              <span 
-                key={language} 
-                className={`mx-1 p-1 px-2 rounded-full text-white bg-stone-100/20 text-xs 
+                <span
+                  key={language}
+                  className={`mx-1 p-1 px-2 rounded-full text-white bg-stone-100/20 text-xs 
                 ${index == 0 && 'text-secondary border border-secondary font-bold'}`}
-              >
-                {language}
-              </span>
+                >
+                  {language}
+                </span>
               )
             })
 
@@ -52,7 +56,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
         </p>
 
         <div
-          className="flex justify-between flex-1 items-end gap-2"
+          className="flex justify-between flex-1 items-center gap-2"
         >
 
           <a href={`http://${data.homepage}`} target="_blank" rel="noreferrer"
@@ -61,8 +65,9 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
           >
             <InputIcon />
           </a>
+          
           <a href={data.html_url} target="_blank" rel="noreferrer"
-            className="bg-secondary p-3 py-1 rounded-md font-semibold flex items-center gap-1"
+            className="bg-secondary p-3 py-1 rounded-md font-semibold flex items-center gap-1 text-sm"
             title='ver no github'
           >
             ver no Github <GitHubIcon />
@@ -70,7 +75,8 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
         </div>
 
       </div>
-      {data.img ? 
+
+      {data.img ?
         <Image
           src={data.img}
           alt="Banner do projeto"
@@ -78,7 +84,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
           width={640}
           objectFit={"cover"}
         />
-      : 'não carregou ainda a img'
+        : 'não carregou ainda a img'
       }
     </div>
   )
