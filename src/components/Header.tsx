@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import { Link as ScrollLink } from 'react-scroll';
 interface HeaderProps {
   page?: string;
 }
@@ -68,22 +69,24 @@ export function Header({ page }: HeaderProps) {
               <div
                 className={`${expand} flex-col gap-2 items-end transition-all`}
               >
-                <a
-                  href="#Sobre"
+
+                <ScrollLink
+                  to='about'
+                  offset={-25}
                   className="hover:text-secondary focus:text-secondary transition-all"
                 >
                   Sobre
-                </a>
-                <a
-                  href="#Contato"
+                </ScrollLink>
+
+                <ScrollLink
+                  to='contact'
+                  offset={-70}
                   className="border border-btn-secondary rounded-md p-1 px-2 hover:text-secondary hover:border-secondary focus:text-secondary focus:border-secondary transition-colors"
                 >
                   Contato
-                </a>
+                </ScrollLink>
 
-                <Link
-                  href="/portfolio"
-                >
+                <Link href="/portfolio">
                   <a
                     className="bg-secondary p-1 px-2 text-btn uppercase font-robotoCondensed rounded-md flex items-center font-medium tracking-wider transition-colors hover:bg-hover-btn w-full md:w-fit"
                   >
@@ -93,30 +96,31 @@ export function Header({ page }: HeaderProps) {
               </div>
             </nav>
 
-            {/*HEADER VERSÃO DESKTOP*/}
 
+            {/*HEADER VERSÃO DESKTOP*/}
             <nav
               className="hidden md:flex text-[16px]"
             >
               <div
                 className={`flex gap-4 items-center transition-all`}
               >
-                <a
-                  href="#Sobre"
+                <ScrollLink
+                  to="about"
+                  offset={-70}
                   className="hover:text-secondary focus:text-secondary transition-all"
                 >
                   Sobre
-                </a>
-                <a
-                  href="#Contato"
+                </ScrollLink>
+
+                <ScrollLink
+                  to="contact"
+                  offset={-70}
                   className="border border-btn-secondary rounded-md p-1 px-2 hover:text-secondary hover:border-secondary focus:text-secondary focus:border-secondary transition-colors"
                 >
                   Contato
-                </a>
+                </ScrollLink>
 
-                <Link
-                  href="/portfolio"
-                >
+                <Link href="/portfolio">
                   <span
                     className="bg-secondary p-1 px-2 text-btn uppercase font-robotoCondensed rounded-md flex items-center font-medium tracking-wider transition-colors hover:bg-hover-btn w-full md:w-fit cursor-pointer"
                   >

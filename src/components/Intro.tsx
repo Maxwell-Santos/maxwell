@@ -2,6 +2,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AOS from 'aos';
 import { useEffect, useState } from 'react';
+import { Link } from "react-scroll";
 
 export function Intro() {
   let counter = 0
@@ -19,14 +20,9 @@ export function Intro() {
 
   useEffect(() => { AOS.init() }, [])
 
-  
-  function scrollToNext(){
-    window.scrollTo(0, 550)
-  }
-  
   return (
     <section
-      className="w-full"
+      className="w-full h-screen md:h-auto"
     >
       <div className="w-full md:w-3/4 2xl:w-4/5 flex flex-col gap-4" data-aos="fade-right">
         <div
@@ -42,7 +38,7 @@ export function Intro() {
           >
             <span
               className="absolute bg-primary w-full h-full border-l-2 border-blue-500 animate-typing overflow-hidden"
-              >
+            >
             </span>
             {mySkills[skill]}
           </span>
@@ -58,11 +54,12 @@ export function Intro() {
           <DownloadIcon /> Baixar CV
         </a>
       </div>
-      
-      <div
-        className='mx-auto
-      flex justify-center items-center flex-col group w-fit'
-      onClick={() => scrollToNext()}
+
+      <Link
+        activeClass="active"
+        to='about'
+        offset={-60}
+        className='mx-auto flex justify-center items-center flex-col group w-fit'
       >
         <span
           className='opacity-0 transition-all translate-y-2 
@@ -78,7 +75,7 @@ export function Intro() {
         />
 
 
-      </div>
+      </Link>
     </section>
   )
 }

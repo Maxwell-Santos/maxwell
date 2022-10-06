@@ -25,7 +25,9 @@ export function Contact() {
   const varFeedback = errors?.feedback?.message
   
   return (
-    <section>
+    <section
+    className='contact'
+    >
       <TitleSection title='Contato' />
 
       <div 

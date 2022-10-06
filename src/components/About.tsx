@@ -12,7 +12,9 @@ export function About() {
   const about = useRef()
 
   return (
-    <section>
+    <section
+    className='about'
+    >
       <Image
         src={Circle1}
         alt="circle1"
