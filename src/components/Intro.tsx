@@ -61,13 +61,6 @@ export function Intro() {
         offset={-60}
         className='mx-auto flex justify-center items-center flex-col group w-fit'
       >
-        <span
-          className='opacity-0 transition-all translate-y-2 
-        group-hover:opacity-100 group-hover:translate-y-0 bg-span-arraste p-1 rounded-sm text-xs shadow-lg'
-        >
-          Arraste para baixo
-
-        </span>
         <KeyboardArrowDownIcon
           titleAccess='Arraste para baixo'
           fontSize='large'
