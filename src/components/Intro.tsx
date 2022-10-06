@@ -22,7 +22,7 @@ export function Intro() {
 
   return (
     <section
-      className="w-full h-screen md:h-auto"
+      className="w-full h-[80vh] md:h-auto flex flex-col justify-center"
     >
       <div className="w-full md:w-3/4 2xl:w-4/5 flex flex-col gap-4" data-aos="fade-right">
         <div
