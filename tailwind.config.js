@@ -19,9 +19,9 @@ module.exports = {
         'h-cards': '#141E61',
         'contact': '#12121280',
         'input-contact': '#EEEEEE10',
-        'hover-input-contact': '#EEEEEE30',
         'footer': '#020C25',
         'hover-btn' : '#1013B0',
+        'span-arraste': '#EEEEEE30',
       },
       
       colors: {
@@ -39,9 +39,32 @@ module.exports = {
         'btn-secondary': '#FFFFFFB3',
         'secondary': '#0047FF',
         'projects': '#12121280'
-  
       },
 
+      animation:{
+        typing: 'typing 4s infinite '
+      },
+
+      keyframes:{
+        typingWidth: {
+          '0%, 100%': {
+            width: '0%',
+          },
+          '50%': {
+            width: '100%',
+          },
+        },
+
+        typing: {
+          '0%, 100%': {
+            transform: 'translateX(0%)',
+          },
+          '50%': {
+            transform: 'translateX(100%)',
+          },
+        },
+
+      },
     },
   },
   plugins: [],

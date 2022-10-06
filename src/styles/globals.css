@@ -39,7 +39,7 @@
     @apply ring-2 ring-red-500
   }
   section{
-    @apply px-6 md:px-12 2xl:px-24 relative mt-20
+    @apply px-6 md:px-12 2xl:px-24 relative mt-16
   }
 
   form span{

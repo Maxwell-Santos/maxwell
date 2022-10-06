@@ -118,7 +118,7 @@ export default function Portfolios({ repositories }: any) {
             dynamicBullets: true,
           }}
           modules={[Pagination]}
-          spaceBetween={10}
+          spaceBetween={20}
           slidesPerView={2}
           centeredSlides
         >

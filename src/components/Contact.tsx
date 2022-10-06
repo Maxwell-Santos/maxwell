@@ -98,7 +98,7 @@ export function Contact() {
           <input 
           type="submit" 
           value="enviar" 
-          className='bg-secondary hover:bg-hover-btn focus:bg-hover-btn transition-colors cursor-pointer w-fit py-1 px-4 rounded-md ml-auto'
+          className='bg-secondary hover:bg-hover-btn focus:bg-hover-btn transition-colors cursor-pointer w-fit py-1 px-4 rounded-md ml-auto uppercase text-sm font-inter tracking-wide'
           />
         </form>
       </div>

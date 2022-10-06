@@ -1,19 +1,36 @@
 import DownloadIcon from '@mui/icons-material/Download';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AOS from 'aos';
-import Image from 'next/future/image';
-import { useEffect } from 'react';
-import Circle1 from '../../public/circle1.svg';
+import { useEffect, useState } from 'react';
 
 export function Intro() {
-  useEffect(() => {AOS.init()},[])
+  let counter = 0
 
+  const mySkills = ['frontend developer', 'web developer', 'ui/ux', 'fullstack']
+  const [skill, setSkill] = useState(counter)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSkill(counter => counter === 3 ? counter = 0 : counter + 1);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => { AOS.init() }, [])
+
+  
+  function scrollToNext(){
+    window.scrollTo(0, 550)
+  }
+  
   return (
     <section
-      className="mt-10 w-full"
+      className="w-full"
     >
       <div className="w-full md:w-3/4 2xl:w-4/5 flex flex-col gap-4" data-aos="fade-right">
         <div
-          className="border-l-8 border-secondary p-3 md:p-5 md:py-7"
+          className="border-l-8 border-secondary p-3 md:p-5 md:py-7 max-w-fit"
         >
           <h1
             className="text-3xl md:text-4xl leading-9"
@@ -21,9 +38,13 @@ export function Intro() {
             Olá, me chamo Maxwell
           </h1>
           <span
-            className="font-robotoCondensed text-2xl md:text-3xl font-light"
+            className="relative py-1 font-robotoCondensed text-2xl md:text-3xl font-light uppercase pr-2"
           >
-            WEB DEVELOPER
+            <span
+              className="absolute bg-primary w-full h-full border-l-2 border-blue-500 animate-typing overflow-hidden"
+              >
+            </span>
+            {mySkills[skill]}
           </span>
         </div>
         <p>
@@ -34,15 +55,30 @@ export function Intro() {
           href='/curriculoMaxwell.pdf' download
           className="bg-secondary text-btn px-6 py-2 rounded-md font-bold font-roboto text-base w-fit transition-colors hover:bg-hover-btn"
         >
-          <DownloadIcon/> Baixar CV
+          <DownloadIcon /> Baixar CV
         </a>
       </div>
+      
+      <div
+        className='mx-auto
+      flex justify-center items-center flex-col group w-fit'
+      onClick={() => scrollToNext()}
+      >
+        <span
+          className='opacity-0 transition-all translate-y-2 
+        group-hover:opacity-100 group-hover:translate-y-0 bg-span-arraste p-1 rounded-sm text-xs shadow-lg'
+        >
+          Arraste para baixo
 
-      <Image
-        src={Circle1}
-        alt="circle1"
-        className='absolute right-0 -top-9 -z-50'
-      />
+        </span>
+        <KeyboardArrowDownIcon
+          titleAccess='Arraste para baixo'
+          fontSize='large'
+          className='text-articles animate-bounce'
+        />
+
+
+      </div>
     </section>
   )
 }

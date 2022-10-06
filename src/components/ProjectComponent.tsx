@@ -25,7 +25,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
       className="relative transition-all overflow-hidden group z-0"
     >
       <div
-        className="absolute inset-0 top-20 duration-500 group-hover:translate-y-0 group-hover:opacity-90 translate-y-full bg-black opacity-0 z-10 p-6 transition-all delay-150 flex flex-col"
+        className="absolute inset-0 top-20 duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-full bg-black opacity-0 z-10 p-6 transition-all delay-150 flex flex-col"
       >
         <h3
           className="uppercase text-title text-2xl font-thin flex-1"
@@ -35,8 +35,16 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
 
         <p>
           {languages ? (
-            Object.keys(languages).map(language => {
-              return <span key={language} className=' mx-1 p-1 px-2 rounded-full bg-stone-100/20 text-xs'>{language}</span>
+            Object.keys(languages).map((language, index) => {
+              return (
+              <span 
+                key={language} 
+                className={`mx-1 p-1 px-2 rounded-full text-white bg-stone-100/20 text-xs 
+                ${index == 0 && 'text-secondary border border-secondary font-bold'}`}
+              >
+                {language}
+              </span>
+              )
             })
 
           ) : 'bom dia'

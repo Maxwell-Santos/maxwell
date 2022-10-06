@@ -1,17 +1,24 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import Image from 'next/future/image';
+import { useEffect, useRef } from 'react';
+import Circle1 from '../../public/circle1.svg';
 import { Roadmap } from "./Roadmap";
 import { TitleSection } from "./TitleSection";
 
 export function About() {
-  useEffect(() => {AOS.init()},[])
+  useEffect(() => { AOS.init() }, [])
+
+  const about = useRef()
 
   return (
-    <section
-    className='overflow-x-hidden'
-    >
-
+    <section>
+      <Image
+        src={Circle1}
+        alt="circle1"
+        className='absolute right-0 -top-9 -z-50'
+      />
+      
       <TitleSection title='Sobre' />
 
       <div className="flex flex-col sm:flex-row justify-center items-start gap-9">
@@ -19,7 +26,7 @@ export function About() {
         <div className="flex-1" data-aos="fade-right">
           <Roadmap />
         </div>
-
+        
         <div className="flex-1" data-aos="fade-left">
 
           <div className="mb-7">
@@ -29,7 +36,7 @@ export function About() {
             </p>
             <br />
             <p>
-             Quero trabalhar resolvendo problemas usando a tecnologia e fazer diferença na forma as pessoas se relacionam com a internet.
+              Quero trabalhar resolvendo problemas usando a tecnologia e fazer diferença na forma as pessoas se relacionam com a internet.
             </p>
           </div>
 
