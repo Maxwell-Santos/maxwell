@@ -16,7 +16,7 @@ import LandPage from '../../public/img/landpage.jpg';
 import Movies from '../../public/img/movies.png';
 import Turismo from '../../public/img/turismo.png';
 
-import Circle2 from '../../public/Circle2.svg'
+import Circle2 from '../../public/circle2.svg'
 
 import { useEffect, useState } from 'react';
 import { Pagination } from 'swiper';
@@ -145,6 +145,7 @@ export default function Portfolios({ repositories }: any) {
         </Swiper>
 
       </section>
+
       <Image
       src={Circle2}
       alt="circle 2"
