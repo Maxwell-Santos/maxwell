@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import Head from '../components/Head';
 import Image from 'next/future/image'
 
-import { Header } from "../components/Header";
+import Header from "../components/Headers";
 import { ProjectComponent } from "../components/ProjectComponent";
 import { TitleSection } from "../components/TitleSection";
 
