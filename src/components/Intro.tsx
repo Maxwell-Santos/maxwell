@@ -37,7 +37,7 @@ export function Intro() {
             className="relative py-1 font-robotoCondensed text-2xl md:text-3xl font-light uppercase pr-2"
           >
             <span
-              className="absolute bg-primary w-full h-full border-l-2 border-blue-500 animate-typing overflow-hidden"
+              className="absolute top-0 bottom-0 bg-primary w-full h-full border-l-2 border-blue-500 animate-typing overflow-hidden"
             >
             </span>
             {mySkills[skill]}

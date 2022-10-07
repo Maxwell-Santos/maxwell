@@ -7,7 +7,7 @@ export function ActionButton() {
     <Fab
       size="large"
       color="info"
-      className="bg-secondary fixed bottom-10 right-5"
+      className="bg-secondary fixed bottom-16 right-5"
     >
       <ThumbUpOffAltIcon
       fontSize="medium"
