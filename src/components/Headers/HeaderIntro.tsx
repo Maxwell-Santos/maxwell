@@ -2,6 +2,8 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Link as ScrollLink } from 'react-scroll';
+import SegmentIcon from '@mui/icons-material/SegmentRounded';
+import CloseIcon from '@mui/icons-material/CloseRounded';
 
 type header = 'hidden' | 'flex'
 
@@ -17,6 +19,7 @@ export function HeaderIntro() {
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
+    newOpen = !newOpen
     setOpen(newOpen);
   };
 
@@ -26,21 +29,20 @@ export function HeaderIntro() {
       {
         width <= 700 ? (
           <>
-            <div 
-            onClick={() => window.scrollTo(0, 0)}
-            className="p-4"
+            <div
+              onClick={() => window.scrollTo(0, 0)}
+              className="p-4"
             >
               <h2>MINHA LOGO</h2>
             </div>
 
-            {/* <button onClick={() => setOpen(true)}>toogle</button> */}
 
             <SwipeableDrawer
               anchor="bottom"
               open={open}
               onClose={toggleDrawer(false)}
               onOpen={toggleDrawer(true)}
-              swipeAreaWidth={40}
+              // swipeAreaWidth={40}
               disableSwipeToOpen={false}
               ModalProps={{
                 keepMounted: true
@@ -48,16 +50,38 @@ export function HeaderIntro() {
             >
 
               <div
-                className="absolute -top-10 left-0 right-0 h-10 rounded-t-2xl z-50 visible flex bg-footer"
+                className="absolute -top-11 left-0 right-0 h-11 rounded-t-2xl z-50 visible bg-contact backdrop-blur-sm
+                flex justify-end px-4 border-t-2 border-header"
               >
-                <span
+                <button
+                  onClick={() => setOpen(!open)}
+                  className="text-white"
+                >
+                  {
+                    !open ? (
+                      <SegmentIcon
+                        fontSize="large"
+                      />
+
+                    ) : (
+                      <CloseIcon
+                        fontSize="large"
+                      />
+
+                    )
+
+                  }
+                </button>
+
+
+                {/* <span
                   className="w-16 h-1 rounded-full absolute top-3 mx-auto left-[50%] translate-x-[-50%] bg-gray-400"
-                ></span>
+                ></span> */}
 
               </div>
 
               <nav
-                className="overflow-auto md:hidden text-[16px] flex flex-col gap-3 md:gap-5 items-end p-4 z-10 bg-footer h-full"
+                className="md:hidden text-[16px] flex flex-col gap-3 md:gap-5 items-end p-4 z-10 h-full bg-contact backdrop-blur-sm"
               >
                 <div
                   className={`flex flex-col gap-2 items-end transition-all`}
@@ -93,8 +117,11 @@ export function HeaderIntro() {
 
 
         ) : (
+
+          //DESKTOP
+
           <header
-          className="fixed top-0 left-0 right-0 z-10 
+            className="fixed top-0 left-0 right-0 z-10 
           backdrop-blur-sm p-3 px-16 flex justify-between items-center 
           border-b-2 border-b-header 
           transition-all"
