@@ -1,6 +1,7 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InputIcon from '@mui/icons-material/Input';
-import Image from "next/image";
+import CircularProgress from '@mui/material/CircularProgress';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ProjectWithImageProps } from "../interfaces/RepositoriesProps";
 
@@ -11,11 +12,14 @@ interface ProjectComponentProps {
 export function ProjectComponent({ data }: ProjectComponentProps) {
 
   const [languages, setLanguages] = useState(null)
+  const [width, setWidth] = useState(0)
 
   useEffect(() => {
     fetch(data.languages_url)
       .then(response => response.json())
       .then(data => setLanguages(data))
+
+      
   }, [data.languages_url])
 
   const name = data.name.replaceAll("-", " ")
@@ -25,7 +29,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
       className="relative transition-all md:overflow-hidden group h-full z-0 flex flex-col-reverse"
     >
       <div
-        className="static md:absolute left-0 right-0 bottom-6 duration-500 transition-all delay-150 z-10 p-2 h-fit flex flex-col gap-3 md:gap-8 md:bg-black border border-cards
+        className="static md:absolute left-0 right-0 bottom-6 duration-500 transition-all delay-150 z-10 p-2 h-fit flex flex-col gap-3 md:gap-8 md:bg-black border border-cards md:border-none
         
          md:p-6 md:bottom-0 md:opacity-0
          md:group-hover:translate-y-0 md:group-hover:opacity-100 
@@ -36,7 +40,6 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
         >
           {name}
         </h3>
-
         <p>
           {languages ? (
             Object.keys(languages).map((language, index) => {
@@ -65,7 +68,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
           >
             <InputIcon />
           </a>
-          
+
           <a href={data.html_url} target="_blank" rel="noreferrer"
             className="bg-secondary p-3 py-1 rounded-md font-semibold flex items-center gap-1 text-sm"
             title='ver no github'
@@ -80,11 +83,17 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
         <Image
           src={data.img}
           alt="Banner do projeto"
-          height={360}
-          width={640}
+          height={500}
+          width={800}
           objectFit={"cover"}
         />
-        : 'não carregou ainda a img'
+        : (
+          <div
+            className='w-full h-full grid place-items-center pointer-events-none'
+          >
+            <CircularProgress color="inherit" />
+          </div>
+        )
       }
     </div>
   )

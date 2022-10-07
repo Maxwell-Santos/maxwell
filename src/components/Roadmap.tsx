@@ -7,8 +7,8 @@ interface StackProps {
 }
 
 function Stack({ date, place, title, primary, id }: StackProps) {
+  
   return (
-
     <a href={`https://www.dio.me/certificate/${id}/`} target={"_blank"} rel="noreferrer" 
     className="flex-1 w-full"
     >
@@ -40,7 +40,7 @@ export function Roadmap() {
       <li
       className='
       bg-[#0055ff98]
-      px-2 py-3 md:px-4 md:py-6  rounded-lg max-h-max rounded-tl-none rounded-bl-none border-l-4 border-secondary mb-2 flex-1 w-full'
+      px-2 py-3 md:px-4 md:py-6 rounded-lg max-h-max rounded-tl-none rounded-bl-none border-l-4 border-secondary mb-2 flex-1 w-full'
       >
         <span className="text-sm">
           ▪ fev 2019 - dez 2021

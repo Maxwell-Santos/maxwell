@@ -1,0 +1,7 @@
+
+.MuiDrawer-root > .MuiPaper-root{
+  overflow: visible;
+}
+.css-9emuhu-MuiPaper-root-MuiDrawer-paper{
+  background-color: transparent;
+}

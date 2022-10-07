@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
-
 import Head from '../components/Head';
+import Image from 'next/future/image'
 
 import { Header } from "../components/Header";
 import { ProjectComponent } from "../components/ProjectComponent";
@@ -16,6 +16,8 @@ import LandPage from '../../public/img/landpage.jpg';
 import Movies from '../../public/img/movies.png';
 import Turismo from '../../public/img/turismo.png';
 
+import Circle2 from '../../public/Circle2.svg'
+
 import { useEffect, useState } from 'react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
@@ -26,7 +28,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 interface RepositoriesPropsShow extends ProjectProps {
   img: any
 }
-
 
 class Portfolio {
   id: number;
@@ -56,9 +57,13 @@ class Portfolio {
 
 export default function Portfolios({ repositories }: any) {
   const [width, setWidth] = useState(0)
+
+  useEffect(() => {
+    setWidth(screen.width)
+  }, [])
+
   
   const repositoriesParsed = JSON.parse(repositories)
-
   //Esse array é o que mostra na tela os projetos ja formatados 
   const finallyRepositories: RepositoriesPropsShow[] = [];
 
@@ -105,16 +110,12 @@ export default function Portfolios({ repositories }: any) {
     })
   })
 
-  useEffect(()=>{
-    setWidth(screen.width)
-  },[])
-
   return (
     <>
       <Head />
 
       <section className="my-24">
-      <Header page="portfolio" />
+        <Header page="portfolio" />
 
         <TitleSection title="portfólio" />
 
@@ -142,7 +143,15 @@ export default function Portfolios({ repositories }: any) {
             })
           }
         </Swiper>
+
       </section>
+      <Image
+      src={Circle2}
+      alt="circle 2"
+      width={700}
+      className="absolute -top-52 -z-50 overflow-hidden"
+    />
+      
     </>
   )
 }

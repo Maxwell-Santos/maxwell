@@ -45,7 +45,6 @@ export function Skills() {
 
       <TitleSection title="Skills" />
 
-
       <div
         className="grid grid-cols-2 grid-rows-auto sm:grid-cols-3 sm:grid-rows-3 gap-4 bg-[#FFFFFF1A] p-6 md:p-16 my-5"
         data-aos="zoom-out"

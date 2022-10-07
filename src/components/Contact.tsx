@@ -31,7 +31,7 @@ export function Contact() {
       <TitleSection title='Contato' />
 
       <div 
-      className='w-[95%] lg:w-[70%] max-w-4xl my-10 flex items-center h-fit md:h-[400px] mx-auto bg-contact overflow-hidden rounded-xl'
+      className='w-[95%] lg:w-[70%] max-w-4xl my-10 flex items-center h-fit md:h-[400px] mx-auto overflow-hidden rounded-xl bg-contact'
       data-aos="fade-up"
       >
         <Image
@@ -100,7 +100,7 @@ export function Contact() {
           <input 
           type="submit" 
           value="enviar" 
-          className='bg-secondary hover:bg-hover-btn focus:bg-hover-btn transition-colors cursor-pointer w-fit py-1 px-4 rounded-md ml-auto uppercase text-sm font-inter tracking-wide'
+          className='bg-secondary hover:bg-hover-btn focus:bg-hover-btn transition-colors cursor-pointer w-fit p-2 rounded-md ml-auto uppercase text-sm font-inter tracking-wide'
           />
         </form>
       </div>
