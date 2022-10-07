@@ -5,7 +5,7 @@ interface HeaderProps {
   page?: string;
 }
 
-export default function Header({ page }: HeaderProps) {
+export function Header({ page }: HeaderProps) {
   return (
     <>
       {page == "portfolio" ?

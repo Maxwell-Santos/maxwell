@@ -3,7 +3,7 @@ import { ActionButton } from '../components/ActionButton'
 import { Contact } from '../components/Contact'
 import { Footer } from '../components/Footer'
 import Head from '../components/Head'
-import Header from '../components/Headers'
+import { Header } from '../components/Headers'
 import { Intro } from '../components/Intro'
 import { Skills } from '../components/Skills/'
 
