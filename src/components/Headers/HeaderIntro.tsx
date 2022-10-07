@@ -16,7 +16,7 @@ export function HeaderIntro() {
   }, [])
 
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     newOpen = !newOpen
