@@ -42,7 +42,7 @@ export function HeaderIntro() {
               open={open}
               onClose={toggleDrawer(false)}
               onOpen={toggleDrawer(true)}
-              // swipeAreaWidth={40}
+              swipeAreaWidth={40}
               disableSwipeToOpen={false}
               ModalProps={{
                 keepMounted: true
@@ -50,12 +50,12 @@ export function HeaderIntro() {
             >
 
               <div
-                className="absolute -top-11 left-0 right-0 h-11 rounded-t-2xl z-50 visible bg-contact backdrop-blur-sm
+                className="absolute -top-12 left-0 right-0 h-12 rounded-t-2xl z-50 visible bg-contact backdrop-blur-sm
                 flex justify-end px-4 border-t-2 border-header"
               >
                 <button
                   onClick={() => setOpen(!open)}
-                  className="text-white"
+                  className="text-white h-full"
                 >
                   {
                     !open ? (
@@ -67,26 +67,17 @@ export function HeaderIntro() {
                       <CloseIcon
                         fontSize="large"
                       />
-
                     )
-
                   }
                 </button>
-
-
-                {/* <span
-                  className="w-16 h-1 rounded-full absolute top-3 mx-auto left-[50%] translate-x-[-50%] bg-gray-400"
-                ></span> */}
-
               </div>
 
               <nav
-                className="md:hidden text-[16px] flex flex-col gap-3 md:gap-5 items-end p-4 z-10 h-full bg-contact backdrop-blur-sm"
+                className="md:hidden text-[16px] flex flex-col gap-3 md:gap-5 items-end p-4 z-10 h-full bg-contact backdrop-blur-sm "
               >
                 <div
                   className={`flex flex-col gap-2 items-end transition-all`}
                 >
-
                   <ScrollLink
                     to='about'
                     offset={-25}
@@ -98,14 +89,14 @@ export function HeaderIntro() {
                   <ScrollLink
                     to='contact'
                     offset={-70}
-                    className="border border-btn-secondary rounded-md p-1 px-2 hover:text-secondary hover:border-secondary focus:text-secondary focus:border-secondary transition-colors"
+                    className="border border-btn-secondary rounded-md p-1 px-5 hover:text-secondary hover:border-secondary focus:text-secondary focus:border-secondary transition-colors"
                   >
                     Contato
                   </ScrollLink>
 
                   <Link href="/portfolio">
                     <a
-                      className="bg-secondary p-1 px-2 text-btn uppercase font-robotoCondensed rounded-md flex items-center font-medium tracking-wider transition-colors hover:bg-hover-btn w-full md:w-fit"
+                      className="bg-secondary p-1 px-5 text-btn uppercase font-robotoCondensed rounded-md flex items-center font-medium tracking-wider transition-colors hover:bg-hover-btn w-full md:w-fit"
                     >
                       Portfólio
                     </a>
