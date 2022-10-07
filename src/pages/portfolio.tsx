@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import Head from '../components/Head';
 import Image from 'next/future/image'
@@ -5,9 +6,6 @@ import Image from 'next/future/image'
 import { Header } from "../components/Headers";
 import { ProjectComponent } from "../components/ProjectComponent";
 import { TitleSection } from "../components/TitleSection";
-
-//INTERFACE
-import { ProjectProps } from '../interfaces/RepositoriesProps';
 
 import CalcGorjeta from '../../public/img/calcgorjetas.png';
 import CardNFT from '../../public/img/cardnft.jpg';
@@ -18,11 +16,14 @@ import Turismo from '../../public/img/turismo.png';
 
 import Circle2 from '../../public/circle2.svg'
 
-import { useEffect, useState } from 'react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+
+//INTERFACE
+import { ProjectProps } from '../interfaces/RepositoriesProps';
 
 
 interface RepositoriesPropsShow extends ProjectProps {
@@ -58,11 +59,12 @@ class Portfolio {
 export default function Portfolios({ repositories }: any) {
   const [width, setWidth] = useState(0)
 
+  //pegar a largura da tela do usuário
   useEffect(() => {
     setWidth(screen.width)
   }, [])
 
-  
+
   const repositoriesParsed = JSON.parse(repositories)
   //Esse array é o que mostra na tela os projetos ja formatados 
   const finallyRepositories: RepositoriesPropsShow[] = [];
@@ -99,6 +101,7 @@ export default function Portfolios({ repositories }: any) {
     },
   ]
 
+  //fazendo match de atributos para criar o objeto que será mostrado em tela
   escopoRepositories.map((escopo: any) => {
     repositoriesParsed.map((repository: ProjectProps) => {
 
@@ -147,12 +150,12 @@ export default function Portfolios({ repositories }: any) {
       </section>
 
       <Image
-      src={Circle2}
-      alt="circle 2"
-      width={700}
-      className="absolute -top-52 -z-50 overflow-hidden"
-    />
-      
+        src={Circle2}
+        alt="circle 2"
+        width={700}
+        className="absolute -top-52 -z-50 overflow-hidden"
+      />
+
     </>
   )
 }

@@ -1,13 +1,18 @@
-import DownloadIcon from '@mui/icons-material/Download';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import AOS from 'aos';
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import AOS from "aos";
+
+import DownloadIcon from "@mui/icons-material/Download";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
 import { Link } from "react-scroll";
 
-export function Intro() {
-  let counter = 0
 
-  const mySkills = ['frontend developer', 'web developer', 'ui/ux', 'fullstack']
+export function Intro() {
+  useEffect(() => { AOS.init() }, [])
+
+  const mySkills = ["frontend developer", "web developer", "ui/ux", "fullstack"]
+  
+  let counter = 0
   const [skill, setSkill] = useState(counter)
 
   useEffect(() => {
@@ -18,26 +23,36 @@ export function Intro() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => { AOS.init() }, [])
-  
   return (
     <section
-      className="w-full h-[80vh] md:h-auto flex flex-col justify-center gap-10"
+      className="w-full h-[80vh] 
+      flex flex-col justify-center gap-10
+      md:h-auto"
     >
-      <div className="w-full md:w-3/4 2xl:w-4/5 flex flex-col gap-4" data-aos="fade-right">
+      <div
+        data-aos="fade-right"
+        className="w-full flex flex-col gap-4 
+        md:w-3/4 2xl:w-4/5"
+      >
         <div
-          className="border-l-8 border-secondary p-3 md:p-5 md:py-7 max-w-fit"
+          className="border-l-8 border-secondary p-3
+          md:p-5 md:py-7"
         >
           <h1
             className="text-3xl md:text-4xl leading-9"
           >
             Olá, me chamo Maxwell
           </h1>
+
           <span
-            className="relative py-1 font-robotoCondensed text-2xl md:text-3xl font-light uppercase pr-2"
+            className="relative py-1 pr-2
+            font-robotoCondensed text-2xl font-light uppercase
+            md:text-3xl"
           >
             <span
-              className="absolute top-0 bottom-0 bg-primary w-full h-full border-l-2 border-blue-500 animate-typing overflow-hidden"
+              className=" bg-primary w-full h-full border-l-2 border-blue-500 
+              absolute top-0 bottom-0 
+              animate-typing overflow-hidden"
             >
             </span>
             {mySkills[skill]}
@@ -48,8 +63,10 @@ export function Intro() {
         </p>
 
         <a
-          href='/curriculoMaxwell.pdf' download
-          className="bg-secondary text-btn px-6 py-2 rounded-md font-bold font-roboto text-base w-fit transition-colors hover:bg-hover-btn"
+          href="/curriculoMaxwell.pdf" download
+          className="w-fit bg-secondary px-6 py-2 rounded-md
+          text-btn text-base font-bold font-roboto 
+          transition-colors hover:bg-hover-btn"
         >
           <DownloadIcon /> Baixar CV
         </a>
@@ -57,17 +74,15 @@ export function Intro() {
 
       <Link
         activeClass="active"
-        to='about'
+        to="about"
         offset={-60}
-        className='mx-auto flex justify-center items-center flex-col group w-fit mt-5'
+        className="w-fit mt-5 mx-auto flex justify-center items-center flex-col group"
       >
         <KeyboardArrowDownIcon
-          titleAccess='Arraste para baixo'
-          fontSize='large'
-          className='text-articles animate-bounce'
+          titleAccess="Arraste para baixo"
+          fontSize="large"
+          className="text-articles animate-bounce"
         />
-
-
       </Link>
     </section>
   )

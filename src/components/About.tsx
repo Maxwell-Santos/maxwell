@@ -1,29 +1,27 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Image from 'next/future/image';
-import { useEffect, useRef } from 'react';
-import Circle1 from '../../public/circle1.svg';
-import { Roadmap } from "./Roadmap";
+import { useEffect } from "react";
 import { TitleSection } from "./TitleSection";
+import { Roadmap } from "./Roadmap";
+import AOS from "aos";
+
+import Image from "next/future/image";
+import Circle1 from "../../public/circle1.svg";
 
 export function About() {
   useEffect(() => { AOS.init() }, [])
 
-  const about = useRef()
-
   return (
     <section
-    className='about'
+    className="about"
     >
       <Image
         src={Circle1}
         alt="circle1"
-        className='absolute right-0 -top-9 -z-50'
+        className="absolute right-0 -top-9 -z-50"
       />
       
-      <TitleSection title='Sobre' />
+      <TitleSection title="Sobre" />
 
-      <div className="flex flex-col sm:flex-row justify-center items-start gap-9">
+      <div className="flex flex-col justify-center items-start gap-9 sm:flex-row">
 
         <div className="flex-1" data-aos="fade-right">
           <Roadmap />

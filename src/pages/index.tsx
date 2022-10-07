@@ -1,10 +1,9 @@
-import { About } from '../components/About'
-import { ActionButton } from '../components/ActionButton'
-import { Contact } from '../components/Contact'
-import { Footer } from '../components/Footer'
 import Head from '../components/Head'
+
 import { Header } from '../components/Headers'
 import { Intro } from '../components/Intro'
+import { About } from '../components/About'
+import { Contact } from '../components/Contact'
 import { Skills } from '../components/Skills/'
 
   
@@ -20,9 +19,7 @@ export default function Home() {
         <About />
         <Skills />
         <Contact />
-        {/* <ActionButton/> */}
       </main>
-      <Footer />
     </div>
   )
 }
