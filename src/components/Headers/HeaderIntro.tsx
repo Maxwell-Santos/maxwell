@@ -35,12 +35,16 @@ export function HeaderIntro() {
           //MOBILE
           <>
             <div
-              onClick={() => window.scrollTo(0, 0)}
               className={`fixed top-0 right-0 left-0 p-4 py-2
               ${!open && 'border-b-2 border-b-header backdrop-blur-sm'}
               flex items-center justify-between z-[9999]`}
             >
-              <h2 className={`${open && 'invisible'}`}>MINHA LOGO</h2>
+              <h2
+                onClick={() => window.scrollTo(0, 0)}
+                className={`${open && 'invisible'}`}
+              >
+                MINHA LOGO
+              </h2>
 
               <button
                 onClick={toggleDrawer(open)}

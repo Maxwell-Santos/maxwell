@@ -36,18 +36,18 @@ export function Intro() {
       >
         <div
           className="border-l-8 border-secondary p-3
-          md:p-5 md:py-7"
+          md:p-5 md:py-7 flex flex-col gap-2"
         >
           <h1
-            className="text-3xl md:text-4xl leading-9"
+            className="text-3xl md:text-4xl leading-7"
           >
             Olá, me chamo Maxwell
           </h1>
 
           <span
             className="relative py-1 pr-2
-            font-robotoCondensed text-2xl font-light uppercase
-            md:text-3xl"
+            font-robotoCondensed text-3xl font-light uppercase
+            md:text-5xl w-fit"
           >
             <span
               className=" bg-primary w-full h-full border-l-2 border-blue-500 
