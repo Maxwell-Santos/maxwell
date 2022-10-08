@@ -24,22 +24,45 @@ export function HeaderIntro() {
   const toggleDrawer = (newOpen: boolean) => () => {
     newOpen = !newOpen
     setOpen(newOpen);
+    console.log(newOpen)
   };
 
   return (
     <>
       {
         width <= 700 ? (
+
+          //MOBILE
           <>
             <div
               onClick={() => window.scrollTo(0, 0)}
-              className="p-4"
+              className={`fixed top-0 right-0 left-0 p-4 py-2
+              ${!open && 'border-b-2 border-b-header backdrop-blur-sm'}
+              flex items-center justify-between z-[9999]`}
             >
-              <h2>MINHA LOGO</h2>
+              <h2 className={`${open && 'invisible'}`}>MINHA LOGO</h2>
+
+              <button
+                onClick={toggleDrawer(open)}
+                className="text-white z-[9999]"
+              >
+                {
+                  !open ? (
+                    <SegmentIcon
+                      fontSize="large"
+                    />
+
+                  ) : (
+                    <CloseIcon
+                      fontSize="large"
+                    />
+                  )
+                }
+              </button>
             </div>
 
             <SwipeableDrawer
-              anchor="bottom"
+              anchor="right"
               open={open}
               onClose={toggleDrawer(false)}
               onOpen={toggleDrawer(true)}
@@ -50,75 +73,55 @@ export function HeaderIntro() {
               }}
             >
 
-              <div
-                className="absolute -top-14 left-0 right-0 h-14 rounded-t-2xl 
-                bg-primary px-5 py-3 border-t-2 border-header
-                flex justify-between z-50 visible"
-              >
-
-                <Link href="/portfolio">
-                  <a
-                    className="border border-secondary px-5 w-fit
-                    text-btn uppercase font-robotoCondensed font-medium tracking-wider rounded-md 
-                    flex items-center transition-colors hover:bg-hover-btn"
-                  >
-                    Portfólio
-                  </a>
-                </Link>
-
-                <button
-                  onClick={toggleDrawer(!open)}
-                  className="text-white h-full"
-                >
-                  {
-                    !open ? (
-                      <SegmentIcon
-                        fontSize="large"
-                      />
-
-                    ) : (
-                      <CloseIcon
-                        fontSize="large"
-                      />
-                    )
-                  }
-                </button>
-              </div>
-
               <nav
-                className="text-[16px] p-4 h-full flex flex-col gap-3 items-end bg-primary
-                md:gap-5 z-10"
+                className="text-[16px] p-7 h-full flex flex-col justify-center bg-primary
+                md:gap-5"
               >
 
                 <div
-                  className="flex flex-col gap-2 items-end transition-all"
+                  className="w-full my-3 flex-[0.6] flex flex-col gap-2 transition-all"
                 >
-                  <ScrollLink
-                    to='about'
-                    offset={-25}
-                    className="text-lg
-                    hover:text-secondary 
-                    focus:text-secondary 
-                    transition-all"
-                  >
-                    Sobre
-                  </ScrollLink>
 
-                  <ScrollLink
-                    to='contact'
-                    offset={-70}
-                    className="text-lg 
-                    hover:text-secondary hover:border-secondary 
-                    focus:text-secondary focus:border-secondary 
-                    transition-all"
-                  >
-                    Contato
-                  </ScrollLink>
+                  <div className="flex-1 flex flex-col items-center justify-center gap-5">
+                    <ScrollLink
+                      to='about'
+                      offset={-25}
+                      className="text-xl uppercase
+                        hover:text-secondary
+                        focus:text-secondary
+                        transition-all"
+                    >
+                      Sobre
+                    </ScrollLink>
+                    <ScrollLink
+                      to='contact'
+                      offset={-70}
+                      className="text-xl uppercase
+                        hover:text-secondary hover:border-secondary
+                        focus:text-secondary focus:border-secondary
+                        transition-all"
+                    >
+                      Contato
+                    </ScrollLink>
+                  </div>
+
+                  <div className="w-full border-t-[0.5px] border-articles border-opacity-10 mt-auto py-4 ">
+                    <Link href="/portfolio">
+                      <span
+                        className="p-2 w-full
+                      text-btn uppercase font-robotoCondensed font-medium tracking-wider rounded-md
+                      flex items-center justify-center transition-colors bg-secondary text-lg"
+                      >
+                        Portfólio
+                      </span>
+                    </Link>
+                  </div>
 
                 </div>
 
+                {/*social media */}
                 <div
-                  className="flex w-full justify-evenly gap-2 flex-wrap"
+                  className="flex w-full justify-end gap-4 flex-wrap"
                 >
                   <a href="https://api.whatsapp.com/send?phone=5511977761749&text=Me%20interessei%20pelo%20seu%20trabalho%2C%20vamos%20conversar%20%3F"
                     rel="noreferrer"
@@ -162,6 +165,7 @@ export function HeaderIntro() {
               </nav>
             </SwipeableDrawer>
           </>
+
         ) : (
 
           //DESKTOP

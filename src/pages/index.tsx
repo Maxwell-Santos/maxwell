@@ -13,7 +13,7 @@ export default function Home() {
     <Head />
       <Header />
       <main
-        className='md:mt-28'
+        className='mt-20 md:mt-28'
       >
         <Intro />
         <About />
