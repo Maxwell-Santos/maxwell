@@ -144,9 +144,10 @@ export function Contact() {
       {/*MODAL SUCCESS */}
       <Alert
         onClose={() => { setModalSuccess(false) }}
-        className={`m-5 fixed right-0 bottom-0 bg-green-400 transition-all
-        translate-x-full shadow-lg
-        ${modalSuccess ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'} `}
+        className={`m-2 fixed right-0 bottom-0 bg-green-500 transition-all
+        translate-x-full shadow-lg 
+        md:m-5
+        ${modalSuccess == false ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'}`}
         color="success"
       >
         Seu email foi enviado com sucesso !
@@ -156,8 +157,9 @@ export function Contact() {
       {/*MODAL ERROR */}
       <Alert
         onClose={() => { setModalError(false) }}
-        className={`m-5 fixed right-0 bottom-0 bg-red-400
+        className={`m-2 fixed right-0 bottom-0 bg-red-400
         translate-x-full shadow-lg
+        md:m-5
         ${modalError ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'} `}
         color="error"
       >
