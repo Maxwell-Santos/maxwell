@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { TitleSection } from "./TitleSection";
 import contact from "../../public/Frame 19.png";
@@ -8,9 +8,12 @@ import axios from 'axios'
 import AOS from "aos";
 
 import Circle3 from "../../public/contact.svg";
+import Alert from "@mui/material/Alert";
 
 
 export function Contact() {
+  const [modalSuccess, setModalSuccess] = useState(false);
+  const [modalError, setModalError] = useState(false);
 
   useEffect(() => { AOS.init() }, [])
 
@@ -34,12 +37,13 @@ export function Contact() {
     try {
       const response = await axios(config)
       console.log(response)
-      if(response.status == 200){
+      if (response.status == 200) {
         reset()
-        console.log('success')
+        setModalSuccess(true)
       }
 
     } catch (error) {
+      setModalError(true)
       console.error(error)
     }
   }
@@ -122,7 +126,7 @@ export function Contact() {
           <input
             type="submit"
             value="enviar"
-            className="bg-secondary w-fit p-2 rounded-md ml-auto
+            className="bg-secondary w-fit p-2 px-4 rounded-md ml-auto
           text-sm font-inter tracking-wide
           transition-colors cursor-pointer uppercase
           hover:bg-hover-btn 
@@ -136,6 +140,32 @@ export function Contact() {
         alt="circle 3"
         className="absolute right-0 -top-[500px] -z-50"
       />
+
+      {/*MODAL SUCCESS */}
+      <Alert
+        onClose={() => { setModalSuccess(false) }}
+        className={`m-5 fixed right-0 bottom-0 bg-green-400 transition-all
+        translate-x-full shadow-lg
+        ${modalSuccess ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'} `}
+        color="success"
+      >
+        Seu email foi enviado com sucesso !
+      </Alert>
+      {/*MODAL SUCCESS */}
+
+      {/*MODAL ERROR */}
+      <Alert
+        onClose={() => { setModalError(false) }}
+        className={`m-5 fixed right-0 bottom-0 bg-red-400
+        translate-x-full shadow-lg
+        ${modalError ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'} `}
+        color="error"
+      >
+        Infelizmente ocorreu algum erro.
+      </Alert>
+      {/*MODAL ERROR */}
+
+
     </section>
   )
 }

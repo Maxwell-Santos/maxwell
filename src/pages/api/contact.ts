@@ -21,7 +21,7 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
       from: process.env.EMAIL,
       to: process.env.EMAIL,
       replyTo: email,
-      subject: `VAI DAR TUDO CERTO, FÉ. de ${name}`,
+      subject: `Feedback Portfólio`,
       html: `<p>De: ${name}</p></br>
       <p>Feedback:${feedback}</p>`
     })
