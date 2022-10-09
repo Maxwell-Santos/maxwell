@@ -148,7 +148,7 @@ export function Contact() {
         translate-x-full shadow-lg 
         md:right-0
         md:m-5
-        ${modalSuccess == false ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'}`}
+        ${modalSuccess ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'}`}
         color="success"
       >
         Seu email foi enviado com sucesso !
