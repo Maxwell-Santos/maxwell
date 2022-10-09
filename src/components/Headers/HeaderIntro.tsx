@@ -70,7 +70,7 @@ export function HeaderIntro() {
               open={open}
               onClose={toggleDrawer(false)}
               onOpen={toggleDrawer(true)}
-              swipeAreaWidth={20}
+              swipeAreaWidth={15}
               disableSwipeToOpen={false}
               ModalProps={{
                 keepMounted: true

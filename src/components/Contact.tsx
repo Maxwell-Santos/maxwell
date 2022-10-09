@@ -144,8 +144,9 @@ export function Contact() {
       {/*MODAL SUCCESS */}
       <Alert
         onClose={() => { setModalSuccess(false) }}
-        className={`m-2 fixed right-0 bottom-0 bg-green-500 transition-all
+        className={`m-2 fixed left-0 bottom-0 bg-green-500 transition-all
         translate-x-full shadow-lg 
+        md:right-0
         md:m-5
         ${modalSuccess == false ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'}`}
         color="success"
@@ -157,8 +158,9 @@ export function Contact() {
       {/*MODAL ERROR */}
       <Alert
         onClose={() => { setModalError(false) }}
-        className={`m-2 fixed right-0 bottom-0 bg-red-400
+        className={`m-2 fixed left-0 bottom-0 bg-red-400
         translate-x-full shadow-lg
+        md:right-0
         md:m-5
         ${modalError ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'} `}
         color="error"
