@@ -41,7 +41,7 @@ Bom, eu nunca tinha feito nada com Next antes, já programava algumas coisas com
 <p>Cada repositório, tem junto um ID, e usando ele eu fei um jeitinho de colocar as prints dos meus repositórios</p>
 
 - Após ter tirado as prints dos meus projetos, salvei aqui na pasta <code>public/img</code>;
-- Na página <code>portfólio</code>, fiz meu tramite...
+- Na página <code>portfólio</code>, fiz meu trâmite...
 
 </br>
 <i>Por enquanto, estou usando o <code>getServerSideProps</code> do Next para fazer a requisição API no github, mas futuramente pretendo alterar para <code>getStaticProps</code>, acredito ser mais performático e fazer mais sentido, já que o tanto de projeto não muda tanto.</i>
