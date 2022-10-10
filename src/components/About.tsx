@@ -51,7 +51,7 @@ export function About() {
             <h3>Paixões</h3>
             <p>
               Gosto de desenhar, música, arte num geral.
-              Programar, resolver problemas, tudo isso também é muito importante para mim. Por isso escolhi o desenvolvimento de software, e aprender uma base do UI/UX. É muito interessante como as cores, formas geométricas, posicionamento, tem o poder de influenciar as escolha de uma pessoa que está mexendo no meu site, isso é incrível!
+              Programar, resolver problemas, tudo isso também é muito importante para mim. Por isso escolhi o desenvolvimento de software, e aprender uma base do UI/UX. É muito interessante como as cores, formas geométricas, posicionamento, tem o poder de influenciar as escolhas de quem está interagindo no meu site, isso é incrível!
             </p>
           </div>
 

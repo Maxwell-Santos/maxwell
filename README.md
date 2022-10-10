@@ -1,6 +1,16 @@
 # MEU PORTFÓLIO
 
-<p>Esse é meu primeiro portfólio, a ideia é facilitar a vida dos recrutadores, e também mostrar o que eu sei, e estudo hoje em dia</p>
+- [Tecnologias usadas](#tecnologias-usadas)
+- [Processo de aprendizagem](#meu-processo-de-aprendizagem)
+- [Github](#github)
+## Mão no código
+  - [O que eu fiz](#o-que-eu-fiz)
+  - [Objetivo](#objetivo)
+- [Listagem de certificados](#como-listei-meus-certificados-usando-o-next)
+- [Agradecimentos](#agradecimentos)
+
+
+<p>Esse é meu primeiro portfólio, a ideia é facilitar a vida dos recrutadores, e também mostrar o que eu sei e estudo atualmente em dia</p>
 
 ## Tecnologias usadas
 
@@ -18,10 +28,10 @@
 ## Meu Processo de aprendizagem
 
 <p>
-Bom, eu nunca tinha feito nada com Next antes, já programava algumas coisas com React, por exemplo, esse site de filmes que consome a API TMDB [Best Movies](https://top-movies-week.vercel.app/), ficou muito legal, foi uma experiência e tanto.
+Bom, eu nunca tinha feito nada com Next antes, já programava algumas coisas com React, por exemplo, esse site de filmes que consome a API TMDB <a href="https://top-movies-week.vercel.app/">Best Movies</a>, ficou muito legal, foi uma experiência e tanto.
 </p>
 
-<p>Eu escolhi usas esse framework, afim de deixar minha aplicação mais rápida e performática, já que uma das características fortes do Next é justamente ter um servidor node rodando no frontend, ele ajuda bastante a evitar gargalos.</p>
+<p>Eu escolhi usas esse framework, afim de deixar minha aplicação mais rápida e performática, já que uma das características fortes do Next é justamente trazer o html pronto direto do servidor.</p>
 
 ## Github
 <p>No meu portfólio, também consumo a API do github. Usei para listar os meus projetos no site, mas tinha um porém,não havia imagens, ficaria só os nomes links dos projetos que ja fiz, e não ficaria legal...</p>
@@ -29,18 +39,54 @@ Bom, eu nunca tinha feito nada com Next antes, já programava algumas coisas com
 ### O que eu fiz
 <p>Cada repositório, tem junto um ID, e usando ele eu fei um jeitinho de colocar as prints dos meus repositórios</p>
 
-Após ter tirado as prints dos meus projetos, salvei aqui na pasta <code>public/img</code>;
-Na página <code>portfólio</code>, fiz meu tramite...
+- Após ter tirado as prints dos meus projetos, salvei aqui na pasta <code>public/img</code>;
+- Na página <code>portfólio</code>, fiz meu tramite...
 
 </br>
 <i>Por enquanto, estou usando o <code>getServerSideProps</code> do Next para fazer a requisição API no github, mas futuramente pretendo alterar para <code>getStaticProps</code>, acredito ser mais performático e fazer mais sentido, já que o tanto de projeto não muda tanto.</i>
 
-<p>Como eu queria imagens, não achei (ainda), uma forma de automatizar isso, mas enfim:</p>
-
 ### Objetivo
 <p>O que precisava fazer era dar um jeito de juntar a imagem do projeto com o objeto do repositório correspondente que vem lá da API</p>
 
-- Primeiro centralizei todas as importações das imagens, num único arquivo <code>src/components/S</code>
+- Primeiro, criei um array de objetos, contendo cada um a print e o ID daquele projeto
+
+```tsx
+  /**
+ * esse array serve para sincronizar as img estáticas com os repositórios pelo id;
+ * Os ids desses objetos, batem com o id do projeto no repositório, e a img corresponde também;
+ * A finalidade disso, é porque eu quero prints dos meus projetos.
+ */
+  const escopoRepositories = [
+    {
+      img: LandPage,
+      id: 485900216
+    },
+    {
+      img: Movies,
+      id: 508747276
+    },
+    {
+      img: Turismo,
+      id: 533521470
+    },
+    {
+      img: CalcGorjeta,
+      id: 482375390
+    },
+    {
+      img: CardNFT,
+      id: 481977497
+    },
+    {
+      img: Insta,
+      id: 534835307
+    },
+  ]
+```
+
+- Criei a classe que terá seu conteúdo a partir do match do objeto com print e ID, e o repositório com o mesmo ID. Essa verificação é feita no <code>src/pages/portfolio.tsx</code>
+
+**O problema desse método, é que para cada novo projeto, tenho que adicionar um novo objeto com a print e o id desse repositório**
 
 ```tsx
 
@@ -122,10 +168,103 @@ export default function Portfolios({ repositories }: any) {
   })
 }
 
-
   //Filtrando o repositório pessoal de README lá do Github
  const repositoriesFiltered: ProjectProps[] = response.filter((repo: any) => repo.name != "Maxwell-Santos")
 ```
+
+## Como listei meus certificados usando o Next
+
+Os certificados são simples, basicamente crie um componente que será reutilizado para cada certificado, recebendo seu conteúdo por meio de props.
+
+Esse processo está em <code>src/components/Roadmap.tsx</code>
+
+```tsx
+//Componente do card em si
+interface StackProps {
+  date: string;
+  title: string;
+  place: string;
+  primary?: boolean;
+  id?: string;
+}
+
+function Stack({ date, place, title, primary, id }: StackProps) {
+
+  return (
+      <a
+        href={`${primary ? '#' : `https://www.dio.me/certificate/${id}/`}`}
+        target={'_blank'} rel="noreferrer"
+        className={`${primary && 'pointer-events-none'} flex-1 w-full`}
+      >
+        <li
+          className={`px-2 py-3 mb-2 max-h-max 
+      rounded-lg rounded-tl-none rounded-bl-none 
+      border-l-4 border-secondary 
+      md:px-4 md:py-6 transition-all
+      ${primary ? "bg-[#0055ff98]" : "bg-cards hover:bg-[#0057ff66]"} `}
+        >
+          <span className="text-sm">
+            {date}
+          </span>
+
+          <h3 className="font-robotoCondensed text-xl font-thin mt-3">
+            {title}
+          </h3>
+
+          <span> {place} </span>
+
+        </li>
+      </a>
+  )
+}
+```
+
+```tsx
+//Todo o Roadmap
+
+export function Roadmap() {
+
+  return (
+    <ul className="flex flex-col items-center max-w-lg mx-auto">
+      <Stack
+        primary
+        date={"▪ fev 2019 - dez 2021"}
+        title={"Tec. Desenvolvimento de Sistemas"}
+        place={"ETEC Dr. Celso Giglio"}
+      />
+
+      <Stack
+        date={"▪ junho 2022"}
+        title={"Introdução à computação e pensamentos computacionais"}
+        place={"DIO - Digital Inovation One"}
+        id={"8F2BF556"}
+      />
+
+      <Stack
+        date={"▪ junho 2022"}
+        title={"Posicionando elementos com Flexbox em CSS"}
+        place={"DIO - Digital Inovation One"}
+        id={"85C5664F"}
+      />
+
+      {/*Mais certificados que seguem a mesma lógica*/}
+  )
+}
+```
+## Agradecimentos
+<p>
+  Esses são alguns dos pontos quero que você saibam, de como foi todo o processo de desenvolvimento desse meu portfólio. Foi uma experiência incrível, eu nunca tinha usado o Next, ele é muito rápido e fácil de usar.
+</p>
+
+<p>Eu ja vim de uma base de como funciona a internet, estruturas lógicas, protocolos HTTP, design etc. do curso técnico que fiz integrado ao ensino médio.</p>
+
+<p>Porém, Next, React, Tailwind, Styled-components, entre outras libs e frameworks, aprendi sozinho, vendo vídeos na internet e colocando em prática, sempre, sempre praticando. Acredito que o conhecimento é a única coisa que ninguém pode tirar de mim, nem de você, por isso estude, e faça algo que te dê vontade de não parar mais, essa sensação é muito boa...</p>
+
+<p>Também quero agradecer minha namorada que sempre esteve do meu lado, desde quando terminei o ensino médio até hoje, e isso ja faz 84 anos, e ela sempre do meu lado me ajudando e correndo atrás comigo ❤</p>
+
+<p>Agradecer minha família que sempre me apoiaram também (mesmo não tendo ideia do que eu faço, o resultado eles sempre entendem)</p>
+
+<p>E agradecer minha cunhada, por estar do meu lado me apoiando e ajudando a sempre melhorar como me apresentar no LinkedIn</p>
 
 
 
