@@ -254,18 +254,18 @@ export function Roadmap() {
 ```
 ## Agradecimentos
 <p>
-  Esses são alguns dos pontos quero que você saibam, de como foi todo o processo de desenvolvimento desse meu portfólio. Foi uma experiência incrível, eu nunca tinha usado o Next, ele é muito rápido e fácil de usar.
+  Esses foram alguns dos pontos que quis destacar, de como foi todo o processo de desenvolvimento desse meu portfólio. Foi uma experiência incrível, eu nunca tinha usado o Next, ele é muito rápido e fácil de usar.
 </p>
 
-<p>Eu ja vim de uma base de como funciona a internet, estruturas lógicas, protocolos HTTP, design etc. do curso técnico que fiz integrado ao ensino médio.</p>
+<p>Ja vim de uma base sabendo como de como funciona a internet, estruturas lógicas, protocolos HTTP, design etc. do curso técnico que fiz integrado ao ensino médio na ETEC daqui.</p>
 
-<p>Porém, Next, React, Tailwind, Styled-components, entre outras libs e frameworks, aprendi sozinho, vendo vídeos na internet e colocando em prática, sempre, sempre praticando. Acredito que o conhecimento é a única coisa que ninguém pode tirar de mim, nem de você, por isso estude, e faça algo que te dê vontade de não parar mais, essa sensação é muito boa...</p>
+<p>Porém, Next, React, Tailwind, Styled-components, entre outras libs e frameworks, aprendi sozinho, vendo vídeos na internet e colocando em prática, sempre, sempre praticando. O conhecimento é a única coisa que ninguém pode tirar de alguém, por isso estude, e faça algo que te dê vontade de não parar mais, essa sensação é muito boa...</p>
 
-<p>Também quero agradecer minha namorada que sempre esteve do meu lado, desde quando terminei o ensino médio até hoje, e isso ja faz 84 anos, e ela sempre do meu lado me ajudando e correndo atrás comigo ❤</p>
+<p>Também quero agradecer minha namorada que sempre esteve do meu lado, desde quando terminei o ensino médio até hoje, e isso já faz 84 anos, e ela sempre está do meu lado me ajudando e correndo atrás comigo ❤</p>
 
 <p>Agradecer minha família que sempre me apoiaram também (mesmo não tendo ideia do que eu faço, o resultado eles sempre entendem)</p>
 
-<p>E agradecer minha cunhada, por estar do meu lado me apoiando e ajudando a sempre melhorar como me apresentar no LinkedIn</p>
+<p>E agradecer minha cunhada, por estar do meu lado me apoiando e ajudando a sempre melhorar como me apresentar no LinkedIn.</p>
 
 
 
