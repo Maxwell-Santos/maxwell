@@ -30,9 +30,9 @@ export function Intro() {
       md:h-auto"
     >
       <div
-        data-aos="fade-right"
         className="w-full flex flex-col gap-4 
         md:w-3/4 2xl:w-4/5"
+        data-aos="fade-right"
       >
         <div
           className="border-l-8 border-secondary p-3

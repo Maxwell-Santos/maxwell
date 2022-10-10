@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import '../styles/scrollbar.css';
 import '../styles/swiper.css';
 import '../styles/drawer.css';
+import 'aos/dist/aos.css';
 
 
 function MyApp({ Component, pageProps }: AppProps) {

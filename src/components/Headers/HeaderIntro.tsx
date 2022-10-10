@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -17,6 +17,7 @@ export function HeaderIntro() {
 
   useEffect(() => {
     setWidth(screen.width)
+    
   }, [])
 
 
@@ -174,16 +175,15 @@ export function HeaderIntro() {
 
           //DESKTOP
           <header
-            className="fixed top-0 left-0 right-0 z-10 
+            className={`fixed top-0 left-0 right-0 z-10 
           p-3 px-16 flex justify-between items-center 
-          border-b-2 border-b-header 
-          backdrop-blur-sm 
-          transition-all"
+          border-b-2 border-b-header backdrop-blur-sm
+          transition-all`}
           >
             <div onClick={() => window.scrollTo(0, 0)}>
               <h2>MINHA LOGO</h2>
             </div>
-
+            
             <nav
               className="hidden md:flex text-[16px]"
             >

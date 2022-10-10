@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Head from '../components/Head';
 import Image from 'next/future/image'
 
@@ -160,7 +160,7 @@ export default function Portfolios({ repositories }: any) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 
   const api = await fetch('https://api.github.com/users/Maxwell-Santos/repos')
   const response = await api.json()
