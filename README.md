@@ -23,6 +23,7 @@
 - Swiper (lib para fazer o carrossel na exposição dos meus projetos)
 - Material UI
 - AOS (lib para animação dos componentes no scroll)
+- Nodemailer
 
 
 ## Meu Processo de aprendizagem
