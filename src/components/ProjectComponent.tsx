@@ -86,7 +86,10 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
           <a href={data.html_url} target="_blank" rel="noreferrer"
             title="ver no github"
             className="bg-secondary p-3 py-1 rounded-md font-semibold text-sm
-            flex items-center gap-1"
+            flex items-center gap-1 transition-all
+          hover:bg-hover-btn 
+          focus:bg-hover-btn
+            "
           >
             ver no Github <GitHubIcon />
           </a>

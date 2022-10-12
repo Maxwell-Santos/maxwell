@@ -21,7 +21,7 @@ export function Intro() {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [])
 
   return (
     <section
@@ -51,7 +51,7 @@ export function Intro() {
           >
             <span
               className=" bg-primary w-full h-full border-l-2 border-blue-500 
-              absolute top-0 bottom-0 
+              absolute top-0 bottom-0
               animate-typing overflow-hidden"
             >
             </span>

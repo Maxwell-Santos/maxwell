@@ -6,7 +6,7 @@ import { Technologies } from "./Technologies";
 import Circle2 from '../../../public/circle2.svg';
 import Image from "next/future/image";
 
-import logo from './importsLogos';
+import logo from '../../importAssets/importsLogos';
 
 const technologies = [
   { name: "React",             img: logo.react, },
@@ -40,7 +40,7 @@ export function Skills() {
       <div
         data-aos="zoom-out"
         className="bg-[#FFFFFF1A] p-6 my-5
-        grid grid-cols-2 grid-rows-auto gap-4 
+        grid grid-cols-2 grid-rows-auto gap-4 place-items-center
         sm:grid-cols-3 sm:grid-rows-3 
         md:p-16"
       >

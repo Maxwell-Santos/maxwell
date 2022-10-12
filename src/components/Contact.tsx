@@ -75,8 +75,7 @@ export function Contact() {
           onSubmit={handleSubmit(submit)}
           className="flex-[1.3] flex flex-col gap-3 p-6 px-5 md:px-10"
         >
-          <label>
-            <div className="relative">
+          <label className="relative">
               <input
                 type="text"
                 {...register("name", {
@@ -87,6 +86,7 @@ export function Contact() {
                 })}
                 placeholder="name"
                 className="py-2 px-3 w-full rounded-md"
+                spellCheck={false}
               />
               <CloseRounded
                 fontSize="small"
@@ -95,8 +95,6 @@ export function Contact() {
                 ${name?.length > 0 ? 'visible' : 'invisible'}`}
                 onClick={() => resetField("name")}
               />
-            </div>
-
             <span data-aos="fade-right">{varName?.toString()}</span>
           </label>
 

@@ -7,24 +7,16 @@ import { Header } from "../components/Headers";
 import { ProjectComponent } from "../components/ProjectComponent";
 import { TitleSection } from "../components/TitleSection";
 
-import CalcGorjeta from '../../public/img/calcgorjetas.png';
-import CardNFT from '../../public/img/cardnft.jpg';
-import Insta from '../../public/img/insta.jpg';
-import LandPage from '../../public/img/landpage.jpg';
-import Movies from '../../public/img/movies.png';
-import Turismo from '../../public/img/turismo.png';
-
 import Circle2 from '../../public/circle2.svg';
+import projectsPhotos from '../importAssets/importsProjectsPhotos';
 
 import { Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 
 //INTERFACE
 import { ProjectProps } from '../interfaces/RepositoriesProps';
-
 
 interface RepositoriesPropsShow extends ProjectProps {
   img: any
@@ -76,27 +68,27 @@ export default function Portfolios({ repositories }: any) {
  */
   const escopoRepositories = [
     {
-      img: LandPage,
+      img: projectsPhotos.LandPage,
       id: 485900216
     },
     {
-      img: Movies,
+      img: projectsPhotos.Movies,
       id: 508747276
     },
     {
-      img: Turismo,
+      img: projectsPhotos.Turismo,
       id: 533521470
     },
     {
-      img: CalcGorjeta,
+      img: projectsPhotos.CalcGorjeta,
       id: 482375390
     },
     {
-      img: CardNFT,
+      img: projectsPhotos.CardNFT,
       id: 481977497
     },
     {
-      img: Insta,
+      img: projectsPhotos.Insta,
       id: 534835307
     },
   ]

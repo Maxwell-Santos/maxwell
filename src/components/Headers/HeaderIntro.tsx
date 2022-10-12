@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -188,13 +188,14 @@ export function HeaderIntro() {
               className="hidden md:flex text-[16px]"
             >
               <div
-                className="flex gap-4 items-center transition-all"
+                className="flex gap-3 items-center transition-all"
               >
                 <ScrollLink
                   to="about"
                   offset={-70}
-                  className="hover:text-secondary 
-                  focus:text-secondary transition-all"
+                  className="p-1
+                  hover:text-secondary 
+                  focus:text-secondary transition-all cursor-pointer"
                 >
                   Sobre
                 </ScrollLink>
@@ -202,19 +203,34 @@ export function HeaderIntro() {
                 <ScrollLink
                   to="contact"
                   offset={-70}
-                  className="border border-btn-secondary rounded-md p-1 px-2 
-                  hover:text-secondary hover:border-secondary 
-                  focus:text-secondary focus:border-secondary 
-                  transition-colors"
+                  className="p-2 relative overflow-hidden
+                  hover:text-btn
+                  focus:text-btn
+                  hover:border-secondary 
+                  focus:border-secondary 
+                  transition-all
+                  cursor-pointer
+                  rounded-sm
+                  group"
                 >
                   Contato
+                  
+                  <span
+                  className="absolute inset-0 translate-y-full bg-secondary
+                  transition-all
+                  -z-10
+                  group-hover:translate-y-0 
+                  group-focus:translate-y-0"
+                  ></span>
                 </ScrollLink>
 
                 <Link href="/portfolio">
                   <span
-                    className="bg-secondary p-1 px-2 rounded-md
+                    className="bg-secondary p-2 w-full rounded-sm
                     text-btn uppercase font-robotoCondensed font-medium tracking-wider 
-                    flex items-center transition-all hover:bg-hover-btn w-full 
+                    flex items-center
+                    hover:bg-hover-btn 
+                    transition-all
                     md:w-fit 
                     cursor-pointer"
                   >

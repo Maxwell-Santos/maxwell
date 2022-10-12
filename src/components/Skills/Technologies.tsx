@@ -9,7 +9,8 @@ export function Technologies({name, img}:TechProps) {
   return (
    <div
    className="p-4 py-4 border-skills rounded-md 
-   flex flex-col items-center justify-center gap-2
+   flex flex-col items-center justify-center gap-2 w-full
+   max-w-md
    md:flex-row 
    md:justify-start
    md:p-6 border"
