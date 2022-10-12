@@ -10,6 +10,8 @@ import AOS from "aos";
 import Circle3 from "../../public/contact.svg";
 import Alert from "@mui/material/Alert";
 
+import CloseRounded from "@mui/icons-material/CloseRounded";
+
 
 export function Contact() {
   const [modalSuccess, setModalSuccess] = useState(false);
@@ -17,14 +19,17 @@ export function Contact() {
 
   useEffect(() => { AOS.init() }, [])
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const { register, handleSubmit, reset, watch, resetField, formState: { errors } } = useForm()
+
   const varName = errors?.name?.message
   const varEmail = errors?.email?.message
   const varFeedback = errors?.feedback?.message
 
+  const name = watch("name")
+  const email = watch("email")
+  const feedback = watch("feedback")
 
   async function submit(values: any) {
-
     let config = {
       method: "post",
       url: `/api/contact`,
@@ -71,55 +76,86 @@ export function Contact() {
           className="flex-[1.3] flex flex-col gap-3 p-6 px-5 md:px-10"
         >
           <label>
-            <input
-              type="text"
-              {...register("name", {
-                required: {
-                  value: true,
-                  message: "Qual o seu nome?"
-                }
-              })}
-              placeholder="name"
-              className="py-2 px-3 w-full rounded-md"
-            />
+            <div className="relative">
+              <input
+                type="text"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Qual o seu nome?"
+                  }
+                })}
+                placeholder="name"
+                className="py-2 px-3 w-full rounded-md"
+              />
+              <CloseRounded
+                fontSize="small"
+                className={`absolute top-1/2 -translate-y-1/2 right-2 
+                text-articles rounded-full shadow-sm
+                ${name?.length > 0 ? 'visible' : 'invisible'}`}
+                onClick={() => resetField("name")}
+              />
+            </div>
+
             <span data-aos="fade-right">{varName?.toString()}</span>
           </label>
 
           <label>
-            <input
-              type="text"
-              {...register("email", {
-                required: {
-                  value: true,
-                  message: "Insira um email válido"
-                },
-                pattern: {
-                  value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                  message: "Por favor, insira um email válido"
-                }
-              })}
-              placeholder="max@exemplo.com"
-              className="py-2 px-3 w-full rounded-md"
-            />
+            <div className="relative">
+              <input
+                type="text"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "Insira um email válido"
+                  },
+                  pattern: {
+                    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                    message: "Por favor, insira um email válido"
+                  }
+                })}
+                placeholder="max@exemplo.com"
+                className="py-2 px-3 w-full rounded-md"
+              />
+              <CloseRounded
+                fontSize="small"
+                className={`absolute top-1/2 -translate-y-1/2 right-2 
+                ${email?.length > 0 ? 'visible' : 'invisible'}
+                text-articles rounded-full shadow-sm
+                `}
+                onClick={() => resetField("email")}
+
+              />
+            </div>
             <span data-aos="fade-right">{varEmail?.toString()}</span>
           </label>
 
           <label>
-            <textarea
-              {...register("feedback", {
-                required: {
-                  value: true,
-                  message: ""
-                },
-                maxLength: {
-                  value: 600,
-                  message: "Por favor, mande uma mensagem mais curta"
-                }
-              })}
-              placeholder="mensagem"
-              className="py-2 px-3 w-full rounded-md "
-              rows={5}
-            />
+            <div className="relative">
+
+              <textarea
+                {...register("feedback", {
+                  required: {
+                    value: true,
+                    message: ""
+                  },
+                  maxLength: {
+                    value: 600,
+                    message: "Por favor, mande uma mensagem mais curta"
+                  }
+                })}
+                placeholder="mensagem"
+                className="py-2 px-3 pr-5 w-full rounded-md "
+                rows={5}
+              />
+              <CloseRounded
+                fontSize="small"
+                className={`absolute top-2 right-2 
+                ${feedback?.length > 0 ? 'visible' : 'invisible'}
+                text-articles rounded-full shadow-sm`}
+                onClick={() => resetField("feedback")}
+              />
+            </div>
             <span data-aos="fade-right">{varFeedback?.toString()}</span>
           </label>
 
@@ -144,23 +180,21 @@ export function Contact() {
       {/*MODAL SUCCESS */}
       <Alert
         onClose={() => { setModalSuccess(false) }}
-        className={`m-2 fixed left-0 bottom-0 bg-green-500 transition-all
-        translate-x-full shadow-lg 
-        md:right-0
+        className={`m-2 fixed right-0 bottom-0 bg-green-500 transition-all
+        shadow-lg w-fit
         md:m-5
         ${modalSuccess ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'}`}
         color="success"
       >
-        Seu email foi enviado com sucesso !
+        Mensagem enviada. Fico feliz que se interessou pelo meu trabalho !
       </Alert>
       {/*MODAL SUCCESS */}
 
       {/*MODAL ERROR */}
       <Alert
         onClose={() => { setModalError(false) }}
-        className={`m-2 fixed left-0 bottom-0 bg-red-400
-        translate-x-full shadow-lg
-        md:right-0
+        className={`m-2 fixed right-0 bottom-0 bg-red-400 transition-all
+        shadow-lg w-fit
         md:m-5
         ${modalError ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'} `}
         color="error"

@@ -14,7 +14,7 @@ import LandPage from '../../public/img/landpage.jpg';
 import Movies from '../../public/img/movies.png';
 import Turismo from '../../public/img/turismo.png';
 
-import Circle2 from '../../public/circle2.svg'
+import Circle2 from '../../public/circle2.svg';
 
 import { Pagination } from 'swiper';
 import 'swiper/css';
