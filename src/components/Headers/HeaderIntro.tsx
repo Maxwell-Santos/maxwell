@@ -12,12 +12,18 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
+import AOS from "aos";
+
 export function HeaderIntro() {
+  useEffect(() => { AOS.init() }, [])
+
   const [width, setWidth] = useState(0)
 
   useEffect(() => {
+    window.addEventListener('resize', () => {
+      setWidth(screen.width)
+    })
     setWidth(screen.width)
-    
   }, [])
 
 
@@ -25,20 +31,21 @@ export function HeaderIntro() {
   const toggleDrawer = (newOpen: boolean) => () => {
     newOpen = !newOpen
     setOpen(newOpen);
-    console.log(newOpen)
   };
 
   return (
     <>
       {
-        width <= 700 ? (
+        width <= 767 ? (
 
           //MOBILE
           <>
             <div
               className={`fixed top-0 right-0 left-0 p-4 py-2
               ${!open && 'border-b-2 border-b-header backdrop-blur-sm'}
-              flex items-center justify-between z-[9999]`}
+              flex items-center justify-between z-[9999]
+              md:invisible
+              `}
             >
               <h2
                 onClick={() => window.scrollTo(0, 0)}
@@ -49,7 +56,7 @@ export function HeaderIntro() {
 
               <button
                 onClick={toggleDrawer(open)}
-                className="text-white z-[9999]"
+                className={`text-white z-[9999]`}
               >
                 {
                   !open ? (
@@ -130,7 +137,7 @@ export function HeaderIntro() {
                 >
                   <a href="https://api.whatsapp.com/send?phone=5511977761749&text=Me%20interessei%20pelo%20seu%20trabalho%2C%20vamos%20conversar%20%3F"
                     rel="noreferrer"
-                    target="_black"
+                    target="_blank"
                   >
                     <span
                       className="flex items-center p-2 bg-cards rounded-md text-green-500 gap-2"
@@ -143,7 +150,7 @@ export function HeaderIntro() {
 
                   <a href="https://www.instagram.com/this_maxwell/"
                     rel="noreferrer"
-                    target="_black"
+                    target="_blank"
                   >
                     <span
                       className="flex items-center p-2 bg-cards rounded-md text-pink-700 gap-2"
@@ -156,7 +163,7 @@ export function HeaderIntro() {
 
                   <a href="https://www.linkedin.com/in/maxwell-santos-2ab722210"
                     rel="noreferrer"
-                    target="_black"
+                    target="_blank"
                   >
                     <span
                       className="flex items-center p-2 bg-cards rounded-md text-sky-500 gap-1"
@@ -178,14 +185,16 @@ export function HeaderIntro() {
             className={`fixed top-0 left-0 right-0 z-10 
           p-3 px-16 flex justify-between items-center 
           border-b-2 border-b-header backdrop-blur-sm
-          transition-all`}
+          transition-all
+          `}
+            data-aos="fade-down"
           >
             <div onClick={() => window.scrollTo(0, 0)}>
               <h2>MINHA LOGO</h2>
             </div>
-            
+
             <nav
-              className="hidden md:flex text-[16px]"
+              className="flex text-[16px]"
             >
               <div
                 className="flex gap-3 items-center transition-all"
@@ -214,9 +223,9 @@ export function HeaderIntro() {
                   group"
                 >
                   Contato
-                  
+
                   <span
-                  className="absolute inset-0 translate-y-full bg-secondary
+                    className="absolute inset-0 translate-y-full bg-secondary
                   transition-all
                   -z-10
                   group-hover:translate-y-0 
@@ -226,12 +235,12 @@ export function HeaderIntro() {
 
                 <Link href="/portfolio">
                   <span
-                    className="bg-secondary p-2 w-full rounded-sm
+                    className="bg-secondary p-2 rounded-sm
                     text-btn uppercase font-robotoCondensed font-medium tracking-wider 
                     flex items-center
                     hover:bg-hover-btn 
                     transition-all
-                    md:w-fit 
+                    w-fit 
                     cursor-pointer"
                   >
                     Portfólio
@@ -245,4 +254,5 @@ export function HeaderIntro() {
       }
     </>
   )
+
 }
