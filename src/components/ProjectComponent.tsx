@@ -35,10 +35,10 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
       <div
         className="p-3 w-full h-fit flex flex-col gap-5 
         border border-cards
-        transition-all z-10  
-        md:border-none
+        transition-all z-10
+        md:border-none  
         md:absolute md:p-6 md:bottom-0
-        md:opacity-0 md:gap-8 md:bg-black
+        md:opacity-0 md:gap-8 md:bg-primary/80 md:backdrop-blur-sm 
         md:translate-y-full
         delay-150 
         left-0 right-0 bottom-6 duration-500
@@ -80,7 +80,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
             title="visitar site online"
             className="p-2 py-1 rounded-md font-semibold"
           >
-            <InputIcon />
+            Visitar <InputIcon />
           </a>
 
           <a href={data.html_url} target="_blank" rel="noreferrer"
@@ -105,6 +105,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
             height={500}
             width={800}
             objectFit={"cover"}
+            className="transition all"
           />
           : (
             <div

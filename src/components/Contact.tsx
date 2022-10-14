@@ -162,9 +162,12 @@ export function Contact() {
             value="enviar"
             className="bg-secondary w-fit p-2 px-4 rounded-md ml-auto
           text-sm font-inter tracking-wide
-          transition-colors cursor-pointer uppercase
+          transition-all cursor-pointer uppercase
           hover:bg-hover-btn 
-          focus:bg-hover-btn"
+          focus:bg-hover-btn
+          hover:-translate-y-1
+          "
+          
           />
         </form>
       </div>

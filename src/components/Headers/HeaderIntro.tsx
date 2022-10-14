@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { Link as ScrollLink } from 'react-scroll';
+import Logo from '../Logo';
 
 import SegmentIcon from '@mui/icons-material/SegmentRounded';
 import CloseIcon from '@mui/icons-material/CloseRounded';
@@ -13,7 +14,6 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
 import AOS from "aos";
-import Image from "next/future/image";
 
 export function HeaderIntro() {
   useEffect(() => { AOS.init() }, [])
@@ -48,18 +48,12 @@ export function HeaderIntro() {
               md:invisible
               `}
             >
-              <h2
+              <div
                 onClick={() => window.scrollTo(0, 0)}
                 className={`${open && 'invisible'}`}
               >
-                <Image
-                src='/icons/logoMaxCompletoClaro.png'
-                alt="Logo do site do Maxwell"
-                width={110}
-                height={100}
-                />
-                
-              </h2>
+                <Logo />
+              </div>
 
               <button
                 onClick={toggleDrawer(open)}
@@ -190,19 +184,14 @@ export function HeaderIntro() {
           //DESKTOP
           <header
             className={`fixed top-0 left-0 right-0 z-10 
-          p-1 px-16 flex justify-between items-center 
+          px-8 flex justify-between items-center 
           border-b-2 border-b-header backdrop-blur-sm
           transition-all
           `}
             data-aos="fade-down"
           >
             <div onClick={() => window.scrollTo(0, 0)}>
-            <Image
-                src='/icons/logoMaxCompletoClaro.png'
-                alt="Logo do site do Maxwell"
-                width={150}
-                height={10}
-                />
+              <Logo />
             </div>
 
             <nav
@@ -247,7 +236,7 @@ export function HeaderIntro() {
 
                 <Link href="/portfolio">
                   <span
-                    className="bg-secondary p-2 py-2
+                    className="bg-secondary p-2 py-3
                     text-btn uppercase font-robotoCondensed font-medium tracking-wider 
                     flex items-center
                     hover:bg-hover-btn 

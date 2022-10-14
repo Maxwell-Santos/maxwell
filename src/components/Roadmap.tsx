@@ -9,30 +9,30 @@ interface StackProps {
 function Stack({ date, place, title, primary, id }: StackProps) {
 
   return (
-      <a
-        href={`${primary ? '#' : `https://www.dio.me/certificate/${id}/`}`}
-        target={'_blank'} rel="noreferrer"
-        className={`${primary && 'pointer-events-none'} flex-1 w-full`}
+    <a
+      href={`${primary ? '#' : `https://www.dio.me/certificate/${id}/`}`}
+      target={'_blank'} rel="noreferrer"
+      className={`${primary && 'pointer-events-none'} flex-1 w-full`}
+    >
+      <li
+        className={`px-2 py-3 mb-2 max-h-max 
+          rounded-lg rounded-tl-none rounded-bl-none 
+          border-l-4 border-secondary 
+          md:px-4 md:py-6 transition-all duration-[400ms] 
+      ${primary ? "bg-[#0055ff98]" : "bg-cards hover:bg-[#0057ff66] hover:scale-105"} `}
       >
-        <li
-          className={`px-2 py-3 mb-2 max-h-max 
-      rounded-lg rounded-tl-none rounded-bl-none 
-      border-l-4 border-secondary 
-      md:px-4 md:py-6 transition-all
-      ${primary ? "bg-[#0055ff98]" : "bg-cards hover:bg-[#0057ff66]"} `}
-        >
-          <span className="text-sm">
-            {date}
-          </span>
+        <span className="text-sm">
+          {date}
+        </span>
 
-          <h3 className="font-robotoCondensed text-xl font-thin mt-3">
-            {title}
-          </h3>
+        <h3 className="font-robotoCondensed text-xl font-thin mt-3">
+          {title}
+        </h3>
 
-          <span> {place} </span>
+        <span> {place} </span>
 
-        </li>
-      </a>
+      </li>
+    </a>
   )
 }
 

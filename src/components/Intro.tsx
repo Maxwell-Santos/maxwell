@@ -64,9 +64,12 @@ export function Intro() {
 
         <a
           href="/curriculoMaxwell.pdf" download
-          className="w-fit bg-secondary px-6 py-2 rounded-md
+          className="w-fit px-6 py-3 rounded-md
           text-btn text-base font-bold font-roboto 
-          transition-colors hover:bg-hover-btn"
+          transition-all bg-secondary 
+          shadow-md
+          hover:bg-hover-btn hover:-translate-y-1
+          "
         >
           <DownloadIcon /> Baixar CV
         </a>

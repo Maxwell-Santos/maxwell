@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-      <link rel="shortcut icon" href="/icons/logoMaxIcon.png" />
+      <link rel="shortcut icon" href="/icons/logoMaxIconClaro.png" />
 
         {/*ROBOTO*/}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
