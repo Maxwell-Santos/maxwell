@@ -13,6 +13,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
 import AOS from "aos";
+import Image from "next/future/image";
 
 export function HeaderIntro() {
   useEffect(() => { AOS.init() }, [])
@@ -41,7 +42,7 @@ export function HeaderIntro() {
           //MOBILE
           <>
             <div
-              className={`fixed top-0 right-0 left-0 p-4 py-2
+              className={`fixed top-0 right-0 left-0 px-4
               ${!open && 'border-b-2 border-b-header backdrop-blur-sm'}
               flex items-center justify-between z-[9999]
               md:invisible
@@ -51,7 +52,13 @@ export function HeaderIntro() {
                 onClick={() => window.scrollTo(0, 0)}
                 className={`${open && 'invisible'}`}
               >
-                MINHA LOGO
+                <Image
+                src='/icons/logoMaxCompletoClaro.png'
+                alt="Logo do site do Maxwell"
+                width={110}
+                height={100}
+                />
+                
               </h2>
 
               <button
@@ -183,14 +190,19 @@ export function HeaderIntro() {
           //DESKTOP
           <header
             className={`fixed top-0 left-0 right-0 z-10 
-          p-3 px-16 flex justify-between items-center 
+          p-1 px-16 flex justify-between items-center 
           border-b-2 border-b-header backdrop-blur-sm
           transition-all
           `}
             data-aos="fade-down"
           >
             <div onClick={() => window.scrollTo(0, 0)}>
-              <h2>MINHA LOGO</h2>
+            <Image
+                src='/icons/logoMaxCompletoClaro.png'
+                alt="Logo do site do Maxwell"
+                width={150}
+                height={10}
+                />
             </div>
 
             <nav
@@ -235,7 +247,7 @@ export function HeaderIntro() {
 
                 <Link href="/portfolio">
                   <span
-                    className="bg-secondary p-2 rounded-sm
+                    className="bg-secondary p-2 py-2
                     text-btn uppercase font-robotoCondensed font-medium tracking-wider 
                     flex items-center
                     hover:bg-hover-btn 
