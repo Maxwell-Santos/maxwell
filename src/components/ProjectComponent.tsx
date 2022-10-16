@@ -79,6 +79,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
           <a href={`http://${data.homepage}`} target="_blank" rel="noreferrer"
             title="visitar site online"
             className="p-2 py-1 rounded-md font-semibold"
+            translate='yes'
           >
             Visitar <InputIcon />
           </a>
@@ -88,8 +89,8 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
             className="bg-secondary p-3 py-1 rounded-md font-semibold text-sm
             flex items-center gap-1 transition-all
           hover:bg-hover-btn 
-          focus:bg-hover-btn
-            "
+          focus:bg-hover-btn"
+          translate='yes'
           >
             ver no Github <GitHubIcon />
           </a>

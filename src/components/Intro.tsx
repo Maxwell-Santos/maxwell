@@ -40,6 +40,7 @@ export function Intro() {
         >
           <h1
             className="text-3xl md:text-4xl leading-7"
+            translate="yes"
           >
             Olá, me chamo Maxwell
           </h1>
@@ -58,7 +59,7 @@ export function Intro() {
             {mySkills[skill]}
           </span>
         </div>
-        <p>
+        <p translate="yes">
           A tecnologia facilita a vida das pessoas e muda o jeito que elas veem o mundo. Eu quero fazer parte disso, sou apaixonado por tecnologia, por sempre aprender coisas novas. Poder desenvolver qualquer coisa, e saber que aquilo pode mudar a vida de alguém, me deixa muito animado e é o que me move para frente.
         </p>
 
@@ -70,6 +71,7 @@ export function Intro() {
           shadow-md
           hover:bg-hover-btn hover:-translate-y-1
           "
+          translate="yes"
         >
           <DownloadIcon /> Baixar CV
         </a>

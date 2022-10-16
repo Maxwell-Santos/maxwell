@@ -84,9 +84,10 @@ export function Contact() {
                     message: "Qual o seu nome?"
                   }
                 })}
-                placeholder="name"
+                placeholder="nome"
                 className="py-2 px-3 w-full rounded-md"
                 spellCheck={false}
+                translate="yes"
               />
               <CloseRounded
                 fontSize="small"
@@ -95,6 +96,7 @@ export function Contact() {
                 ${name?.length > 0 ? 'visible' : 'invisible'}`}
                 onClick={() => resetField("name")}
               />
+              
             <span data-aos="fade-right">{varName?.toString()}</span>
           </label>
 
@@ -114,6 +116,7 @@ export function Contact() {
                 })}
                 placeholder="max@exemplo.com"
                 className="py-2 px-3 w-full rounded-md"
+                translate="yes"
               />
               <CloseRounded
                 fontSize="small"
@@ -145,6 +148,7 @@ export function Contact() {
                 placeholder="mensagem"
                 className="py-2 px-3 pr-5 w-full rounded-md "
                 rows={5}
+                translate="yes"
               />
               <CloseRounded
                 fontSize="small"
@@ -165,9 +169,8 @@ export function Contact() {
           transition-all cursor-pointer uppercase
           hover:bg-hover-btn 
           focus:bg-hover-btn
-          hover:-translate-y-1
-          "
-          
+          hover:-translate-y-1"
+          translate="yes"
           />
         </form>
       </div>
@@ -186,6 +189,7 @@ export function Contact() {
         md:m-5
         ${modalSuccess ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'}`}
         color="success"
+        translate="yes"
       >
         Mensagem enviada. Fico feliz que se interessou pelo meu trabalho !
       </Alert>
@@ -199,6 +203,7 @@ export function Contact() {
         md:m-5
         ${modalError ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'} `}
         color="error"
+        translate="yes"
       >
         Infelizmente ocorreu algum erro.
       </Alert>
