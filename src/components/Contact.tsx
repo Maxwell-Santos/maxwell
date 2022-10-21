@@ -59,7 +59,7 @@ export function Contact() {
     >
       <TitleSection title="Contato" />
 
-      <FadeCircle top={0} right={0} />
+      <FadeCircle/>
 
 
       <div

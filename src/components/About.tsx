@@ -12,7 +12,7 @@ export function About() {
     <section
     className="about"
     >
-    <FadeCircle top={0} right={0}/>
+    <FadeCircle/>
 
       <TitleSection title="Sobre" />
       

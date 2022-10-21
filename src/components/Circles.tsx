@@ -18,7 +18,7 @@ export function FadeCircle(position: FadeCircleProps) {
     <div
       className={`aspect-square w-full max-w-[350px] rounded-full absolute 
     bg-secondary filter blur-[200px] opacity-50
-     top-[${top}] right-[${right}] bottom-[${bottom}] left-[${left}] -z-50 `}
+     top-10 right-0 -z-50 `}
     ></div>
 
   )

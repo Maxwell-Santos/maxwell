@@ -27,7 +27,7 @@ export function Skills() {
       className="px-0"
     >
 
-      <FadeCircle top="0" left="0" />
+      <FadeCircle/>
       
       <TitleSection title="Skills" />
 

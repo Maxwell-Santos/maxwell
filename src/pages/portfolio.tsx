@@ -51,6 +51,7 @@ class Portfolio {
 export default function Portfolios({ repositories }: any) {
   const [width, setWidth] = useState(0)
 
+
   //pegar a largura da tela do usuário
   useEffect(() => {
     setWidth(screen.width)
@@ -154,7 +155,7 @@ export default function Portfolios({ repositories }: any) {
         className="absolute -top-52 -z-50 overflow-hidden"
       /> */}
 
-      <FadeCircle top='20px' left='0'/>
+      <FadeCircle />
 
     </>
   )
@@ -174,6 +175,6 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       repositories: props,
-    }
+    },
   }
 }
