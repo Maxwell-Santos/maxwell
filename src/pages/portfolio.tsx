@@ -114,7 +114,7 @@ export default function Portfolios({ repositories }: any) {
     <>
       <Head />
 
-      <section className="my-24 max-w-full px-0">
+      <section className="my-24 max-w-full px-3">
         <Header page="portfolio" />
 
         <div className="md:px-12 2xl:px-24 ">
@@ -155,7 +155,7 @@ export default function Portfolios({ repositories }: any) {
         className="absolute -top-52 -z-50 overflow-hidden"
       /> */}
 
-      <FadeCircle />
+      <FadeCircle/>
 
     </>
   )

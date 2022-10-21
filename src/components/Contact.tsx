@@ -91,7 +91,7 @@ export function Contact() {
               className="py-2 px-3 w-full rounded-md"
               spellCheck={false}
               translate="yes"
-
+              name="name"
             />
             <CloseRounded
               fontSize="small"
@@ -121,7 +121,7 @@ export function Contact() {
                 placeholder="max@exemplo.com"
                 className="py-2 px-3 w-full rounded-md"
                 translate="yes"
-
+                name="email"
               />
               <CloseRounded
                 fontSize="small"
@@ -154,6 +154,7 @@ export function Contact() {
                 className="py-2 px-3 pr-5 w-full rounded-md "
                 rows={5}
                 translate="yes"
+                name="feedback"
               />
 
               <CloseRounded
