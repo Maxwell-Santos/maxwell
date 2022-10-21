@@ -2,11 +2,10 @@ import { useEffect } from "react";
 import Aos from "aos";
 
 import { TitleSection } from "./../TitleSection";
-import { Technologies } from "./Technologies";
-import Circle2 from '../../../public/circle2.svg';
-import Image from "next/future/image";
+import { TechnologiesCard } from "./Technologies";
 
 import logo from '../../importAssets/importsLogos';
+import { FadeCircle } from "../Circles";
 
 const technologies = [
   { name: "React",             img: logo.react, },
@@ -28,13 +27,8 @@ export function Skills() {
       className="px-0"
     >
 
-      <Image
-        src={Circle2}
-        alt="circle 2"
-        width={800}
-        className="absolute -top-72 left-0 -z-50"
-      />
-
+      <FadeCircle top="0" left="0" />
+      
       <TitleSection title="Skills" />
 
       <div
@@ -47,7 +41,7 @@ export function Skills() {
         {
         technologies.map(({ name, img }) => {
           return (
-            <Technologies key={name} name={name} img={img} />
+            <TechnologiesCard key={name} name={name} img={img} />
           )
         })
         }

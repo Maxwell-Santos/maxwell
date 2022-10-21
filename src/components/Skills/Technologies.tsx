@@ -4,7 +4,7 @@ interface TechProps{
   name: string,
   img?: any
 }
-export function Technologies({name, img}:TechProps) {
+export function TechnologiesCard({name, img}:TechProps) {
 
   return (
    <div

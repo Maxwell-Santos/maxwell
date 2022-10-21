@@ -10,7 +10,7 @@ import CloseIcon from '@mui/icons-material/CloseRounded';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-
+import GitHubIcon from '@mui/icons-material/GitHub';
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
 import AOS from "aos";
@@ -198,7 +198,7 @@ export function HeaderIntro() {
             </div>
 
             <nav
-              className="flex text-[16px]"
+              className="flex text-[16px] items-center"
             >
               <div
                 className="flex gap-3 items-center transition-all"
@@ -255,6 +255,16 @@ export function HeaderIntro() {
                 </Link>
               </div>
 
+              <a href="https://github.com/Maxwell-Santos"
+              target="_blank"
+              rel="noreferrer"
+              >
+                
+                <GitHubIcon
+                fontSize="large"
+                className="ml-5 text-articles hover:text-secondary transition-all"
+                />
+              </a>
             </nav>
           </header >
         )

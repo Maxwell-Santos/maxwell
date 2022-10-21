@@ -23,6 +23,9 @@ export function Intro() {
     return () => clearInterval(interval);
   }, [])
 
+
+// console.log(navigator.language)
+
   return (
     <section
       className="w-full h-[80vh] 

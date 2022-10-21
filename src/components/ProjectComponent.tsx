@@ -15,7 +15,7 @@ interface ProjectComponentProps {
 export function ProjectComponent({ data }: ProjectComponentProps) {
 
   const [languages, setLanguages] = useState(null)
-
+  
   useEffect(() => {
     fetch(data.languages_url)
       .then(response => response.json())

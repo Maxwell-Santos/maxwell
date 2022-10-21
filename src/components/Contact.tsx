@@ -7,10 +7,10 @@ import Image from "next/future/image";
 import axios from 'axios'
 import AOS from "aos";
 
-import Circle3 from "../../public/contact.svg";
 import Alert from "@mui/material/Alert";
 
 import CloseRounded from "@mui/icons-material/CloseRounded";
+import { FadeCircle } from "./Circles";
 
 
 export function Contact() {
@@ -28,7 +28,7 @@ export function Contact() {
   const name = watch("name")
   const email = watch("email")
   const feedback = watch("feedback")
-
+  
   async function submit(values: any) {
     let config = {
       method: "post",
@@ -59,6 +59,9 @@ export function Contact() {
     >
       <TitleSection title="Contato" />
 
+      <FadeCircle top={0} right={0} />
+
+
       <div
         data-aos="fade-up"
         className="w-[95%] h-fit max-w-4xl bg-contact my-10 mx-auto rounded-xl
@@ -76,27 +79,28 @@ export function Contact() {
           className="flex-[1.3] flex flex-col gap-3 p-6 px-5 md:px-10"
         >
           <label className="relative">
-              <input
-                type="text"
-                {...register("name", {
-                  required: {
-                    value: true,
-                    message: "Qual o seu nome?"
-                  }
-                })}
-                placeholder="nome"
-                className="py-2 px-3 w-full rounded-md"
-                spellCheck={false}
-                translate="yes"
-              />
-              <CloseRounded
-                fontSize="small"
-                className={`absolute top-1/2 -translate-y-1/2 right-2 
+            <input
+              type="text"
+              {...register("name", {
+                required: {
+                  value: true,
+                  message: "Qual o seu nome?"
+                }
+              })}
+              placeholder="nome"
+              className="py-2 px-3 w-full rounded-md"
+              spellCheck={false}
+              translate="yes"
+
+            />
+            <CloseRounded
+              fontSize="small"
+              className={`absolute top-1/2 -translate-y-1/2 right-2 
                 text-articles rounded-full shadow-sm
                 ${name?.length > 0 ? 'visible' : 'invisible'}`}
-                onClick={() => resetField("name")}
-              />
-              
+              onClick={() => resetField("name")}
+            />
+
             <span data-aos="fade-right">{varName?.toString()}</span>
           </label>
 
@@ -117,6 +121,7 @@ export function Contact() {
                 placeholder="max@exemplo.com"
                 className="py-2 px-3 w-full rounded-md"
                 translate="yes"
+
               />
               <CloseRounded
                 fontSize="small"
@@ -150,6 +155,7 @@ export function Contact() {
                 rows={5}
                 translate="yes"
               />
+
               <CloseRounded
                 fontSize="small"
                 className={`absolute top-2 right-2 
@@ -170,16 +176,10 @@ export function Contact() {
           hover:bg-hover-btn 
           focus:bg-hover-btn
           hover:-translate-y-1"
-          translate="yes"
+            translate="yes"
           />
         </form>
       </div>
-
-      <Image
-        src={Circle3}
-        alt="circle 3"
-        className="absolute right-0 -top-[500px] -z-50"
-      />
 
       {/*MODAL SUCCESS */}
       <Alert

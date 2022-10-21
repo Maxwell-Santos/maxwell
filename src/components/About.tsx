@@ -3,8 +3,7 @@ import { TitleSection } from "./TitleSection";
 import { Roadmap } from "./Roadmap";
 import AOS from "aos";
 
-import Image from "next/future/image";
-import Circle1 from "../../public/circle1.svg";
+import { FadeCircle } from "./Circles";
 
 export function About() {
   useEffect(() => { AOS.init() }, [])
@@ -13,13 +12,10 @@ export function About() {
     <section
     className="about"
     >
-      <Image
-        src={Circle1}
-        alt="circle1"
-        className="absolute right-0 -top-9 -z-50"
-      />
-      
+    <FadeCircle top={0} right={0}/>
+
       <TitleSection title="Sobre" />
+      
 
       <div className="flex flex-col justify-center items-start gap-9 sm:flex-row">
 
@@ -32,7 +28,7 @@ export function About() {
           <div className="mb-7">
             <h3 translate="yes">Introdução</h3>
             <p translate="yes">
-              Formado como técnico em Desenvolvimento de Sistemas, meu foco é me especializar no Frontend. A facilidade de me comunicar sempre me proporcionou boas experiências com trabalhos em grupo, e saber trabalhar em grupo é essencial, me sinto seguro em dizer que farei um ótimo trabalho.
+              Formado como técnico em Desenvolvimento de Sistemas, meu foco é me especializar no Frontend. A facilidade de me comunicar sempre me proporcionou boas experiências com trabalhos em grupo. Saber trabalhar em grupo é essencial, me sinto seguro em dizer que farei um ótimo trabalho.
             </p>
             <br />
             <p translate="yes">
@@ -51,7 +47,7 @@ export function About() {
             <h3 translate="yes">Paixões</h3>
             <p translate="yes">
               Gosto de desenhar, música, arte num geral.
-              Programar, resolver problemas, tudo isso também é muito importante para mim. Por isso escolhi o desenvolvimento de software, e aprender uma base do UI/UX. É muito interessante como as cores, formas geométricas, posicionamento, tem o poder de influenciar as escolhas de quem está interagindo no meu site, isso é incrível!
+              Programar, resolver problemas, tudo isso também é muito importante para mim. Por isso, escolhi o desenvolvimento de software, e desenvolver habilidades no UI/UX. É muito interessante como as cores, formas geométricas, posicionamento, tem o poder de influenciar as escolhas de quem está interagindo no meu site, isso é incrível!
             </p>
           </div>
 

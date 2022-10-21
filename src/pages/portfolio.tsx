@@ -7,7 +7,6 @@ import { Header } from "../components/Headers";
 import { ProjectComponent } from "../components/ProjectComponent";
 import { TitleSection } from "../components/TitleSection";
 
-import Circle2 from '../../public/circle2.svg';
 import projectsPhotos from '../importAssets/importsProjectsPhotos';
 
 import { Pagination } from 'swiper';
@@ -17,6 +16,7 @@ import "swiper/css/pagination";
 
 //INTERFACE
 import { ProjectProps } from '../interfaces/RepositoriesProps';
+import { FadeCircle } from '../components/Circles';
 
 interface RepositoriesPropsShow extends ProjectProps {
   img: any
@@ -68,12 +68,16 @@ export default function Portfolios({ repositories }: any) {
  */
   const escopoRepositories = [
     {
-      img: projectsPhotos.LandPage,
-      id: 485900216
+      img: projectsPhotos.DsInside,
+      id: 555095443
     },
     {
       img: projectsPhotos.Movies,
       id: 508747276
+    },
+    {
+      img: projectsPhotos.LandPage,
+      id: 485900216
     },
     {
       img: projectsPhotos.Turismo,
@@ -109,10 +113,12 @@ export default function Portfolios({ repositories }: any) {
     <>
       <Head />
 
-      <section className="my-24">
+      <section className="my-24 max-w-full px-0">
         <Header page="portfolio" />
 
-        <TitleSection title="portfólio" />
+        <div className="md:px-12 2xl:px-24 ">
+          <TitleSection title="portfólio" />
+        </div>
 
         <Swiper
           className="overflow-visible flex items-center"
@@ -121,7 +127,7 @@ export default function Portfolios({ repositories }: any) {
             clickable: true,
           }}
           modules={[Pagination]}
-          spaceBetween={10}
+          spaceBetween={width >= 770 ? 10 : 20}
           slidesPerView={width >= 770 ? 2 : 1}
           centeredSlides
         >
@@ -141,12 +147,14 @@ export default function Portfolios({ repositories }: any) {
 
       </section>
 
-      <Image
+      {/* <Image
         src={Circle2}
         alt="circle 2"
         width={700}
         className="absolute -top-52 -z-50 overflow-hidden"
-      />
+      /> */}
+
+      <FadeCircle top='20px' left='0'/>
 
     </>
   )
