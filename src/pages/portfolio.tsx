@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
 import Head from '../components/Head';
-import Image from 'next/future/image'
 
 import { Header } from "../components/Headers";
 import { ProjectComponent } from "../components/ProjectComponent";
@@ -9,10 +8,11 @@ import { TitleSection } from "../components/TitleSection";
 
 import projectsPhotos from '../importAssets/importsProjectsPhotos';
 
-import { Pagination } from 'swiper';
+import { FreeMode, Mousewheel, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/pagination";
+import "swiper/css/free-mode";
 
 //INTERFACE
 import { ProjectProps } from '../interfaces/RepositoriesProps';
@@ -122,22 +122,24 @@ export default function Portfolios({ repositories }: any) {
         </div>
 
         <Swiper
-          className="overflow-visible flex items-center"
+          // className="overflow-visible flex items-center"
+          modules={[Pagination, Mousewheel, FreeMode]}
           pagination={{
             dynamicBullets: true,
             clickable: true,
           }}
-          modules={[Pagination]}
+          centeredSlides
+          mousewheel
+          freeMode
           spaceBetween={width >= 770 ? 10 : 20}
           slidesPerView={width >= 770 ? 2 : 1}
-          centeredSlides
         >
           {
             finallyRepositories.map((repository: any) => {
               return (
                 <SwiperSlide
-                  className='flex justify-center items-center aspect-square md:aspect-video'
                   key={repository.id}
+                  className='flex justify-center items-center aspect-square md:aspect-video'
                 >
                   <ProjectComponent key={repository.id} data={repository} />
                 </SwiperSlide>
@@ -147,15 +149,7 @@ export default function Portfolios({ repositories }: any) {
         </Swiper>
 
       </section>
-
-      {/* <Image
-        src={Circle2}
-        alt="circle 2"
-        width={700}
-        className="absolute -top-52 -z-50 overflow-hidden"
-      /> */}
-
-      <FadeCircle/>
+      <FadeCircle />
 
     </>
   )
