@@ -4,10 +4,10 @@ import Insta from '../../public/img/insta.jpg';
 import LandPage from '../../public/img/landpage.jpg';
 import Movies from '../../public/img/movies.png';
 import Turismo from '../../public/img/turismo.png';
-import DsInside from '../../public/img/dsinside.png';
+import Idesign from '../../public/img/dsinside.png';
 
 export default {
-  DsInside: DsInside,
+  Idesign: Idesign,
   CalcGorjeta: CalcGorjeta,
   CardNFT: CardNFT,
   Insta: Insta,
