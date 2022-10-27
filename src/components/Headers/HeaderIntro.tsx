@@ -14,6 +14,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
 import AOS from "aos";
+import { RedesSociais } from "../RedesSociais";
 
 export function HeaderIntro() {
   useEffect(() => { AOS.init() }, [])
@@ -139,44 +140,7 @@ export function HeaderIntro() {
                 <div
                   className="flex w-full justify-end gap-4 flex-wrap"
                 >
-                  <a href="https://api.whatsapp.com/send?phone=5511977761749&text=Me%20interessei%20pelo%20seu%20trabalho%2C%20vamos%20conversar%20%3F"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <span
-                      className="flex items-center p-2 bg-cards rounded-md text-green-500 gap-2"
-                    >
-                      <WhatsAppIcon
-                        fontSize="large"
-                      />
-                    </span>
-                  </a>
-
-                  <a href="https://www.instagram.com/this_maxwell/"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <span
-                      className="flex items-center p-2 bg-cards rounded-md text-pink-700 gap-2"
-                    >
-                      <InstagramIcon
-                        fontSize="large"
-                      />
-                    </span>
-                  </a>
-
-                  <a href="https://www.linkedin.com/in/maxwell-santos-2ab722210"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <span
-                      className="flex items-center p-2 bg-cards rounded-md text-sky-500 gap-1"
-                    >
-                      <LinkedInIcon
-                        fontSize="large"
-                      />
-                    </span>
-                  </a>
+                <RedesSociais mobile/>
                 </div>
               </nav>
             </SwipeableDrawer>

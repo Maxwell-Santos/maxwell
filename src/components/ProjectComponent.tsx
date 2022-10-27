@@ -15,7 +15,7 @@ interface ProjectComponentProps {
 export function ProjectComponent({ data }: ProjectComponentProps) {
 
   const [languages, setLanguages] = useState(null)
-  
+
   useEffect(() => {
     fetch(data.languages_url)
       .then(response => response.json())
@@ -54,26 +54,39 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
           {name}
         </h3>
         <p>
-          {languages ? (
-            Object.keys(languages).map((language, index) => {
-              return (
-                <span
-                  key={language}
-                  className={`bg-stone-100/20 text-white text-xs 
-                  mx-1 p-1 px-2 rounded-full 
-                ${index == 0 && "text-secondary border border-secondary font-bold"}`}
-                >
-                  {language}
-                </span>
-              )
-            })
+          {
 
-          ) : "???"
-          }
+            languages ? (
+              Object.keys(languages).map((language, index) => {
+                return (
+                  <span
+                    key={language}
+                    className={`bg-stone-100/20 text-white text-xs 
+                  mx-1 p-1 px-2 rounded-full relative
+                ${index == 0 && "text-secondary border border-secondary font-bold after:content-['⭐'] after:absolute after:inset-0 after:-top-5 after:flex after:justify-center"}`}
+                  >
+                    {language}
+                  </span>
+                )
+              })
+            ) : (
+              <div>
+                <span
+                  className="bg-stone-100/20 text-white text-xs mx-1 p-1 px-2 rounded-full w-12 inline-block py-2 animate-pulse"
+                ></span>
+                <span
+                  className="bg-stone-100/20 text-white text-xs mx-1 p-1 px-2 rounded-full w-12 inline-block py-2 animate-pulse"
+                ></span>
+                <span
+                  className="bg-stone-100/20 text-white text-xs mx-1 p-1 px-2 rounded-full w-12 inline-block py-2 animate-pulse"
+                ></span>
+              </div>
+            )}
+
         </p>
 
         <div
-          className="flex justify-between flex-1 items-center gap-2"
+          className="flex flex-row-reverse justify-between flex-1 items-center gap-2"
         >
 
           <a href={`http://${data.homepage}`} target="_blank" rel="noreferrer"
@@ -90,7 +103,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
             flex items-center gap-1 transition-all
           hover:bg-hover-btn 
           focus:bg-hover-btn"
-          translate='yes'
+            translate='yes'
           >
             ver no Github <GitHubIcon />
           </a>

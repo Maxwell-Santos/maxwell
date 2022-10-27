@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Aos from "aos";
 
 import { TitleSection } from "./../TitleSection";
-import { TechnologiesCard } from "./Technologies";
+import { TechnologiesCard } from "./Technologie";
 
 import logo from '../../importAssets/importsLogos';
 import { FadeCircle } from "../Circles";
@@ -33,7 +33,7 @@ export function Skills() {
 
       <div
         data-aos="zoom-out"
-        className="bg-[#FFFFFF1A] p-6 my-5
+        className="bg-[#ffffff0a] p-6 my-5
         grid grid-cols-2 grid-rows-auto gap-4 place-items-center
         sm:grid-cols-3 sm:grid-rows-3 
         md:p-16"
