@@ -17,7 +17,7 @@ export function About() {
       <TitleSection title="Sobre" />
       
 
-      <div className="flex flex-col justify-center items-start gap-9 sm:flex-row">
+      <div className="flex flex-col-reverse justify-center items-start gap-9 sm:flex-row">
 
         <div className="flex-1" data-aos="fade-right">
           <Roadmap />

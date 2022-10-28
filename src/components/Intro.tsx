@@ -8,6 +8,8 @@ import { Link } from "react-scroll";
 
 
 export function Intro() {
+  const [curriculum , setCurriculum] = useState("")
+
   useEffect(() => { AOS.init() }, [])
 
   const mySkills = ["frontend developer", "web developer", "ui/ux", "fullstack"]
@@ -22,6 +24,12 @@ export function Intro() {
 
     return () => clearInterval(interval);
   }, [])
+
+  useEffect(() => {
+    navigator.language.includes("en") ? 
+    setCurriculum("/resumes/Maxwell Currículo.pdf") : setCurriculum("/resumes/Maxwell Curriculum(en).pdf")
+
+  },[])
 
   return (
     <section
@@ -64,7 +72,7 @@ export function Intro() {
         </p>
 
         <a
-          href="/curriculoMaxwell.pdf" download
+          href={curriculum} download
           className="w-fit px-6 py-3 rounded-md
           text-btn text-base font-bold font-roboto 
           transition-all bg-secondary 

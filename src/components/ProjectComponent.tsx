@@ -63,7 +63,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
                     key={language}
                     className={`bg-stone-100/20 text-white text-xs 
                   mx-1 p-1 px-2 rounded-full relative
-                ${index == 0 && "text-secondary border border-secondary font-bold after:content-['⭐'] after:absolute after:inset-0 after:-top-5 after:flex after:justify-center"}`}
+                ${index == 0 && "text-secondary border border-secondary font-bold"}`}
                   >
                     {language}
                   </span>
@@ -120,6 +120,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
             width={800}
             objectFit={"cover"}
             className="transition all"
+            placeholder='blur'
           />
           : (
             <div

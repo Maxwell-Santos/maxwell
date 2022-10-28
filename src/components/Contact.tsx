@@ -17,9 +17,6 @@ import { RedesSociais } from "./RedesSociais";
 export function Contact() {
   const [modalSuccess, setModalSuccess] = useState(false);
   const [modalError, setModalError] = useState(false);
-
-  useEffect(() => { AOS.init() }, [])
-
   const { register, handleSubmit, reset, watch, resetField, formState: { errors } } = useForm()
 
   const varName = errors?.name?.message
@@ -53,6 +50,14 @@ export function Contact() {
       console.error(error)
     }
   }
+
+  const [size, setSize] = useState(0)
+
+  function checkMaxLength(value:string){
+    setSize(value.length)
+  }
+
+  useEffect(() => { AOS.init() }, [])
 
   return (
     <section
@@ -90,7 +95,7 @@ export function Contact() {
                   }
                 })}
                 placeholder="nome"
-                className="py-2 px-3 w-full rounded-md text-articles "
+                className="py-2 px-3 w-full rounded-md text-articles tracking-wider"
                 spellCheck={false}
                 translate="yes"
                 name="name"
@@ -121,7 +126,7 @@ export function Contact() {
                     }
                   })}
                   placeholder="max@exemplo.com"
-                  className="py-2 px-3 w-full rounded-md text-articles"
+                  className="py-2 px-3 w-full rounded-md text-articles tracking-wider"
                   translate="yes"
                   name="email"
                 />
@@ -153,8 +158,9 @@ export function Contact() {
                     }
                   })}
                   placeholder="mensagem"
-                  className="py-2 px-3 pr-5 w-full rounded-md text-articles font-medium"
+                  className="py-2 px-3 pr-5 w-full rounded-md text-articles tracking-wider"
                   rows={5}
+                  onChange={(event) => checkMaxLength(event.target.value)}
                   translate="yes"
                   name="feedback"
                 />
@@ -167,7 +173,10 @@ export function Contact() {
                   onClick={() => resetField("feedback")}
                 />
               </div>
-              <span data-aos="fade-right">{varFeedback?.toString()}</span>
+              <span className={`${size >= 600 ? "font-bold" : "text-nav"}`}>
+                {size}/600
+              </span>
+              <span data-aos="fade-right"> {varFeedback?.toString()}</span>
             </label>
 
             <input
