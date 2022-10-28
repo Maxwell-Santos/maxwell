@@ -51,12 +51,10 @@ class Portfolio {
 export default function Portfolios({ repositories }: any) {
   const [width, setWidth] = useState(0)
 
-
   //pegar a largura da tela do usuário
   useEffect(() => {
     setWidth(screen.width)
   }, [])
-
 
   const repositoriesParsed = JSON.parse(repositories)
   //Esse array é o que mostra na tela os projetos ja formatados 
