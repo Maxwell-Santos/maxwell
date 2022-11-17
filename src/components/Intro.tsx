@@ -25,14 +25,12 @@ export function Intro() {
     return () => clearInterval(interval);
   }, [])
 
-  useMemo(() => {
-    setAnimate(true)
-  },[skill])
-
+  
   useEffect(() => {
     navigator.language.includes("en") ? 
     setCurriculum("/resumes/Maxwell Curriculum(en).pdf") : setCurriculum("/resumes/Maxwell Currículo.pdf")
-
+    
+    setAnimate(true)
   },[])
 
   return (
