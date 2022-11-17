@@ -49,7 +49,12 @@ Bom, eu nunca tinha feito nada com Next antes, já programava algumas coisas com
 ### Objetivo
 <p>O que precisava fazer era dar um jeito de juntar a imagem do projeto com o objeto do repositório correspondente que vem lá da API</p>
 
-- Primeiro, criei um array de objetos, contendo cada um a print e o ID daquele projeto
+- Primeiro, criei um array de objetos, contendo cada um a print, id, e o "type" daquele projeto
+
+obs: O type é uma feature nova que adicionei agora no dia 17/11/22, esse type auxilia na filtragem dos projetos... entre web, mobile-first e todos 
+</br>
+
+<i>Futuramente, quem sabe eu não adiciono mais filtros...</i>
 
 ```tsx
   /**
@@ -61,26 +66,33 @@ Bom, eu nunca tinha feito nada com Next antes, já programava algumas coisas com
     {
       img: LandPage,
       id: 485900216
+      type: "web"
     },
     {
       img: Movies,
-      id: 508747276
+      id: 508747276,
+      type: "web"
+
     },
     {
       img: Turismo,
       id: 533521470
+      type: "web",
     },
     {
       img: CalcGorjeta,
-      id: 482375390
+      id: 482375390,
+      type: "web"
     },
     {
       img: CardNFT,
-      id: 481977497
+      id: 481977497,
+      type: "web"
     },
     {
       img: Insta,
-      id: 534835307
+      id: 534835307,
+      type: "web"
     },
   ]
 ```
@@ -130,29 +142,36 @@ export default function Portfolios({ repositories }: any) {
  * A finalidade disso, é porque eu quero prints dos meus projetos.
  */
   const escopoRepositories = [
-    {
+     {
       img: LandPage,
       id: 485900216
+      type: "web"
     },
     {
       img: Movies,
-      id: 508747276
+      id: 508747276,
+      type: "web"
+
     },
     {
       img: Turismo,
       id: 533521470
+      type: "web",
     },
     {
       img: CalcGorjeta,
-      id: 482375390
+      id: 482375390,
+      type: "web"
     },
     {
       img: CardNFT,
-      id: 481977497
+      id: 481977497,
+      type: "web"
     },
     {
       img: Insta,
-      id: 534835307
+      id: 534835307,
+      type: "web"
     },
   ]
 

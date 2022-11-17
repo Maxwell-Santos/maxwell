@@ -61,9 +61,9 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
                 return (
                   <span
                     key={language}
-                    className={`bg-stone-100/20 text-white text-xs 
+                    className={`text-white text-xs 
                   mx-1 p-1 px-2 rounded-full relative
-                ${index == 0 && "text-secondary border border-secondary font-bold"}`}
+                ${index == 0 ? "bg-secondary" : "bg-stone-100/20"}`}
                   >
                     {language}
                   </span>

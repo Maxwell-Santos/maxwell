@@ -25,7 +25,7 @@ function Stack({ date, place, title, primary, id }: StackProps) {
           {date}
         </span>
 
-        <h3 className="font-robotoCondensed text-xl font-thin mt-3" translate="yes">
+        <h3 className="font-robotoCondensed text-xl font-thin mt-3" >
           {title}
         </h3>
 

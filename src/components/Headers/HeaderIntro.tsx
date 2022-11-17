@@ -104,7 +104,7 @@ export function HeaderIntro() {
                         hover:text-secondary
                         focus:text-secondary
                         transition-all"
-                        translate="yes"
+                        
                     >
                       Sobre
                     </ScrollLink>
@@ -115,7 +115,7 @@ export function HeaderIntro() {
                         hover:text-secondary hover:border-secondary
                         focus:text-secondary focus:border-secondary
                         transition-all"
-                        translate="yes"
+                        
                     >
                       Contato
                     </ScrollLink>
@@ -127,7 +127,7 @@ export function HeaderIntro() {
                         className="p-2 w-full
                       text-btn uppercase font-robotoCondensed font-medium tracking-wider rounded-md
                       flex items-center justify-center transition-colors bg-secondary text-lg"
-                      translate="yes"
+                      
                       >
                         Portfólio
                       </span>
@@ -173,7 +173,7 @@ export function HeaderIntro() {
                   className="p-1
                   hover:text-secondary 
                   focus:text-secondary transition-all cursor-pointer"
-                  translate="yes"
+                  
                 >
                   Sobre
                 </ScrollLink>
@@ -190,7 +190,7 @@ export function HeaderIntro() {
                   cursor-pointer
                   rounded-sm
                   group"
-                  translate="yes"
+                  
                 >
                   Contato
 
@@ -212,7 +212,7 @@ export function HeaderIntro() {
                     transition-all
                     w-fit 
                     cursor-pointer"
-                    translate="yes"
+                    
                   >
                     Portfólio
                   </span>

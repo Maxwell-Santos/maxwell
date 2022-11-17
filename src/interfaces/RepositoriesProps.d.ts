@@ -4,6 +4,8 @@ export interface ProjectProps {
   html_url: string;
   homepage?: string;
   languages_url: string;
+  type: "mobile-first" | "web";
+
 }
 
 export interface ProjectWithImageProps {
@@ -13,4 +15,5 @@ export interface ProjectWithImageProps {
   homepage?: string;
   img?: any;
   languages_url: string;
+  type: "mobile-first" | "web";
 }

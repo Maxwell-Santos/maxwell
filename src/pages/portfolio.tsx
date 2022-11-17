@@ -17,7 +17,6 @@ import "swiper/css/free-mode";
 //INTERFACE
 import { ProjectProps } from '../interfaces/RepositoriesProps';
 import { FadeCircle } from '../components/Circles';
-
 interface RepositoriesPropsShow extends ProjectProps {
   img: any
 }
@@ -29,6 +28,7 @@ class Portfolio {
   homepage?: string;
   languages_url: any;
   img: any;
+  type: "mobile-first" | "web";
 
   constructor(
     id: number,
@@ -36,6 +36,7 @@ class Portfolio {
     html_url: string,
     languages_url: any,
     img: any,
+    type: "mobile-first" | "web",
     homepage?: string,
 
   ) {
@@ -45,11 +46,13 @@ class Portfolio {
     this.homepage = homepage;
     this.languages_url = languages_url;
     this.img = img;
+    this.type = type;
   }
 }
 
 export default function Portfolios({ repositories }: any) {
   const [width, setWidth] = useState(0)
+  const [projectType, setProjectType] = useState<"web" | "mobile-first" | null>(null)
 
   //pegar a largura da tela do usuário
   useEffect(() => {
@@ -67,32 +70,49 @@ export default function Portfolios({ repositories }: any) {
  */
   const escopoRepositories = [
     {
+      img: projectsPhotos.CardapioDigital,
+      id: 562651891,
+      type: "mobile-first",
+    },
+    {
       img: projectsPhotos.Idesign,
-      id: 558094704
+      id: 558094704,
+      type: "web",
     },
     {
       img: projectsPhotos.Movies,
-      id: 508747276
+      id: 508747276,
+      type: "web",
+
     },
     {
       img: projectsPhotos.LandPage,
-      id: 485900216
+      id: 485900216,
+      type: "web",
+
     },
     {
       img: projectsPhotos.Turismo,
-      id: 533521470
+      id: 533521470,
+      type: "web",
+
     },
     {
       img: projectsPhotos.CalcGorjeta,
-      id: 482375390
+      id: 482375390,
+      type: "mobile-first",
+
     },
     {
       img: projectsPhotos.CardNFT,
-      id: 481977497
+      id: 481977497,
+      type: "web",
+
     },
     {
       img: projectsPhotos.Insta,
-      id: 534835307
+      id: 534835307,
+      type: "web",
     },
   ]
 
@@ -101,7 +121,7 @@ export default function Portfolios({ repositories }: any) {
     repositoriesParsed.map((repository: ProjectProps) => {
 
       if (escopo.id == repository.id) {
-        const newPortfolio = new Portfolio(repository.id, repository.name, repository.html_url, repository.languages_url, escopo.img, repository?.homepage)
+        const newPortfolio = new Portfolio(repository.id, repository.name, repository.html_url, repository.languages_url, escopo.img, escopo.type, repository?.homepage)
 
         finallyRepositories.push(newPortfolio)
       }
@@ -119,8 +139,33 @@ export default function Portfolios({ repositories }: any) {
           <TitleSection title="portfólio" />
         </div>
 
+        <nav
+          className="flex mb-5 sm:ml-8 gap-3"
+        >
+          <button
+            className={`linkSection ${projectType == null && "bg-secondary/50"}`}
+            title="projetos web"
+            onClick={() => setProjectType(null)}
+          >
+            Todos
+          </button>
+          <button
+            className={`linkSection ${projectType == 'web' && "bg-secondary/50"}`}
+            title="projetos web"
+            onClick={() => setProjectType("web")}
+          >
+            Web
+          </button>
+          <button
+            className={`linkSection ${projectType == 'mobile-first' && "bg-secondary/50"}`}
+            title="projetos mobile first"
+            onClick={() => setProjectType("mobile-first")}
+          >
+            Mobile-first
+          </button>
+        </nav>
+
         <Swiper
-          // className="overflow-visible flex items-center"
           modules={[Pagination, Mousewheel, FreeMode]}
           pagination={{
             dynamicBullets: true,
@@ -133,16 +178,49 @@ export default function Portfolios({ repositories }: any) {
           slidesPerView={width >= 770 ? 2 : 1}
         >
           {
-            finallyRepositories.map((repository: any) => {
-              return (
-                <SwiperSlide
-                  key={repository.id}
-                  className='flex justify-center items-center aspect-square md:aspect-video'
-                >
-                  <ProjectComponent key={repository.id} data={repository} />
-                </SwiperSlide>
-              )
-            })
+            projectType == "mobile-first" ? (
+              finallyRepositories.map(repository => {
+                if (repository.type == "mobile-first") {
+                  return (
+                    <SwiperSlide
+                      key={repository.id}
+                      className='flex justify-center items-center aspect-square md:aspect-video'
+                    >
+                      <ProjectComponent key={repository.id} data={repository} />
+                    </SwiperSlide>
+                  )
+                }
+              })
+            )
+              : projectType === "web" ?
+                (
+                  finallyRepositories.map(repository => {
+                    if (repository.type == "web") {
+                      return (
+                        <SwiperSlide
+                          key={repository.id}
+                          className='flex justify-center items-center aspect-square md:aspect-video'
+                        >
+                          <ProjectComponent key={repository.id} data={repository} />
+                        </SwiperSlide>
+                      )
+                    }
+                  })
+                )
+                : projectType === null &&
+                (
+                  finallyRepositories.map(repository => {
+                    return (
+                      <SwiperSlide
+                        key={repository.id}
+                        className='flex justify-center items-center aspect-square md:aspect-video'
+                      >
+                        <ProjectComponent key={repository.id} data={repository} />
+                      </SwiperSlide>
+                    )
+
+                  })
+                )
           }
         </Swiper>
 

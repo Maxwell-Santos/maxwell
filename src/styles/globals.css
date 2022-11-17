@@ -49,3 +49,10 @@
     @apply font-inter text-red-400 leading-3 text-xs
   }
 }
+
+@layer components{
+  .linkSection{
+  @apply bg-[#EEEEEE30] rounded-full px-3 font-thin tracking-wide hover:bg-secondary/80 transition-all
+  focus:bg-secondary/80
+  }
+}

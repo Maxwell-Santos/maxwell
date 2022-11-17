@@ -43,7 +43,7 @@ module.exports = {
       },
 
       animation:{
-        typing: 'typing 4s infinite '
+        typing: 'typing 4.1s infinite'
       },
 
       keyframes:{

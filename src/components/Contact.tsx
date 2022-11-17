@@ -13,7 +13,6 @@ import CloseRounded from "@mui/icons-material/CloseRounded";
 import { FadeCircle } from "./Circles";
 import { RedesSociais } from "./RedesSociais";
 
-
 export function Contact() {
   const [modalSuccess, setModalSuccess] = useState(false);
   const [modalError, setModalError] = useState(false);
@@ -52,7 +51,6 @@ export function Contact() {
   }
 
   const [size, setSize] = useState(0)
-
   function checkMaxLength(value:string){
     setSize(value.length)
   }
@@ -97,7 +95,7 @@ export function Contact() {
                 placeholder="nome"
                 className="py-2 px-3 w-full rounded-md text-articles tracking-wider"
                 spellCheck={false}
-                translate="yes"
+                
                 name="name"
               />
               <CloseRounded
@@ -127,7 +125,7 @@ export function Contact() {
                   })}
                   placeholder="max@exemplo.com"
                   className="py-2 px-3 w-full rounded-md text-articles tracking-wider"
-                  translate="yes"
+                  
                   name="email"
                 />
                 <CloseRounded
@@ -161,7 +159,7 @@ export function Contact() {
                   className="py-2 px-3 pr-5 w-full rounded-md text-articles tracking-wider"
                   rows={5}
                   onChange={(event) => checkMaxLength(event.target.value)}
-                  translate="yes"
+                  
                   name="feedback"
                 />
 
@@ -188,7 +186,7 @@ export function Contact() {
             hover:bg-hover-btn
             focus:bg-hover-btn
             hover:-translate-y-1"
-              translate="yes"
+              
             />
           </form>
         </div>
@@ -204,7 +202,7 @@ export function Contact() {
         md:m-5
         ${modalSuccess ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'}`}
         color="success"
-        translate="yes"
+        
       >
         Mensagem enviada. Fico feliz que se interessou pelo meu trabalho !
       </Alert>
@@ -218,7 +216,7 @@ export function Contact() {
         md:m-5
         ${modalError ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'} `}
         color="error"
-        translate="yes"
+        
       >
         Infelizmente ocorreu algum erro.
       </Alert>

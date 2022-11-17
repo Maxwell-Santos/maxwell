@@ -17,7 +17,7 @@ export function TitleSection({ title }: Title) {
         id={title}
         className="w-[150px] border-b-8 border-secondary text-end font-bold text-2xl uppercase
         md:text-3xl md:w-[17%]"
-        translate="yes"
+        
       >
         {title}
       </h2>

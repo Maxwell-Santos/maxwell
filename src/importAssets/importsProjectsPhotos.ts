@@ -5,13 +5,15 @@ import LandPage from '../../public/img/landpage.jpg';
 import Movies from '../../public/img/movies.png';
 import Turismo from '../../public/img/turismo.png';
 import Idesign from '../../public/img/dsinside.png';
+import CardapioDigital from '../../public/img/cardapio.png';
 
 export default {
-  Idesign: Idesign,
-  CalcGorjeta: CalcGorjeta,
-  CardNFT: CardNFT,
-  Insta: Insta,
-  LandPage: LandPage,
-  Movies: Movies,
-  Turismo: Turismo,
+  CardapioDigital,
+  Idesign,
+  CalcGorjeta,
+  CardNFT,
+  Insta,
+  LandPage,
+  Movies,
+  Turismo,
 }
