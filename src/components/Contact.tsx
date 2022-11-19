@@ -12,11 +12,14 @@ import Alert from "@mui/material/Alert";
 import CloseRounded from "@mui/icons-material/CloseRounded";
 import { FadeCircle } from "./Circles";
 import { RedesSociais } from "./RedesSociais";
+import { CircularProgress } from "@mui/material";
 
 export function Contact() {
   const [modalSuccess, setModalSuccess] = useState(false);
   const [modalError, setModalError] = useState(false);
   const { register, handleSubmit, reset, watch, resetField, formState: { errors } } = useForm()
+
+  const [loading, setLoading] = useState(false)
 
   const varName = errors?.name?.message
   const varEmail = errors?.email?.message
@@ -37,11 +40,13 @@ export function Contact() {
     }
 
     try {
+      setLoading(true)
       const response = await axios(config)
       console.log(response)
       if (response.status == 200) {
         reset()
         setModalSuccess(true)
+        setLoading(false)
       }
 
     } catch (error) {
@@ -57,6 +62,10 @@ export function Contact() {
 
   useEffect(() => { AOS.init() }, [])
 
+  modalSuccess && setTimeout(() => {
+    setModalSuccess(false)
+  },5000)
+
   return (
     <section
       className="contact"
@@ -71,7 +80,7 @@ export function Contact() {
           data-aos="fade-up"
           className="w-[95%] h-fit max-w-3xl bg-contact my-10 mx-auto rounded-xl
         flex items-center overflow-hidden
-        md:h-[400px] lg:w-[70%]"
+        md:min-h-[400px] lg:w-[70%]"
         >
           <Image
             src={contact}
@@ -95,7 +104,6 @@ export function Contact() {
                 placeholder="nome"
                 className="py-2 px-3 w-full rounded-md text-articles tracking-wider"
                 spellCheck={false}
-                
                 name="name"
               />
               <CloseRounded
@@ -106,7 +114,7 @@ export function Contact() {
                 onClick={() => resetField("name")}
               />
 
-              <span data-aos="fade-right">{varName?.toString()}</span>
+              <span data-aos="fade-right" className="alert">{varName?.toString()}</span>
             </label>
 
             <label>
@@ -138,7 +146,7 @@ export function Contact() {
 
                 />
               </div>
-              <span data-aos="fade-right">{varEmail?.toString()}</span>
+              <span data-aos="fade-right" className="alert">{varEmail?.toString()}</span>
             </label>
 
             <label>
@@ -171,23 +179,28 @@ export function Contact() {
                   onClick={() => resetField("feedback")}
                 />
               </div>
-              <span className={`${size >= 600 ? "font-bold" : "text-nav"}`}>
+              <span className={`text-sm ${size >= 600 ? "font-bold" : "text-nav"}`}>
                 {size}/600
               </span>
               <span data-aos="fade-right"> {varFeedback?.toString()}</span>
             </label>
 
-            <input
-              type="submit"
-              value="enviar"
-              className="bg-secondary w-fit p-2 px-4 rounded-md ml-auto
+            <button
+            type="submit"
+            className={`bg-secondary w-24 p-2 px-4 rounded-md ml-auto
             text-sm font-inter tracking-wide
+            flex items-center justify-center
             transition-all cursor-pointer uppercase
             hover:bg-hover-btn
             focus:bg-hover-btn
-            hover:-translate-y-1"
-              
-            />
+            hover:-translate-y-1
+            ${loading && "pointer-events-none bg-secondary/40"}
+            `}
+            >
+              {
+                loading ? <CircularProgress color="inherit" size={20} /> : "enviar"
+              }
+            </button>
           </form>
         </div>
 
@@ -197,10 +210,8 @@ export function Contact() {
       {/*MODAL SUCCESS */}
       <Alert
         onClose={() => { setModalSuccess(false) }}
-        className={`m-2 fixed right-0 bottom-0 bg-green-500 transition-all
-        shadow-lg w-fit
-        md:m-5
-        ${modalSuccess ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'}`}
+        className={`m-2 fixed right-0 bottom-0 bg-green-500 transition-all shadow-lg w-fit md:m-5 ease-in
+        ${modalSuccess ? 'translate-x-0 animate-showAlert' : 'opacity-0 translate-x-40'}`}
         color="success"
         
       >

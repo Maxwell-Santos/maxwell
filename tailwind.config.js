@@ -35,6 +35,7 @@ module.exports = {
   
       borderColor: {
         'header': '#FFFFFF1A',
+        'footer': '#FFFFFF1A',
         'skills': '#FFFFFF34',
         'cards': '#FFFFFF34',
         'btn-secondary': '#FFFFFFB3',
@@ -43,16 +44,19 @@ module.exports = {
       },
 
       animation:{
-        typing: 'typing 4.1s infinite'
+        typing: 'typing 4.1s infinite',
+        showAlert: 'alert 5s ease',
       },
 
       keyframes:{
-        typingWidth: {
-          '0%, 100%': {
-            width: '0%',
+        alert: {
+          '0%, 50%, 80%': {
+            opacity: 1,
+            visibility: 'visible',
           },
-          '50%': {
-            width: '100%',
+          '100%': {
+            opacity: 0,
+            visibility: 'invisible',
           },
         },
 

@@ -28,9 +28,7 @@
   header{
     @apply border-b-header
   }
-  footer{
-    @apply bg-footer
-  }
+
   input[type="text"], textarea{
     @apply bg-input-contact font-light text-sm transition-all resize-none appearance-none 
   hover:ring-2 hover:ring-[#0047FF] ring-offset-2 ring-offset-[#12121280]
@@ -45,8 +43,8 @@
     @apply relative px-6 md:px-12 2xl:px-24 mt-12 max-w-[1500px] mx-auto
   }
 
-  form span{
-    @apply font-inter text-red-400 leading-3 text-xs
+  footer{
+  @apply border-t border-footer w-4/5 mx-auto py-5 px-2 flex items-center justify-evenly
   }
 }
 
@@ -54,5 +52,9 @@
   .linkSection{
   @apply bg-[#EEEEEE30] rounded-full px-3 font-thin tracking-wide hover:bg-secondary/80 transition-all
   focus:bg-secondary/80
+  }
+
+  .alert{
+  @apply text-sm text-[#ff8585]
   }
 }
