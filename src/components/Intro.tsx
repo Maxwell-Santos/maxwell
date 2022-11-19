@@ -91,6 +91,7 @@ export function Intro() {
         to="about"
         offset={-60}
         className="w-fit mt-5 mx-auto flex justify-center items-center flex-col group"
+        delay={1000}
       >
         <KeyboardArrowDownIcon
           titleAccess="Arraste para baixo"

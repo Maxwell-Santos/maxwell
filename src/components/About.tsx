@@ -6,7 +6,11 @@ import AOS from "aos";
 import { FadeCircle } from "./Circles";
 
 export function About() {
-  useEffect(() => { AOS.init() }, [])
+  useEffect(() => { AOS.init(
+    {
+      duration: 900,
+    }
+  ) }, [])
 
   return (
     <section
