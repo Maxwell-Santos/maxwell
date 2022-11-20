@@ -3,7 +3,9 @@ import Link from "next/link";
 export function Footer() {
 
   return (
-    <footer>
+    <footer
+    className="flex flex-col md:flex-row items-start gap-2"
+    >
       <Link
         href="/portfolio"
         >
