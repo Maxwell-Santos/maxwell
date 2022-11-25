@@ -31,6 +31,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
       transition-all 
       md:overflow-hidden 
       z-0"
+
     >
       <div
         className="p-3 w-full h-fit flex flex-col gap-5 
@@ -53,9 +54,8 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
         >
           {name}
         </h3>
-        <p>
+        <div>
           {
-
             languages ? (
               Object.keys(languages).map((language, index) => {
                 return (
@@ -83,7 +83,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
               </div>
             )}
 
-        </p>
+        </div>
 
         <div
           className="flex flex-row-reverse justify-between flex-1 items-center gap-2"

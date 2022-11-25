@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { TitleSection } from "./TitleSection";
-import contact from "../../public/Frame 19.png";
-import Image from "next/future/image";
 
 import axios from 'axios'
 import AOS from "aos";
@@ -56,7 +54,7 @@ export function Contact() {
   }
 
   const [size, setSize] = useState(0)
-  function checkMaxLength(value:string){
+  function checkMaxLength(value: string) {
     setSize(value.length)
   }
 
@@ -64,7 +62,7 @@ export function Contact() {
 
   modalSuccess && setTimeout(() => {
     setModalSuccess(false)
-  },5000)
+  }, 5000)
 
   return (
     <section
@@ -75,22 +73,24 @@ export function Contact() {
       <FadeCircle />
 
       <div className="flex flex-row-reverse items-center gap-4 md:gap-0">
-
         <div
           data-aos="fade-up"
-          className="w-[95%] h-fit max-w-3xl bg-contact my-10 mx-auto rounded-xl
+          className="w-[95%] h-fit max-w-2xl bg-contact my-10 mx-auto p-6 px-5 md:px-10 gap-5 rounded-xl
         flex items-center overflow-hidden
         md:min-h-[400px] lg:w-[70%]"
         >
-          <Image
-            src={contact}
+
+          <img
+            src={"/cc.svg"}
             alt="contact image"
-            className="flex-1 object-cover overflow-hidden hidden md:block"
+            className="object-contain w-full sm:w-[150px] md:w-[250px] overflow-hidden hidden md:block
+            opacity-70
+            "
           />
 
           <form
             onSubmit={handleSubmit(submit)}
-            className="flex-[1.3] flex flex-col gap-3 p-6 px-5 md:px-10"
+            className="flex-1 flex flex-col gap-3"
           >
             <label className="relative">
               <input
@@ -133,7 +133,7 @@ export function Contact() {
                   })}
                   placeholder="max@exemplo.com"
                   className="py-2 px-3 w-full rounded-md text-articles tracking-wider"
-                  
+
                   name="email"
                 />
                 <CloseRounded
@@ -167,7 +167,7 @@ export function Contact() {
                   className="py-2 px-3 pr-5 w-full rounded-md text-articles tracking-wider"
                   rows={5}
                   onChange={(event) => checkMaxLength(event.target.value)}
-                  
+
                   name="feedback"
                 />
 
@@ -186,8 +186,8 @@ export function Contact() {
             </label>
 
             <button
-            type="submit"
-            className={`bg-secondary w-24 p-2 px-4 rounded-md ml-auto
+              type="submit"
+              className={`bg-secondary w-24 p-2 px-4 rounded-md ml-auto
             text-sm font-inter tracking-wide
             flex items-center justify-center
             transition-all cursor-pointer uppercase
@@ -213,7 +213,7 @@ export function Contact() {
         className={`m-2 fixed right-0 bottom-0 bg-green-500 transition-all shadow-lg w-fit md:m-5 ease-in
         ${modalSuccess ? 'translate-x-0 animate-showAlert' : 'opacity-0 translate-x-40'}`}
         color="success"
-        
+
       >
         Mensagem enviada. Fico feliz que se interessou pelo meu trabalho !
       </Alert>
@@ -227,7 +227,7 @@ export function Contact() {
         md:m-5
         ${modalError ? 'visible translate-x-0 opacity-1' : 'invisible opacity-0'} `}
         color="error"
-        
+
       >
         Infelizmente ocorreu algum erro.
       </Alert>

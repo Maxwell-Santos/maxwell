@@ -11,7 +11,7 @@ export function RedesSociais({ mobile }: RedesSociaisProps) {
   return (
     <>
       {
-        mobile ? (
+        mobile ? ( //se for mobile, os ícones serão transferidos
           <>
 
             <a href="https://api.whatsapp.com/send?phone=5511977761749&text=Me%20interessei%20pelo%20seu%20trabalho%2C%20vamos%20conversar%20%3F"
@@ -75,11 +75,19 @@ export function RedesSociais({ mobile }: RedesSociaisProps) {
               target="_blank"
             >
               <span
-                className="flex items-center p-2 text-pink-700 gap-2 hover:bg-nav/10 rounded-full transition-all hover:-translate-y-1"
+                className="flex items-center p-2 text-pink-700 gap-2 hover:bg-nav/10 rounded-full transition-all hover:-translate-y-1 group relative"
               >
                 <InstagramIcon
                   fontSize="large"
                 />
+                <span
+                  className="group-hover:opacity-100 opacity-0 duration-500
+                  absolute -right-[140px] top-1/2 -translate-y-1/2
+                  border px-2 p-1 rounded-md
+                  "
+                >
+                  Perfil Pessoal
+                </span>
               </span>
             </a>
 
