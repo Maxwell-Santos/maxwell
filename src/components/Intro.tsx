@@ -70,7 +70,7 @@ export function Intro() {
           </span>
         </div>
         <p>
-          A tecnologia facilita a vida das pessoas e muda o jeito que elas veem o mundo. Eu quero fazer parte disso, sou apaixonado por tecnologia, por sempre aprender coisas novas. Poder desenvolver qualquer coisa, e saber que aquilo pode mudar a vida de alguém, me deixa muito animado e é o que me move para frente.
+          A tecnologia facilita a vida das pessoas e muda o jeito que elas veem o mundo, eu quero fazer parte disso. Sou apaixonado por tecnologia, por sempre aprender coisas novas. Poder desenvolver qualquer coisa, e saber que aquilo pode mudar a vida de alguém, me deixa muito animado e é o que me move para frente.
         </p>
 
         <a

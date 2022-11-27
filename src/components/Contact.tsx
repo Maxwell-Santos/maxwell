@@ -75,18 +75,18 @@ export function Contact() {
       <div className="flex flex-row-reverse items-center gap-4 md:gap-0">
         <div
           data-aos="fade-up"
-          className="w-[95%] h-fit max-w-2xl bg-contact my-10 mx-auto p-6 px-5 md:px-10 gap-5 rounded-xl
+          className="w-[95%] h-fit max-w-xl bg-contact my-10 mx-auto p-6 px-5 md:px-10 gap-5 rounded-xl
         flex items-center overflow-hidden
         md:min-h-[400px] lg:w-[70%]"
         >
 
-          <img
+          {/* <img
             src={"/cc.svg"}
             alt="contact image"
             className="object-contain w-full sm:w-[150px] md:w-[250px] overflow-hidden hidden md:block
             opacity-70
             "
-          />
+          /> */}
 
           <form
             onSubmit={handleSubmit(submit)}

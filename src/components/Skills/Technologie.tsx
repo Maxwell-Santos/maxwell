@@ -8,12 +8,12 @@ export function TechnologiesCard({name, img}:TechProps) {
 
   return (
    <div
-   className="p-4 py-4 border-skills rounded-md 
+   className="p-4 py-4 border-skills border rounded-md 
    flex flex-col items-center justify-center gap-2 w-full
    max-w-md
    md:flex-row 
    md:justify-start
-   md:p-6 border"
+   md:p-6 "
    >
     <Image
     src={img}

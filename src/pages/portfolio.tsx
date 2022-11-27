@@ -17,6 +17,7 @@ import "swiper/css/free-mode";
 //INTERFACE
 import { ProjectProps } from '../interfaces/RepositoriesProps';
 import { FadeCircle } from '../components/Circles';
+import { Fade, Modal } from '@mui/material';
 interface RepositoriesPropsShow extends ProjectProps {
   img: any
 }
@@ -128,6 +129,13 @@ export default function Portfolios({ repositories }: any) {
     })
   })
 
+  const [open, setOpen] = useState(false)
+
+  const handleModal = () => {
+    //abrir e fechar modal
+    setOpen(prev => prev = !prev)
+  }
+
   return (
     <>
       <Head />
@@ -163,6 +171,28 @@ export default function Portfolios({ repositories }: any) {
           >
             Mobile-first
           </button>
+          <span
+            className='bg-[#EEEEEE30] rounded-full px-2 flex items-center justify-center text-sm cursor-pointer'
+            onClick={handleModal}
+          >?</span>
+
+          <Modal
+            open={open}
+            onClose={handleModal}
+            aria-labelledby="saiba mais"
+            aria-describedby="mais informações sobre as seções de projetos"
+          >
+            <Fade in={open}>
+              <div
+                className='absolute top-1/2 left-1/2 -translate-x-1/2 p-4 bg-black/90 outline-none 
+                w-[90%] sm:w-full max-w-md rounded-md'
+              >
+                <span>
+                  Apesar dos projetos serem responsivos, decidi separar os que foram pensando primeiramente para dispositivos móveis. Enquanto não tenho projetos finalizados com React-Native.
+                </span>
+              </div>
+            </Fade>
+          </Modal>
         </nav>
 
         <Swiper
