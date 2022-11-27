@@ -10,7 +10,7 @@
 - [Agradecimentos](#agradecimentos)
 
 
-<p>Esse é meu primeiro portfólio, a ideia é facilitar a vida dos recrutadores, e também mostrar o que eu sei e estudo atualmente em dia</p>
+<p>Esse é meu primeiro portfólio, a ideia é facilitar a vida dos recrutadores, e também mostrar o que eu sei e venho estudando</p>
 
 ## Tecnologias usadas
 
@@ -23,6 +23,7 @@
 - Swiper (lib para fazer o carrossel na exposição dos meus projetos)
 - Material UI
 - AOS (lib para animação dos componentes no scroll)
+- AXIOS
 - Nodemailer
 
 
@@ -35,32 +36,32 @@ Bom, eu nunca tinha feito nada com Next antes, já programava algumas coisas com
 <p>Eu escolhi usas esse framework, afim de deixar minha aplicação mais rápida e performática, já que uma das características fortes do Next é justamente trazer o html pronto direto do servidor.</p>
 
 ## Github
-<p>No meu portfólio, também consumo a API do github. Usei para listar os meus projetos no site, mas tinha um porém,não havia imagens, ficaria só os nomes links dos projetos que ja fiz, e não ficaria legal...</p>
+<p>Usei a API do github para listar os meus projetos no site, mas tinha um porém,não havia imagens, ficaria só os nomes links dos projetos que ja fiz, e não ficaria legal...</p>
 
 ### O que eu fiz
-<p>Cada repositório, tem junto um ID, e usando ele eu fei um jeitinho de colocar as prints dos meus repositórios</p>
+<p>Cada repositório, tem junto um ID, e usando ele eu dei um jeitinho de colocar as prints dos meus repositórios</p>
 
 - Após ter tirado as prints dos meus projetos, salvei aqui na pasta <code>public/img</code>;
 - Na página <code>portfólio</code>, fiz meu trâmite...
 
 </br>
-<i>Por enquanto, estou usando o <code>getServerSideProps</code> do Next para fazer a requisição API no github, mas futuramente pretendo alterar para <code>getStaticProps</code>, acredito ser mais performático e fazer mais sentido, já que o tanto de projeto não muda tanto.</i>
+<i>estou usando o <code>getStaticProps</code> do Next para fazer a requisição API no github, por ser mais performático e encaixar bem no que eu busco, já que não tem muitas mudanças no que será mostrado em tela sem minha interferência no código.</i>
 
 ### Objetivo
-<p>O que precisava fazer era dar um jeito de juntar a imagem do projeto com o objeto do repositório correspondente que vem lá da API</p>
+<p>O que precisava fazer era dar um jeito de juntar a imagem do projeto com o objeto do repositório correspondente que vem da API</p>
 
 - Primeiro, criei um array de objetos, contendo cada um a print, id, e o "type" daquele projeto
 
 obs: O type é uma feature nova que adicionei agora no dia 17/11/22, esse type auxilia na filtragem dos projetos... entre web, mobile-first e todos 
 </br>
 
-<i>Futuramente, quem sabe eu não adiciono mais filtros...</i>
+<i>Futuramente, quem sabe eu não adicione mais filtros...</i>
 
 ```tsx
   /**
  * esse array serve para sincronizar as img estáticas com os repositórios pelo id;
  * Os ids desses objetos, batem com o id do projeto no repositório, e a img corresponde também;
- * A finalidade disso, é porque eu quero prints dos meus projetos.
+ * A finalidade disso, é porque eu quero imagens dos meus projetos.
  */
   const escopoRepositories = [
     {
@@ -74,26 +75,7 @@ obs: O type é uma feature nova que adicionei agora no dia 17/11/22, esse type a
       type: "web"
 
     },
-    {
-      img: Turismo,
-      id: 533521470
-      type: "web",
-    },
-    {
-      img: CalcGorjeta,
-      id: 482375390,
-      type: "web"
-    },
-    {
-      img: CardNFT,
-      id: 481977497,
-      type: "web"
-    },
-    {
-      img: Insta,
-      id: 534835307,
-      type: "web"
-    },
+    //entre outros projetos
   ]
 ```
 
