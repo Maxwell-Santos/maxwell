@@ -13,11 +13,9 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
-import AOS from "aos";
 import { RedesSociais } from "../RedesSociais";
 
 export function HeaderIntro() {
-  useEffect(() => { AOS.init() }, [])
 
   const [width, setWidth] = useState(0)
 
@@ -155,7 +153,6 @@ export function HeaderIntro() {
           border-b-2 border-b-header backdrop-blur-sm
           transition-all
           `}
-            data-aos="fade-down"
           >
             <div onClick={() => window.scrollTo(0, 0)}>
               <Logo />

@@ -1,35 +1,62 @@
 import { useEffect } from "react";
 import { TitleSection } from "./TitleSection";
 import { Roadmap } from "./Roadmap";
-import AOS from "aos";
 
 import { FadeCircle } from "./Circles";
 
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from "react-intersection-observer";
+
+const leftVariant = {
+  visible: {opacity:1, x:0, transition: { duration: 0.7 }},
+  hidden: {opacity:0, x:-200}
+}
+const rightVariant = {
+  visible: {opacity:1, x:0, transition: { duration: 0.7 }},
+  hidden: {opacity:0, x:200}
+}
+
 export function About() {
+  const control = useAnimation()
+  const [ref, inView] = useInView()
+
   useEffect(() => {
-    AOS.init(
-      {
-        duration: 900,
-      }
-    )
-  }, [])
+    if(inView) {
+      control.start("visible")
+    } else {
+      control.start("hidden")
+    }
+  },[control, inView])
 
   return (
-    <section
-      className="about"
-    >
+
+    <section className="about">
       <FadeCircle />
 
       <TitleSection title="Sobre" />
 
+      <div
+      className="flex flex-col-reverse justify-center items-start gap-9 sm:flex-row"
+      >
 
-      <div className="flex flex-col-reverse justify-center items-start gap-9 sm:flex-row">
-
-        <div className="flex-1" data-aos="fade-right">
+        <motion.div 
+        className="flex-1"
+        ref={ref}
+        variants={leftVariant}
+        initial="hidden"
+        animate={control}     
+        >
           <Roadmap />
-        </div>
+        </motion.div>
 
-        <div className="flex-1" data-aos="fade-left">
+        <motion.div 
+        className="flex-1"
+        ref={ref}
+        variants={rightVariant}
+        initial="hidden"
+        animate={control}     
+        
+        >
 
           <div className="mb-7">
             <h3 >Introdução</h3>
@@ -74,7 +101,7 @@ export function About() {
               Porém existe diferença, a arte é geralmente aberta para várias interpretações, diferente do desenvolvimento de software, onde tudo que tem ali na tela não é aberto a interpretação. Se for, <strong>está errado</strong>. Porque o software tem que ser funcional e clara suas funcionalidades.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

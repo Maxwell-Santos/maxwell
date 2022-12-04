@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { TitleSection } from "./TitleSection";
 
 import axios from 'axios'
-import AOS from "aos";
 
 import Alert from "@mui/material/Alert";
 
@@ -11,6 +10,13 @@ import CloseRounded from "@mui/icons-material/CloseRounded";
 import { FadeCircle } from "./Circles";
 import { RedesSociais } from "./RedesSociais";
 import { CircularProgress } from "@mui/material";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+const contactVariant = {
+  visible: {opacity:1, y:0, transition: { duration: 0.5 }},
+  hidden: {opacity:0, y:200}
+}
 
 export function Contact() {
   const [modalSuccess, setModalSuccess] = useState(false);
@@ -58,11 +64,21 @@ export function Contact() {
     setSize(value.length)
   }
 
-  useEffect(() => { AOS.init() }, [])
-
   modalSuccess && setTimeout(() => {
     setModalSuccess(false)
   }, 5000)
+
+  
+  const control = useAnimation()
+  const [ref, inView] = useInView()
+  useEffect(() => {
+    if(inView) {
+      control.start("visible")
+    } else {
+      control.start("hidden")
+    }
+  },[control, inView])
+
 
   return (
     <section
@@ -73,20 +89,15 @@ export function Contact() {
       <FadeCircle />
 
       <div className="flex flex-row-reverse items-center gap-4 md:gap-0">
-        <div
-          data-aos="fade-up"
+        <motion.div
           className="w-[95%] h-fit max-w-xl bg-contact my-10 mx-auto p-6 px-5 md:px-10 gap-5 rounded-xl
         flex items-center overflow-hidden
         md:min-h-[400px] lg:w-[70%]"
+        ref={ref}
+        variants={contactVariant}
+        initial="hidden"
+        animate={control} 
         >
-
-          {/* <img
-            src={"/cc.svg"}
-            alt="contact image"
-            className="object-contain w-full sm:w-[150px] md:w-[250px] overflow-hidden hidden md:block
-            opacity-70
-            "
-          /> */}
 
           <form
             onSubmit={handleSubmit(submit)}
@@ -114,7 +125,7 @@ export function Contact() {
                 onClick={() => resetField("name")}
               />
 
-              <span data-aos="fade-right" className="alert">{varName?.toString()}</span>
+              <span className="alert">{varName?.toString()}</span>
             </label>
 
             <label>
@@ -146,7 +157,7 @@ export function Contact() {
 
                 />
               </div>
-              <span data-aos="fade-right" className="alert">{varEmail?.toString()}</span>
+              <span className="alert">{varEmail?.toString()}</span>
             </label>
 
             <label>
@@ -182,7 +193,7 @@ export function Contact() {
               <span className={`text-sm ${size >= 600 ? "font-bold" : "text-nav"}`}>
                 {size}/600
               </span>
-              <span data-aos="fade-right"> {varFeedback?.toString()}</span>
+              <span> {varFeedback?.toString()}</span>
             </label>
 
             <button
@@ -202,7 +213,7 @@ export function Contact() {
               }
             </button>
           </form>
-        </div>
+        </motion.div>
 
         <RedesSociais />
       </div>

@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
-import AOS from "aos";
 
 import DownloadIcon from "@mui/icons-material/Download";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import { Link } from "react-scroll";
 
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from "react-intersection-observer";
+
+const introVariant = {
+  visible: {opacity:1, x:0, transition: { duration: 0.5 }},
+  hidden: {opacity:0, x:-200}
+}
+
 
 export function Intro() {
   const [curriculum , setCurriculum] = useState("")
-  useEffect(() => { AOS.init() }, [])
   const [animate, setAnimate] = useState(false)
 
   const mySkills = ["frontend developer", "web developer", "ui/ux", "fullstack"]
@@ -33,16 +39,31 @@ export function Intro() {
     setAnimate(true)
   },[])
 
+  const control = useAnimation()
+  const [ref, inView] = useInView()
+
+  useEffect(() => {
+    if(inView) {
+      control.start("visible")
+    } else {
+      control.start("hidden")
+    }
+  },[control, inView])
+
   return (
-    <section
+    <motion.section
       className="w-full h-[80vh] 
       flex flex-col justify-center gap-10
       md:h-auto"
+
+      ref={ref}
+      variants={introVariant}
+      initial="hidden"
+      animate={control} 
     >
       <div
         className="w-full flex flex-col gap-4 
         md:w-3/4 2xl:w-4/5"
-        data-aos="fade-right"
       >
         <div
           className="border-l-8 border-secondary p-3
@@ -99,7 +120,7 @@ export function Intro() {
           className="text-articles animate-bounce"
         />
       </Link>
-    </section>
+    </motion.section>
   )
 }
 
