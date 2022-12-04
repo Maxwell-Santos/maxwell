@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useMemo } from "react";
 import { TitleSection } from "./TitleSection";
 import { Roadmap } from "./Roadmap";
 
@@ -18,9 +18,11 @@ const rightVariant = {
 
 export function About() {
   const control = useAnimation()
+  const controlAbout = useAnimation()
   const [ref, inView] = useInView()
+  const [refAbout, inViewAbout] = useInView()
 
-  useEffect(() => {
+  useMemo(() => {
     if(inView) {
       control.start("visible")
     } else {
@@ -28,8 +30,15 @@ export function About() {
     }
   },[control, inView])
 
-  return (
+  useMemo(() => {
+    if(inViewAbout) {
+      controlAbout.start("visible")
+    } else {
+      controlAbout.start("hidden")
+    }
+  },[controlAbout, inViewAbout])
 
+  return (
     <section className="about">
       <FadeCircle />
 
@@ -51,16 +60,15 @@ export function About() {
 
         <motion.div 
         className="flex-1"
-        ref={ref}
+        ref={refAbout}
         variants={rightVariant}
         initial="hidden"
-        animate={control}     
-        
+        animate={controlAbout}     
         >
 
           <div className="mb-7">
-            <h3 >Introdução</h3>
-            <p >
+            <h3>Introdução</h3>
+            <p>
               Formado como técnico em <strong>Desenvolvimento de Sistemas</strong>, meu foco é me especializar no Frontend.
             </p>
             <br />
@@ -102,6 +110,7 @@ export function About() {
             </p>
           </div>
         </motion.div>
+
       </div>
     </section>
   )
