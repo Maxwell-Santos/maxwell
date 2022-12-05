@@ -20,7 +20,6 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
     fetch(data.languages_url)
       .then(response => response.json())
       .then(data => setLanguages(data))
-
   }, [data.languages_url])
 
   const name = data.name.replaceAll("-", " ")
@@ -31,7 +30,6 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
       transition-all 
       md:overflow-hidden 
       z-0"
-
     >
       <div
         className="p-3 w-full h-fit flex flex-col gap-5 

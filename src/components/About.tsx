@@ -7,28 +7,24 @@ import { FadeCircle } from "./Circles";
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from "react-intersection-observer";
 
-const leftVariant = {
-  visible: {opacity:1, x:0, transition: { duration: 0.7 }},
-  hidden: {opacity:0, x:-200}
-}
 const rightVariant = {
-  visible: {opacity:1, x:0, transition: { duration: 0.7 }},
-  hidden: {opacity:0, x:200}
+  visible: {
+    opacity:1, 
+    scale: 1,
+    x:0, 
+    transition: { duration: 0.5 }
+  },
+  
+  hidden: {
+    opacity:0, 
+    scale: .9,
+    x:200
+  }
 }
 
 export function About() {
-  const control = useAnimation()
   const controlAbout = useAnimation()
-  const [ref, inView] = useInView()
   const [refAbout, inViewAbout] = useInView()
-
-  useMemo(() => {
-    if(inView) {
-      control.start("visible")
-    } else {
-      control.start("hidden")
-    }
-  },[control, inView])
 
   useMemo(() => {
     if(inViewAbout) {
@@ -48,15 +44,11 @@ export function About() {
       className="flex flex-col-reverse justify-center items-start gap-9 sm:flex-row"
       >
 
-        <motion.div 
-        className="flex-1"
-        ref={ref}
-        variants={leftVariant}
-        initial="hidden"
-        animate={control}     
+        <div
+        className="flex-1"            
         >
           <Roadmap />
-        </motion.div>
+        </div>
 
         <motion.div 
         className="flex-1"
@@ -85,28 +77,32 @@ export function About() {
               Meu objetivo atualmente é atuar no Frontend.
             </p>
             <br />
-            <p>As tecnologias que estudo e crio projetos atualmente é o Nextjs, React, Tailwind, Material UI, Headless UI, Styled-Components entre outras tecnologia, como para envio de emails, versionamento de código, componentes etc. Tudo afim de ajudar o usuário da melhor forma e a ter a melhor experiência.</p>
+            <p>As tecnologias que estudo e crio projetos atualmente são: o Nextjs, React, Tailwind, Material UI, Headless UI, Styled-Components entre outras tecnologias, como para envio de emails, versionamento de código, componentes de layout etc. Tudo afim de ajudar o usuário da melhor forma e a ter a melhor experiência.</p>
 
             <br />
-            <p>Busco oportunidades de crescimento pessoal e profissional, sempre estudando e disposto a dar resultados, agregar meus conhecimentos e todo esse gosto pela tecnologia.
+            <p>Busco oportunidades de crescimento pessoal e profissional, estou sempre estudando, todo dia aprendendo ou fixando algo novo e ansioso para colocar em prática, agregar meus conhecimentos e o pela tecnologia.
             </p>
           </div>
 
           <div className="mb-7" >
-            <h3 >Paixões</h3>
+            <h3>Paixões</h3>
             <p>
-              Sou apaixonado em programar, gosto de desenhar, música, frequentar museus...
+              Sou apaixonado por programar, gosto de desenhar, música, as vezes frequentar museus...
               Por isso, escolhi o desenvolvimento de software, e desenvolver habilidades no UI/UX.
             </p>
             <br />
             <p>
-              É muito interessante como as cores, formas geométricas e posicionamento, tem o poder de influenciar as escolhas de quem está interagindo no meu site.
-              Eu acho tudo isso é incrível!
+              É muito interessante como as cores, formas geométricas e posicionamento de elementos na tela, conseguem fazer o usuário tomar decisões diferentes e inconscientemente.
+              E isso é legal, interessante!
             </p>
             <br />
             <p>
-              Essa é a forma que encontrei de mostrar minha arte, e ter o potencial para mudar a vida das pessoas com a arte da tecnologia.
-              Porém existe diferença, a arte é geralmente aberta para várias interpretações, diferente do desenvolvimento de software, onde tudo que tem ali na tela não é aberto a interpretação. Se for, <strong>está errado</strong>. Porque o software tem que ser funcional e clara suas funcionalidades.
+              Desenvolver software foi a forma que encontrei para mostrar a minha arte, e ter o potencial para mudar a vida das pessoas com a tecnologia.
+              Apesar da arte geralmente ser aberta a interpretações, diferente do desenvolvimento do software, que tudo ali foi programado para funcionar daquela forma consistentemente, sem mais nem menos, apesar dessa diferença entre os dois, eu ainda vejo ambos como forma de quem criou se expressar.
+            </p>
+            <br />
+            <p>
+            Fazer algo que você gosta no trabalho, e o mesmo que estar sempre de férias. Apesar do estresse, de quando algo não funciona do jeito que deveria, programar é terapêutico para mim. 
             </p>
           </div>
         </motion.div>

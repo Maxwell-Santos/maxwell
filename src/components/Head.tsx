@@ -1,10 +1,10 @@
 import Head from "next/head";
 
-export default function head() {
+export default function head({children}: any) {
 
   return (
    <Head>
-    <title>Maxwell Alves dos Santos</title>
+    <title>{children}</title>
    </Head>
  )
 }

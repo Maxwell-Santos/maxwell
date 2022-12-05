@@ -5,15 +5,8 @@ export interface ProjectProps {
   homepage?: string;
   languages_url: string;
   type: "mobile-first" | "web";
-
 }
 
-export interface ProjectWithImageProps {
-  id: number;
-  name: string;
-  html_url: string;
-  homepage?: string;
+export interface ProjectWithImageProps extends ProjectProps{
   img?: any;
-  languages_url: string;
-  type: "mobile-first" | "web";
 }

@@ -26,12 +26,11 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
       <p>Feedback:${feedback}</p>`
     })
 
-
     console.log('mensagem enviada com sucesso', emailResponse)
-  
+    res.status(200).json(req.body)
+    
   } catch (error) {
     console.error(error)
   }
 
-  res.status(200).json(req.body)
 }

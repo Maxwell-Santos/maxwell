@@ -8,6 +8,7 @@ import { TitleSection } from "../components/TitleSection";
 
 import projectsPhotos from '../importAssets/importsProjectsPhotos';
 
+import { Fade, Modal } from '@mui/material';
 import { FreeMode, Mousewheel, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -17,7 +18,6 @@ import "swiper/css/free-mode";
 //INTERFACE
 import { ProjectProps } from '../interfaces/RepositoriesProps';
 import { FadeCircle } from '../components/Circles';
-import { Fade, Modal } from '@mui/material';
 interface RepositoriesPropsShow extends ProjectProps {
   img: any
 }
@@ -138,7 +138,7 @@ export default function Portfolios({ repositories }: any) {
 
   return (
     <>
-      <Head />
+      <Head>Maxwell Alves dos Santos - Portfólio</Head>
 
       <section className="my-24 max-w-full px-3">
         <Header page="portfolio" />
@@ -157,6 +157,7 @@ export default function Portfolios({ repositories }: any) {
           >
             Todos
           </button>
+
           <button
             className={`linkSection ${projectType == 'web' && "bg-secondary/50"}`}
             title="projetos web"
@@ -164,6 +165,7 @@ export default function Portfolios({ repositories }: any) {
           >
             Web
           </button>
+
           <button
             className={`linkSection ${projectType == 'mobile-first' && "bg-secondary/50"}`}
             title="projetos mobile first"
@@ -171,10 +173,13 @@ export default function Portfolios({ repositories }: any) {
           >
             Mobile-first
           </button>
+
           <span
             className='bg-[#EEEEEE30] rounded-full px-2 flex items-center justify-center text-sm cursor-pointer'
             onClick={handleModal}
-          >?</span>
+          >
+            ?
+          </span>
 
           <Modal
             open={open}

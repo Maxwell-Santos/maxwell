@@ -1,13 +1,25 @@
-interface StackProps {
-  date: string;
-  title: string;
-  place: string;
-  primary?: boolean;
-  id?: string;
+import { motion, useAnimation } from 'framer-motion'
+import { useMemo } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { StackProps } from '../interfaces/StackProps'
+
+const ulVariant = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: { duration: .5 }
+  },
+  // transition: { staggerDirection: 1 }
+  
+  hidden: {
+    opacity: 0,
+    scale: .9,
+    x: -200,
+  }
 }
 
 function Stack({ date, place, title, primary, id }: StackProps) {
-
   return (
     <a
       href={`${primary ? '#' : `https://www.dio.me/certificate/${id}/`}`}
@@ -37,9 +49,25 @@ function Stack({ date, place, title, primary, id }: StackProps) {
 }
 
 export function Roadmap() {
+  const control = useAnimation()
+  const [ref, inView] = useInView()
+
+  useMemo(() => {
+    if (inView) {
+      control.start("visible")
+    } else {
+      control.start("hidden")
+    }
+  }, [control, inView])
 
   return (
-    <ul className="flex flex-col items-center max-w-lg mx-auto">
+    <motion.ul
+      className="flex flex-col items-center max-w-lg mx-auto"
+      ref={ref}
+      variants={ulVariant}
+      initial="hidden"
+      animate={control}
+    >
       <Stack
         primary
         date={"▪ fev 2019 - dez 2021"}
@@ -88,7 +116,7 @@ export function Roadmap() {
         place={"DIO - Digital Inovation One"}
         id={"ACFBADF4"}
       />
-    </ul>
+    </motion.ul>
   )
 }
 
