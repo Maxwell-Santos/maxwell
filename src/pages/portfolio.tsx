@@ -193,7 +193,7 @@ export default function Portfolios({ repositories }: any) {
                 w-[90%] sm:w-full max-w-md rounded-md'
               >
                 <span>
-                  Apesar dos projetos serem responsivos, decidi separar os que foram pensando primeiramente para dispositivos móveis. Enquanto não tenho projetos finalizados com React-Native.
+                  Apesar dos projetos serem responsivos, decidi separar os que foram pensados primeiramente para dispositivos móveis. Enquanto não tenho projetos finalizados com React-Native.
                 </span>
               </div>
             </Fade>

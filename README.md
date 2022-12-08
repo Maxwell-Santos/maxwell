@@ -1,5 +1,7 @@
 # MEU PORTFÓLIO
 
+<img src="./public/video.gif" alt="apresentação do projeto">
+
 - [Tecnologias usadas](#tecnologias-usadas)
 - [Processo de aprendizagem](#meu-processo-de-aprendizagem)
 - [Github](#github)
