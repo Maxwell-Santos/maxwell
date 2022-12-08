@@ -2,10 +2,10 @@
 
 <img src="./public/video.gif" alt="apresentação do projeto">
 
+## Mão no código
 - [Tecnologias usadas](#tecnologias-usadas)
 - [Processo de aprendizagem](#meu-processo-de-aprendizagem)
 - [Github](#github)
-## Mão no código
   - [O que eu fiz](#o-que-eu-fiz)
   - [Objetivo](#objetivo)
 - [Listagem de certificados](#como-listei-meus-certificados-usando-o-next)
