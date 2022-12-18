@@ -1,6 +1,8 @@
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import GitHubIcon from '@mui/icons-material/GitHub';
+
 
 interface RedesSociaisProps {
   mobile?: boolean;
@@ -13,13 +15,27 @@ export function RedesSociais({ mobile }: RedesSociaisProps) {
       {
         mobile ? ( //se for mobile, os ícones serão transferidos
           <>
+            <a href="https://github.com/Maxwell-Santos"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span
+              className="flex items-center p-2 bg-cards rounded-md"
+              >
+                <GitHubIcon
+                  fontSize="large"
+                  className="text-articles hover:text-secondary transition-all"
+                />
+              </span>
+
+            </a>
 
             <a href="https://api.whatsapp.com/send?phone=5511977761749&text=Me%20interessei%20pelo%20seu%20trabalho%2C%20vamos%20conversar%20%3F"
               rel="noreferrer"
               target="_blank"
             >
               <span
-                className="flex items-center p-2 bg-cards rounded-md text-green-500 gap-2"
+                className="flex items-center p-2 bg-cards rounded-md text-green-500"
               >
                 <WhatsAppIcon
                   fontSize="large"
@@ -32,7 +48,7 @@ export function RedesSociais({ mobile }: RedesSociaisProps) {
               target="_blank"
             >
               <span
-                className="flex items-center p-2 bg-cards rounded-md text-pink-700 gap-2"
+                className="flex items-center p-2 bg-cards rounded-md text-pink-700"
               >
                 <InstagramIcon
                   fontSize="large"
@@ -45,7 +61,7 @@ export function RedesSociais({ mobile }: RedesSociaisProps) {
               target="_blank"
             >
               <span
-                className="flex items-center p-2 bg-cards rounded-md text-sky-500 gap-1"
+                className="flex items-center p-2 bg-cards rounded-md text-sky-500"
               >
                 <LinkedInIcon
                   fontSize="large"

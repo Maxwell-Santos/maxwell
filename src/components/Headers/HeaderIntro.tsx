@@ -7,9 +7,6 @@ import Logo from '../Logo';
 import SegmentIcon from '@mui/icons-material/SegmentRounded';
 import CloseIcon from '@mui/icons-material/CloseRounded';
 
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
@@ -86,7 +83,7 @@ export function HeaderIntro() {
             >
 
               <nav
-                className="text-[16px] p-7 h-full flex flex-col justify-center bg-primary
+                className="text-[16px] p-7 h-full flex flex-col justify-center bg-primary/50 backdrop-blur-md
                 md:gap-5"
               >
 
@@ -97,49 +94,44 @@ export function HeaderIntro() {
                   <div className="flex-1 flex flex-col items-center justify-center gap-5">
                     <ScrollLink
                       to='about'
-                      offset={-25}
+                      offset={-70}
+                      onClick={toggleDrawer(open)}
                       className="text-xl uppercase
                         hover:text-secondary
                         focus:text-secondary
                         transition-all"
-                        
                     >
                       Sobre
                     </ScrollLink>
                     <ScrollLink
                       to='contact'
-                      offset={-70}
+                      // offset={-70}
+                      onClick={toggleDrawer(open)}
                       className="text-xl uppercase
-                        hover:text-secondary hover:border-secondary
-                        focus:text-secondary focus:border-secondary
-                        transition-all"
-                        
+                      hover:text-secondary hover:border-secondary
+                      focus:text-secondary focus:border-secondary
+                      focus:border-b
+                      transition-all"
+
                     >
                       Contato
                     </ScrollLink>
                   </div>
 
-                  <div className="w-full border-t-[0.5px] border-articles border-opacity-10 mt-auto py-4 ">
-                    <Link href="/portfolio">
-                      <span
-                        className="p-2 w-full
-                      text-btn uppercase font-robotoCondensed font-medium tracking-wider rounded-md
-                      flex items-center justify-center transition-colors bg-secondary text-lg"
-                      
-                      >
-                        Portfólio
-                      </span>
-                    </Link>
-                  </div>
+                  {/* <div className="w-full border-t-[0.5px] border-articles border-opacity-10 mt-auto">
+                  </div> */}
+                  <fieldset className='bg-white/50 w-full h-[.5px] mb-3'></fieldset>
 
                 </div>
 
                 {/*social media */}
                 <div
-                  className="flex w-full justify-end gap-4 flex-wrap"
+                  className="flex w-full justify-end gap-4 flex-wrap items-center"
                 >
-                <RedesSociais mobile/>
+
+                  <RedesSociais mobile />
                 </div>
+
               </nav>
             </SwipeableDrawer>
           </>
@@ -170,7 +162,7 @@ export function HeaderIntro() {
                   className="p-1
                   hover:text-secondary 
                   focus:text-secondary transition-all cursor-pointer"
-                  
+
                 >
                   Sobre
                 </ScrollLink>
@@ -187,7 +179,7 @@ export function HeaderIntro() {
                   cursor-pointer
                   rounded-sm
                   group"
-                  
+
                 >
                   Contato
 
@@ -209,7 +201,7 @@ export function HeaderIntro() {
                     transition-all
                     w-fit 
                     cursor-pointer"
-                    
+
                   >
                     Portfólio
                   </span>
@@ -217,13 +209,13 @@ export function HeaderIntro() {
               </div>
 
               <a href="https://github.com/Maxwell-Santos"
-              target="_blank"
-              rel="noreferrer"
+                target="_blank"
+                rel="noreferrer"
               >
-                
+
                 <GitHubIcon
-                fontSize="large"
-                className="ml-5 text-articles hover:text-secondary transition-all"
+                  fontSize="large"
+                  className="ml-5 text-articles hover:text-secondary transition-all"
                 />
               </a>
             </nav>

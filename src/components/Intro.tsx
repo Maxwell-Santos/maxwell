@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
+import Link from 'next/link'
 
 import DownloadIcon from "@mui/icons-material/Download";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-import { Link } from "react-scroll";
+import { Link as LinkScroll } from "react-scroll";
 
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from "react-intersection-observer";
 
 const introVariant = {
-  visible: {opacity:1, x:0, transition: { duration: 0.5 }},
-  hidden: {opacity:0, x:-200}
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, x: -200 }
 }
 
 
 export function Intro() {
-  const [curriculum , setCurriculum] = useState("")
+  const [curriculum, setCurriculum] = useState("")
   const [animate, setAnimate] = useState(false)
 
   const mySkills = ["frontend developer", "web developer", "ui/ux", "fullstack"]
-  
+
   let counter = 0
   const [skill, setSkill] = useState(counter)
 
@@ -31,24 +32,24 @@ export function Intro() {
     return () => clearInterval(interval);
   }, [])
 
-  
+
   useEffect(() => {
-    navigator.language.includes("en") ? 
-    setCurriculum("/resumes/Maxwell Curriculum(en).pdf") : setCurriculum("/resumes/Maxwell Currículo.pdf")
-    
+    navigator.language.includes("en") ?
+      setCurriculum("/resumes/Maxwell Curriculum(en).pdf") : setCurriculum("/resumes/Maxwell Currículo.pdf")
+
     setAnimate(true)
-  },[])
+  }, [])
 
   const control = useAnimation()
   const [ref, inView] = useInView()
 
   useEffect(() => {
-    if(inView) {
+    if (inView) {
       control.start("visible")
     } else {
       control.start("hidden")
     }
-  },[control, inView])
+  }, [control, inView])
 
   return (
     <motion.section
@@ -59,7 +60,7 @@ export function Intro() {
       ref={ref}
       variants={introVariant}
       initial="hidden"
-      animate={control} 
+      animate={control}
     >
       <div
         className="w-full flex flex-col gap-4 
@@ -81,7 +82,7 @@ export function Intro() {
             md:text-5xl w-fit select-none"
           >
             <span
-              className= {`bg-primary w-full h-full border-l-2 border-blue-500 
+              className={`bg-primary w-full h-full border-l-2 border-blue-500 
               absolute top-0 bottom-0  overflow-hidden
               ${animate && "animate-typing"}
               `}
@@ -94,20 +95,35 @@ export function Intro() {
           A tecnologia facilita a vida das pessoas e muda o jeito que elas veem o mundo, eu quero fazer parte disso. Sou apaixonado por tecnologia, por sempre aprender coisas novas. Poder desenvolver qualquer coisa, e saber que aquilo pode mudar a vida de alguém, me deixa muito animado e é o que me move para frente.
         </p>
 
-        <a
-          href={curriculum} download
-          className="w-fit px-6 py-3 rounded-md
-          text-btn text-base font-bold font-roboto 
-          transition-all bg-secondary 
-          shadow-md
-          hover:bg-hover-btn hover:-translate-y-1
-          "
+        <nav
+          className="w-full flex flex-col gap-5 mt-10"
         >
-          <DownloadIcon /> Baixar CV
-        </a>
+          <a
+            href={curriculum} download
+            className="flex-1 md:w-fit text-center px-6 py-3 rounded-md
+            text-btn text-base uppercase font-roboto 
+            transition-all border border-secondary md:bg-secondary 
+            hover:bg-hover-btn hover:-translate-y-1
+            "
+          >
+            <DownloadIcon /> Baixar CV
+          </a>
+
+          <Link href="/portfolio">
+            <span
+              className="flex-1 md:hidden text-center px-6 py-3 rounded-md
+              text-btn text-base uppercase font-roboto 
+              transition-all bg-secondary 
+              hover:bg-hover-btn hover:-translate-y-1"
+            >
+              Portfólio
+            </span>
+          </Link>
+
+        </nav>
       </div>
 
-      <Link
+      <LinkScroll
         activeClass="active"
         to="about"
         offset={-60}
@@ -119,7 +135,7 @@ export function Intro() {
           fontSize="large"
           className="text-articles animate-bounce"
         />
-      </Link>
+      </LinkScroll>
     </motion.section>
   )
 }
