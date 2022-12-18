@@ -2,8 +2,8 @@
 .MuiDrawer-root > .MuiPaper-root{
   overflow: visible;
 }
-.css-1ab2xsx{
-  background-color: transparent;
+.MuiDrawer-root .css-1ab2xsx{
+  background-color: transparent !important;
 }
 
 .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
