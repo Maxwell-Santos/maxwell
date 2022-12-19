@@ -6,8 +6,10 @@ import Movies from '../../public/img/movies.png';
 import Turismo from '../../public/img/turismo.png';
 import Idesign from '../../public/img/dsinside.png';
 import CardapioDigital from '../../public/img/cardapio.png';
+import VitrineGames from '../../public/img/vitrinegames.png';
 
 export default {
+  VitrineGames,
   CardapioDigital,
   Idesign,
   CalcGorjeta,
