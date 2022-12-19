@@ -71,7 +71,7 @@ export default function Portfolios({ repositories }: any) {
  */
   const escopoRepositories = [
     {
-      img: projectsPhotos.CardapioDigital,
+      img: projectsPhotos.VitrineGames,
       id: 580024318,
       type: "web",
     },
