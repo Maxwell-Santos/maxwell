@@ -10,7 +10,6 @@ const ulVariant = {
     scale: 1,
     transition: { duration: .5 }
   },
-  // transition: { staggerDirection: 1 }
   
   hidden: {
     opacity: 0,

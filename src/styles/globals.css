@@ -4,7 +4,7 @@
 
 @layer base{
   html{
-    @apply text-[16px] md:text-[18px] scroll-smooth
+    @apply text-[16px] md:text-[18px] scroll-smooth selection:bg-[#0055ff48]
   }
   body{
     @apply bg-primary text-default
