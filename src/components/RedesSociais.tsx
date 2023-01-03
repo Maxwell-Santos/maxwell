@@ -98,9 +98,9 @@ export function RedesSociais({ mobile }: RedesSociaisProps) {
                 />
                 <span
                   className="group-hover:opacity-100 opacity-0 duration-500
-                  absolute -right-[140px] top-1/2 -translate-y-1/2
-                  border px-2 p-1 rounded-md
-                  "
+                  absolute -right-[125px] top-1/2 -translate-y-1/2
+                  border border-gray-700 px-2 p-1 rounded-md
+                  text-sm"
                 >
                   Perfil Pessoal
                 </span>

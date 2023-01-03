@@ -44,7 +44,6 @@ module.exports = {
       },
 
       animation:{
-        typing: 'typing 4.1s infinite',
         showAlert: 'alert 5s ease',
       },
 
@@ -58,17 +57,7 @@ module.exports = {
             opacity: 0,
             visibility: 'invisible',
           },
-        },
-
-        typing: {
-          '0%, 100%': {
-            transform: 'translateX(0%)',
-          },
-          '50%': {
-            transform: 'translateX(100%)',
-          },
-        },
-
+        }
       },
     },
   },

@@ -7,8 +7,10 @@ import Turismo from '../../public/img/turismo.png';
 import Idesign from '../../public/img/dsinside.png';
 import CardapioDigital from '../../public/img/cardapio.png';
 import VitrineGames from '../../public/img/vitrinegames.png';
+import Forca from '../../public/img/forca.png';
 
 export default {
+  Forca,
   VitrineGames,
   CardapioDigital,
   Idesign,

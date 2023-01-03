@@ -22,9 +22,14 @@
     @apply font-inter text-nav
 
   }
-  p, span{
+  p{
     @apply font-inter text-articles leading-5 font-light 
   }
+
+  span{
+    @apply font-robotoCondensed text-articles font-light 
+  }
+
   header{
     @apply border-b-header
   }

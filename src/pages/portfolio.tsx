@@ -71,6 +71,11 @@ export default function Portfolios({ repositories }: any) {
  */
   const escopoRepositories = [
     {
+      img: projectsPhotos.Forca,
+      id: 582687705,
+      type: "mobile-first",
+    },
+    {
       img: projectsPhotos.VitrineGames,
       id: 580024318,
       type: "web",

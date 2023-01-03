@@ -20,8 +20,9 @@ export function TechnologiesCard({name, img}:TechProps) {
     alt={`logo da tecnologia ${name}`}
     width={50}    
     />
+
     <span
-    className="text-sm hidden font-medium uppercase md:block md:text-base"
+    className="font-inter text-sm hidden font-light md:block md:text-lg"
     >
     {name}
     </span>

@@ -9,6 +9,8 @@ import { Link as LinkScroll } from "react-scroll";
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from "react-intersection-observer";
 
+import { Typewriter } from 'react-simple-typewriter'
+
 const introVariant = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   hidden: { opacity: 0, x: -200 }
@@ -17,27 +19,12 @@ const introVariant = {
 
 export function Intro() {
   const [curriculum, setCurriculum] = useState("")
-  const [animate, setAnimate] = useState(false)
 
-  const mySkills = ["frontend developer", "web developer", "ui/ux", "fullstack"]
-
-  let counter = 0
-  const [skill, setSkill] = useState(counter)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSkill(counter => counter === 3 ? counter = 0 : counter + 1);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [])
-
+  const mySkills = ["frontend developer", "web developer", "UI/UX", "fullstack"]
 
   useEffect(() => {
     navigator.language.includes("en") ?
       setCurriculum("/resumes/Maxwell Curriculum(en).pdf") : setCurriculum("/resumes/Maxwell Currículo.pdf")
-
-    setAnimate(true)
   }, [])
 
   const control = useAnimation()
@@ -71,24 +58,23 @@ export function Intro() {
           md:p-5 md:py-7 flex flex-col gap-2"
         >
           <h1
-            className="text-3xl md:text-4xl leading-7"
+            className="text-3xl md:text-4xl leading-7 font-inter"
           >
             Olá, me chamo Maxwell
           </h1>
 
           <span
-            className="relative py-1 pr-2
-            font-robotoCondensed text-3xl font-light uppercase
-            md:text-5xl w-fit select-none"
+            className="relative py-1 pr-2 text-3xl uppercase
+            md:text-5xl select-none flex items-center"
           >
-            <span
-              className={`bg-primary w-full h-full border-l-2 border-blue-500 
-              absolute top-0 bottom-0  overflow-hidden
-              ${animate && "animate-typing"}
-              `}
-            >
-            </span>
-            {mySkills[skill]}
+            <Typewriter
+              words={mySkills}
+              loop
+              cursor
+              typeSpeed={100}
+              deleteSpeed={50}
+              delaySpeed={2000}
+            />
           </span>
         </div>
         <p>
