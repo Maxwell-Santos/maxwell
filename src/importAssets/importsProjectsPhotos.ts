@@ -8,8 +8,10 @@ import Idesign from '../../public/img/dsinside.png';
 import CardapioDigital from '../../public/img/cardapio.png';
 import VitrineGames from '../../public/img/vitrinegames.png';
 import Forca from '../../public/img/forca.png';
+import GalleryPhotos from '../../public/img/galleryphoto.png';
 
 export default {
+  GalleryPhotos,
   Forca,
   VitrineGames,
   CardapioDigital,
