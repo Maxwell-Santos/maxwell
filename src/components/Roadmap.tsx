@@ -18,22 +18,28 @@ const ulVariant = {
   }
 }
 
-function Stack({ date, place, title, primary, id }: StackProps) {
+function Stack({ date, place, title, primary, id, soon }: StackProps) {
   return (
     <a
       href={`${primary ? '#' : `https://www.dio.me/certificate/${id}/`}`}
       target={'_blank'} rel="noreferrer"
-      className={`${primary && 'pointer-events-none'} flex-1 w-full`}
+      className={`
+      ${primary && 'pointer-events-none'}
+      ${soon && 'pointer-events-none'}
+      flex-1 w-full`}
     >
       <li
         className={`px-2 py-3 mb-2 max-h-max 
           rounded-lg rounded-tl-none rounded-bl-none 
           border-l-4 border-secondary 
           md:px-4 md:py-6 transition-all duration-[400ms] 
-      ${primary ? "bg-[#0055ff98]" : "bg-cards hover:bg-[#0057ff66] hover:scale-105"} `}
+      ${primary ? "bg-[#0055ff98]" : "bg-cards hover:bg-[#0057ff66] hover:scale-105"}
+      ${soon && "bg-cards-soon"}`}
       >
-        <span className="text-sm">
+        <span className="text-sm flex justify-between">
           {date}
+
+          <span className='text-base'>{soon && 'em breve'}</span>
         </span>
 
         <h3 className="font-robotoCondensed text-xl font-thin mt-3" >
@@ -114,6 +120,21 @@ export function Roadmap() {
         title={"Programação para a internet com Javascript"}
         place={"DIO - Digital Inovation One"}
         id={"ACFBADF4"}
+      />
+
+      <Stack
+        date={"▪ jan 2023"}
+        title={"CS50"}
+        place={"Harvard - Material cedido pela Fundação Estudar"}
+        // id={"ACFBADF4"}
+        soon
+      />
+      <Stack
+        date={"▪ jan 2023"}
+        title={"Programação para a internet com Javascript"}
+        place={"Fundação Bradesco"}
+        // id={"ACFBADF4"}
+        soon
       />
     </motion.ul>
   )

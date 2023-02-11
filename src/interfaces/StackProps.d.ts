@@ -4,4 +4,5 @@ export interface StackProps {
   place: string;
   primary?: boolean;
   id?: string;
+  soon?: boolean
 }

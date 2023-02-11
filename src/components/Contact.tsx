@@ -59,9 +59,9 @@ export function Contact() {
     }
   }
 
-  const [size, setSize] = useState(0)
+  const [messageLength, setMessageLength] = useState(0)
   function checkMaxLength(value: string) {
-    setSize(value.length)
+    setMessageLength(value.length)
   }
 
   modalSuccess && setTimeout(() => {
@@ -113,7 +113,7 @@ export function Contact() {
                   }
                 })}
                 placeholder="nome"
-                className="py-2 px-3 w-full rounded-md text-articles tracking-wider"
+                className="py-2 px-3 w-full rounded-sm text-articles tracking-wider"
                 spellCheck={false}
                 name="name"
               />
@@ -143,7 +143,7 @@ export function Contact() {
                     }
                   })}
                   placeholder="max@exemplo.com"
-                  className="py-2 px-3 w-full rounded-md text-articles tracking-wider"
+                  className="py-2 px-3 w-full rounded-sm text-articles tracking-wider"
 
                   name="email"
                 />
@@ -175,7 +175,7 @@ export function Contact() {
                     }
                   })}
                   placeholder="mensagem"
-                  className="py-2 px-3 pr-5 w-full rounded-md text-articles tracking-wider"
+                  className="py-2 px-3 pr-5 w-full rounded-sm text-articles tracking-wider"
                   rows={5}
                   onChange={(event) => checkMaxLength(event.target.value)}
 
@@ -190,15 +190,15 @@ export function Contact() {
                   onClick={() => resetField("feedback")}
                 />
               </div>
-              <span className={`text-sm ${size >= 600 ? "font-bold" : "text-nav"}`}>
-                {size}/600
+              <span className={`text-sm ${messageLength >= 600 ? "font-bold text-red-700" : "text-nav"}`}>
+                {messageLength}/600
               </span>
               <span> {varFeedback?.toString()}</span>
             </label>
 
             <button
               type="submit"
-              className={`bg-secondary w-24 p-2 px-4 rounded-md ml-auto
+              className={`bg-secondary w-24 p-3 px-4 rounded-md ml-auto
             text-sm font-inter tracking-wide
             flex items-center justify-center
             transition-all cursor-pointer uppercase

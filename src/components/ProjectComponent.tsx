@@ -116,9 +116,9 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
             alt="Banner do projeto"
             height={500}
             width={800}
-            objectFit={"cover"}
-            className="transition all"
+            className="transition all object-cover"
             placeholder='blur'
+            blurDataURL='carregando'
           />
           : (
             <div

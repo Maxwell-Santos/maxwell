@@ -16,6 +16,7 @@ module.exports = {
         'primary': '#0B0B0C',
         'secondary': '#0047FF',
         'cards': '#adadad15',
+        'cards-soon': '#474747',
         'h-cards': '#141E61',
         'contact': '#12121280',
         'input-contact': '#EEEEEE10',
