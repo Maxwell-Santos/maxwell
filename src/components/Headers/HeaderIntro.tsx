@@ -159,33 +159,46 @@ export function HeaderIntro() {
                 <ScrollLink
                   to="about"
                   offset={-70}
-                  className="p-1
-                  hover:text-secondary 
-                  focus:text-secondary transition-all cursor-pointer"
-
-                >
-                  Sobre
-                </ScrollLink>
-
-                <ScrollLink
-                  to="contact"
-                  offset={-70}
-                  className="p-2 relative overflow-hidden
+                  className="p-2 px-3 relative overflow-hidden
                   hover:text-btn
                   focus:text-btn
                   hover:border-secondary 
                   focus:border-secondary 
                   transition-all
                   cursor-pointer
-                  rounded-sm
+                  rounded-lg
+                  group"
+
+                >
+                  Sobre
+                  <span
+                    className="absolute inset-0 translate-y-[95%] bg-secondary
+                  transition-all duration-300 ease-out
+                  -z-10
+                  group-hover:translate-y-0 
+                  group-focus:translate-y-0"
+                  ></span>
+                </ScrollLink>
+
+                <ScrollLink
+                  to="contact"
+                  offset={-70}
+                  className="p-2 px-3 relative overflow-hidden
+                  hover:text-btn
+                  focus:text-btn
+                  hover:border-secondary 
+                  focus:border-secondary 
+                  transition-all
+                  cursor-pointer
+                  rounded-lg
                   group"
 
                 >
                   Contato
 
                   <span
-                    className="absolute inset-0 translate-y-full bg-secondary
-                  transition-all
+                    className="absolute inset-0 translate-y-[95%] bg-secondary
+                  transition-all duration-300 ease-out
                   -z-10
                   group-hover:translate-y-0 
                   group-focus:translate-y-0"
@@ -194,14 +207,13 @@ export function HeaderIntro() {
 
                 <Link href="/portfolio">
                   <span
-                    className="bg-secondary p-2 py-3
+                    className="bg-secondary p-3
                     text-btn uppercase font-robotoCondensed font-medium tracking-wider 
                     flex items-center
                     hover:bg-hover-btn 
                     transition-all
                     w-fit 
                     cursor-pointer"
-
                   >
                     Portfólio
                   </span>

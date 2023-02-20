@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 import { TitleSection } from "./../TitleSection";
 import { TechnologiesCard } from "./Technologie";
@@ -24,6 +24,7 @@ const techVariant = {
   visible: {opacity:1, y:0, transition: { duration: 0.5 }},
   hidden: {opacity:0, y:200}
 }
+
 export function Skills() {
   const control = useAnimation()
   const [ref, inView] = useInView()

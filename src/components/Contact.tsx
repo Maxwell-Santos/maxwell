@@ -91,7 +91,7 @@ export function Contact() {
       <div className="flex flex-row-reverse items-center gap-4 md:gap-0">
         <motion.div
           className="w-[95%] h-fit max-w-xl bg-contact my-10 mx-auto p-6 px-5 md:px-10 gap-5 rounded-xl
-        flex items-center overflow-hidden
+        flex items-center overflow-hidden border-y border-b-slate-900 border-t-gray-700
         md:min-h-[400px] lg:w-[70%]"
         ref={ref}
         variants={contactVariant}

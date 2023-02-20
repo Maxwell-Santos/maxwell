@@ -60,6 +60,6 @@
   }
 
   .alert{
-  @apply text-sm text-[#ff8585]
+  @apply text-xs text-[#ff8585] tracking-wide
   }
 }

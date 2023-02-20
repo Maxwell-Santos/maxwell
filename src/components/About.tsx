@@ -9,16 +9,16 @@ import { useInView } from "react-intersection-observer";
 
 const rightVariant = {
   visible: {
-    opacity:1, 
+    opacity: 1,
     scale: 1,
-    x:0, 
+    x: 0,
     transition: { duration: 0.5 }
   },
-  
+
   hidden: {
-    opacity:0, 
+    opacity: 0,
     scale: .9,
-    x:200
+    x: 200
   }
 }
 
@@ -27,12 +27,12 @@ export function About() {
   const [refAbout, inViewAbout] = useInView()
 
   useMemo(() => {
-    if(inViewAbout) {
+    if (inViewAbout) {
       controlAbout.start("visible")
     } else {
       controlAbout.start("hidden")
     }
-  },[controlAbout, inViewAbout])
+  }, [controlAbout, inViewAbout])
 
   return (
     <section className="about">
@@ -41,21 +41,21 @@ export function About() {
       <TitleSection title="Sobre" />
 
       <div
-      className="flex flex-col-reverse justify-center items-start gap-9 sm:flex-row"
+        className="flex flex-col-reverse justify-center items-start gap-9 sm:flex-row"
       >
 
         <div
-        className="flex-1"            
+          className="flex-1"
         >
           <Roadmap />
         </div>
 
-        <motion.div 
-        className="flex-1"
-        ref={refAbout}
-        variants={rightVariant}
-        initial="hidden"
-        animate={controlAbout}     
+        <motion.div
+          className="flex-1"
+          ref={refAbout}
+          variants={rightVariant}
+          initial="hidden"
+          animate={controlAbout}
         >
 
           <div className="mb-7">
@@ -74,10 +74,10 @@ export function About() {
           <div className="mb-7" >
             <h3>Objetivos</h3>
             <p>
-              Meu objetivo atualmente é atuar no Frontend.
+              Meu objetivo atualmente é atuar como Frontend Developer.
             </p>
             <br />
-            <p>As tecnologias que estudo e crio projetos atualmente são: o Nextjs, React, Tailwind, Material UI, Headless UI, Styled-Components entre outras tecnologias, como para envio de emails, versionamento de código, componentes de layout etc. Tudo afim de ajudar o usuário da melhor forma e a ter a melhor experiência.</p>
+            <p>As tecnologias que estudo e crio projetos atualmente são: o Nextjs, React / React-Native, Tailwind, Material UI, Headless UI, Styled-Components entre outras tecnologias, como para envio de emails, versionamento de código, componentes de layout etc. Tudo afim de ajudar o usuário da melhor forma e a ter a melhor experiência.</p>
 
             <br />
             <p>Busco oportunidades de crescimento pessoal e profissional, estou sempre estudando, todo dia aprendendo ou fixando algo novo e ansioso para colocar em prática, agregar meus conhecimentos e o pela tecnologia.
@@ -87,23 +87,30 @@ export function About() {
           <div className="mb-7" >
             <h3>Paixões</h3>
             <p>
-              Sou apaixonado por programar, gosto de desenhar, música, as vezes frequentar museus...
-              Por isso, escolhi o desenvolvimento de software, e desenvolver habilidades no UI/UX.
+              Sou apaixonado por programar, gosto de desenhar, música, artes e entusiasta em UI/UX.
             </p>
             <br />
             <p>
-              É muito interessante como as cores, formas geométricas e posicionamento de elementos na tela, conseguem fazer o usuário tomar decisões diferentes e inconscientemente.
-              E isso é legal, interessante!
+              É muito interessante como as cores, formas geométricas e posicionamento de elementos na tela, conseguem fazer o usuário tomar decisões e navegar inconscientemente pelo site. Já era tudo esperado pelo designer, nenhuma ação do usuário foi por acaso.
+              Acho isso muito doido!
             </p>
             <br />
             <p>
-              Desenvolver software foi a forma que encontrei para mostrar a minha arte, e ter o potencial para mudar a vida das pessoas com a tecnologia.
-              Apesar da arte geralmente ser aberta a interpretações, diferente do desenvolvimento do software, que tudo ali foi programado para funcionar daquela forma consistentemente, sem mais nem menos, apesar dessa diferença entre os dois, eu ainda vejo ambos como forma de quem criou se expressar.
+              Desenvolver software e sites, foi a forma que encontrei para mostrar a minha arte, e ter o potencial para mudar a vida das pessoas com a tecnologia.
+            </p>
+              <br />
+            <p className="max-w-[500px] text-end ml-auto">
+              <q><em>A arte é aberta a interpretações, diferente do desenvolvimento do software, que tudo ali foi programado para funcionar daquela forma consistentemente.</em></q> - Vi na internet
             </p>
             <br />
-            <p>
-            Fazer algo que você gosta no trabalho, e o mesmo que estar sempre de férias. Apesar do estresse, de quando algo não funciona do jeito que deveria, programar é terapêutico para mim. 
+            <p className="max-w-[500px] text-end ml-auto">
+              <q><em>Fazer algo que você gosta no trabalho, e o mesmo que estar sempre de férias.</em></q> - DEVMEDIA 
             </p>
+            <br />
+            <p className="max-w-[500px] text-end ml-auto">
+              <q><em>Apesar do estresse de quando algo não funciona do jeito que deveria, programar me faz bem.</em></q> - Maxwell S.
+            </p>
+              
           </div>
         </motion.div>
 
