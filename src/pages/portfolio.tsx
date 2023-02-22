@@ -136,8 +136,9 @@ export default function Portfolios({ repositories }: any) {
   escopoRepositories.map((escopo: any) => {
     repositoriesParsed.map((repository: ProjectProps) => {
 
-      if (escopo.id == repository.id) { 
-        const newPortfolio = new Portfolio(repository.id, repository.name, repository.html_url, repository.languages_url, escopo.img, escopo.type, repository?.homepage)
+      if (escopo.id == repository.id) {
+
+        const newPortfolio = new Portfolio(repository.id, repository.name, repository.html_url, repository.languages_url, escopo.img, escopo.type, repository.homepage)
 
         finallyRepositories.push(newPortfolio)
       }

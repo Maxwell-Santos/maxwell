@@ -192,10 +192,8 @@ export function HeaderIntro() {
                   cursor-pointer
                   rounded-lg
                   group"
-
                 >
                   Contato
-
                   <span
                     className="absolute inset-0 translate-y-[95%] bg-secondary
                   transition-all duration-300 ease-out
@@ -215,7 +213,7 @@ export function HeaderIntro() {
                     w-fit 
                     cursor-pointer"
                   >
-                    Portfólio
+                    Projetos
                   </span>
                 </Link>
               </div>

@@ -18,7 +18,7 @@ module.exports = {
         'cards': '#adadad15',
         'cards-soon': '#474747',
         'h-cards': '#141E61',
-        'contact': '#121212',
+        'contact': '#0a0a0a',
         'input-contact': '#EEEEEE10',
         'footer': '#020C25',
         'hover-btn' : '#1013B0',
