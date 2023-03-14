@@ -87,7 +87,7 @@ export function ProjectComponent({ data }: ProjectComponentProps) {
           className="flex flex-row-reverse justify-between flex-1 items-center gap-2"
         >
 
-          <a href={`http://${data.homepage}`} target="_blank" rel="noreferrer"
+          <a href={`${data.homepage}`} target="_blank" rel="noreferrer"
             title="visitar site online"
             className="p-2 py-1 rounded-md font-semibold"
             translate='yes'
