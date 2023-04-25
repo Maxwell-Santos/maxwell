@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import Link from 'next/link'
 
-import DownloadIcon from "@mui/icons-material/Download";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import DownloadIcon from "@mui/icons-material/Download"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
-import { Link as LinkScroll } from "react-scroll";
+import { Link as LinkScroll } from "react-scroll"
 
 import { motion, useAnimation } from 'framer-motion'
-import { useInView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer"
 
 import { Typewriter } from 'react-simple-typewriter'
 
@@ -20,11 +20,11 @@ const introVariant = {
 export function Intro() {
   const [curriculum, setCurriculum] = useState("")
 
-  const mySkills = ["frontend developer", "web developer", "UI/UX", "fullstack"]
+  const mySkills = ["frontend developer", "web designer", "UI/UX", "fullstack"]
 
   useEffect(() => {
     navigator.language.includes("en") ?
-      setCurriculum("/resumes/Maxwell Curriculum(en).pdf") : setCurriculum("/resumes/Maxwell Currículo.pdf")
+      setCurriculum("/resumes/Maxwell Curriculum(en).pdf") : setCurriculum("/resumes/maxwell-curriculo.pdf")
   }, [])
 
   const control = useAnimation()
@@ -92,7 +92,7 @@ export function Intro() {
             hover:bg-hover-btn hover:-translate-y-1
             "
           >
-            <DownloadIcon /> Baixar CV
+            <DownloadIcon /> currículo
           </a>
 
           <Link href="/portfolio">

@@ -29,7 +29,7 @@ module.exports = {
         'default': '#FFF',
         'title': '#FFF',
         'nav':'#FFFFFFCC',
-        'articles': '#FFFFFFB3',
+        'articles': '#ffffffe2',
         'btn': '#FFF',
         'secondary': '#0047FF'
       },

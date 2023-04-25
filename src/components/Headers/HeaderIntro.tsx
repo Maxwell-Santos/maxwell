@@ -1,16 +1,16 @@
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import Link from "next/link"
+import { useEffect, useState } from "react"
 
-import { Link as ScrollLink } from 'react-scroll';
-import Logo from '../Logo';
+import { Link as ScrollLink } from 'react-scroll'
+import Logo from '../Logo'
 
-import SegmentIcon from '@mui/icons-material/SegmentRounded';
-import CloseIcon from '@mui/icons-material/CloseRounded';
+import SegmentIcon from '@mui/icons-material/SegmentRounded'
+import CloseIcon from '@mui/icons-material/CloseRounded'
 
-import GitHubIcon from '@mui/icons-material/GitHub';
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import GitHubIcon from '@mui/icons-material/GitHub'
+import SwipeableDrawer from "@mui/material/SwipeableDrawer"
 
-import { RedesSociais } from "../RedesSociais";
+import { RedesSociais } from "../RedesSociais"
 
 export function HeaderIntro() {
 
@@ -24,11 +24,11 @@ export function HeaderIntro() {
   }, [])
 
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
   const toggleDrawer = (newOpen: boolean) => () => {
     newOpen = !newOpen
-    setOpen(newOpen);
-  };
+    setOpen(newOpen)
+  }
 
   return (
     <>
@@ -140,81 +140,43 @@ export function HeaderIntro() {
 
           //DESKTOP
           <header
-            className={`fixed top-0 left-0 right-0 z-10 
-          px-8 flex justify-between items-center 
-          border-b-2 border-b-header backdrop-blur-sm
-          transition-all
-          `}
+            className="fixed top-0 left-0 right-0 z-10 px-8 flex justify-between items-center border-b-2 border-b- backdrop-blur-sm transition-all"
           >
             <div onClick={() => window.scrollTo(0, 0)}>
               <Logo />
             </div>
 
             <nav
-              className="flex text-[16px] items-center"
+              className="flex text-sm items-center lowercase"
             >
               <div
-                className="flex gap-3 items-center transition-all"
+                className="flex gap-3 items-center"
               >
                 <ScrollLink
                   to="about"
                   offset={-70}
-                  className="p-2 px-3 relative overflow-hidden
-                  hover:text-btn
-                  focus:text-btn
-                  hover:border-secondary 
-                  focus:border-secondary 
-                  transition-all
-                  cursor-pointer
-                  rounded-lg
-                  group"
-
-                >
+                  className="hover:text-btn focus:text-btn cursor-pointer">
                   Sobre
-                  <span
-                    className="absolute inset-0 translate-y-[95%] bg-secondary
-                  transition-all duration-300 ease-out
-                  -z-10
-                  group-hover:translate-y-0 
-                  group-focus:translate-y-0"
-                  ></span>
                 </ScrollLink>
 
                 <ScrollLink
                   to="contact"
                   offset={-70}
-                  className="p-2 px-3 relative overflow-hidden
-                  hover:text-btn
-                  focus:text-btn
-                  hover:border-secondary 
-                  focus:border-secondary 
-                  transition-all
-                  cursor-pointer
-                  rounded-lg
-                  group"
-                >
+                  className="hover:text-btn focus:text-btn cursor-pointer">
                   Contato
-                  <span
-                    className="absolute inset-0 translate-y-[95%] bg-secondary
-                  transition-all duration-300 ease-out
-                  -z-10
-                  group-hover:translate-y-0 
-                  group-focus:translate-y-0"
-                  ></span>
                 </ScrollLink>
 
                 <Link href="/portfolio">
-                  <span
-                    className="bg-secondary p-3
-                    text-btn uppercase font-robotoCondensed font-medium tracking-wider 
+                  <a
+                    className="bg-secondary p-2 px-3 rounded-md
+                    text-btn
                     flex items-center
                     hover:bg-hover-btn 
                     transition-all
                     w-fit 
-                    cursor-pointer"
-                  >
+                    cursor-pointer">
                     Projetos
-                  </span>
+                  </a>
                 </Link>
               </div>
 
