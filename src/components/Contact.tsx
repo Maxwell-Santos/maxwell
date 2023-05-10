@@ -103,33 +103,37 @@ export function Contact() {
             onSubmit={handleSubmit(submit)}
             className="flex-1 flex flex-col gap-3"
           >
-            <label className="relative">
-              <input
-                type="text"
-                {...register("name", {
-                  required: {
-                    value: true,
-                    message: "Qual o seu nome?"
-                  }
-                })}
-                placeholder="nome"
-                className="py-2 px-3 w-full rounded-sm text-articles tracking-wider"
-                spellCheck={false}
-                name="name"
-              />
-              <CloseRounded
-                fontSize="small"
-                className={`absolute top-1/2 -translate-y-1/2 right-2
-                  text-articles rounded-full shadow-sm
-                  ${name?.length > 0 ? 'visible' : 'invisible'}`}
-                onClick={() => resetField("name")}
-              />
+            <label>
+              Nome
+              <div className="relative mt-2">
+                <input
+                  type="text"
+                  {...register("name", {
+                    required: {
+                      value: true,
+                      message: "Qual o seu nome?"
+                    }
+                  })}
+                  placeholder="nome"
+                  className="py-2 px-3 w-full rounded-sm text-articles tracking-wider"
+                  spellCheck={false}
+                  name="name"
+                />
+                <CloseRounded
+                  fontSize="small"
+                  className={`absolute top-1/2 -translate-y-1/2 right-2
+                    text-articles rounded-full shadow-sm
+                    ${name?.length > 0 ? 'visible' : 'invisible'}`}
+                  onClick={() => resetField("name")}
+                />
+              </div>
 
               <span className="alert">{varName?.toString()}</span>
             </label>
 
             <label>
-              <div className="relative">
+              Email
+              <div className="relative mt-2">
                 <input
                   type="text"
                   {...register("email", {
@@ -154,15 +158,14 @@ export function Contact() {
                   text-articles rounded-full shadow-sm
                   `}
                   onClick={() => resetField("email")}
-
                 />
               </div>
               <span className="alert">{varEmail?.toString()}</span>
             </label>
 
             <label>
-              <div className="relative">
-
+              Feedback
+              <div className="relative mt-2">
                 <textarea
                   {...register("feedback", {
                     required: {

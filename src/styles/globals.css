@@ -23,13 +23,15 @@
 
   }
   p{
-    @apply font-inter text-articles leading-5 font-light 
+    @apply font-inter text-articles leading-6 font-light 
   }
 
   span{
     @apply font-robotoCondensed text-articles font-light 
   }
-
+  label {
+    @apply text-zinc-200
+  }
   header{
     @apply border-b-header
   }
@@ -55,12 +57,14 @@
 }
 
 @layer components{
+  /*portfólio page*/
   .linkSection{
-  @apply bg-[#EEEEEE30] rounded-full px-3 font-thin tracking-wide hover:bg-secondary/80 transition-all
-  focus:bg-secondary/80
+    @apply bg-[#EEEEEE30] rounded-full px-3  tracking-wide hover:bg-secondary/80 transition-all
+    focus:bg-secondary/80
   }
+  /*portfólio page*/
 
   .alert{
-  @apply text-xs text-[#ff8585] tracking-wide
+  @apply text-xs text-[#ff8585] tracking-wider font-medium
   }
 }

@@ -115,17 +115,10 @@ export function About() {
             <br />
 
             <p className="max-w-[500px] text-end ml-auto">
-              <q><em>Fazer algo que você gosta no trabalho, e o mesmo que estar sempre de férias.</em></q> - DEVMEDIA
+              <q><em>Fazer algo que você gosta no trabalho, é o mesmo que estar sempre de férias.</em></q> - DEVMEDIA
             </p>
-            <br />
-
-            <p className="max-w-[500px] text-end ml-auto">
-              <q><em>Apesar do estresse de quando algo não funciona do jeito que deveria, programar me faz bem.</em></q> - Maxwell S.
-            </p>
-
           </div>
         </motion.div>
-
       </div>
     </section>
   )

@@ -1,32 +1,23 @@
-import { useEffect, useState } from "react"
-import Link from 'next/link'
+import { useEffect } from "react"
+import Link from "next/link"
 
 import DownloadIcon from "@mui/icons-material/Download"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
 import { Link as LinkScroll } from "react-scroll"
 
-import { motion, useAnimation } from 'framer-motion'
+import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-import { Typewriter } from 'react-simple-typewriter'
+import { Typewriter } from "react-simple-typewriter"
 
 const introVariant = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-  hidden: { opacity: 0, x: -200 }
+  hidden: { opacity: 0, x: -200 },
 }
 
-
 export function Intro() {
-  const [curriculum, setCurriculum] = useState("")
-
   const mySkills = ["frontend developer", "web designer", "UI/UX", "fullstack"]
-
-  useEffect(() => {
-    navigator.language.includes("en") ?
-      setCurriculum("/resumes/Maxwell Curriculum(en).pdf") : setCurriculum("/resumes/maxwell-curriculo.pdf")
-  }, [])
-
   const control = useAnimation()
   const [ref, inView] = useInView()
 
@@ -43,7 +34,6 @@ export function Intro() {
       className="w-full h-[80vh] 
       flex flex-col justify-center gap-10
       md:h-auto"
-
       ref={ref}
       variants={introVariant}
       initial="hidden"
@@ -51,15 +41,13 @@ export function Intro() {
     >
       <div
         className="w-full flex flex-col gap-4 
-        md:w-3/4 2xl:w-4/5"
+        md:w-3/5 2xl:w-4/5"
       >
         <div
           className="border-l-8 border-secondary p-3
           md:p-5 md:py-7 flex flex-col gap-2"
         >
-          <h1
-            className="text-3xl md:text-4xl leading-7 font-inter"
-          >
+          <h1 className="text-3xl md:text-4xl leading-7 font-inter">
             Olá, me chamo Maxwell
           </h1>
 
@@ -78,22 +66,31 @@ export function Intro() {
           </span>
         </div>
         <p>
-          A tecnologia facilita a vida das pessoas e muda o jeito que elas veem o mundo, eu quero fazer parte disso. Sou apaixonado por tecnologia, por sempre aprender coisas novas. Poder desenvolver qualquer coisa, e saber que aquilo pode mudar a vida de alguém, me deixa muito animado e é o que me move para frente.
+          A tecnologia facilita a vida das pessoas e muda o jeito que elas veem
+          o mundo, eu quero fazer parte disso. Sou apaixonado por tecnologia,
+          por sempre aprender coisas novas. Poder desenvolver qualquer coisa, e
+          saber que aquilo pode mudar a vida de alguém, me deixa muito animado e
+          é o que me move para frente.
         </p>
 
-        <nav
-          className="w-full flex flex-col gap-5 mt-10"
-        >
-          <a
-            href={curriculum} download
+        <nav className="w-full flex flex-col gap-5 mt-10">
+          <div
             className="flex-1 md:w-fit text-center px-6 py-3 rounded-md
-            text-btn text-base uppercase font-roboto 
-            transition-all border border-secondary md:bg-secondary 
-            hover:bg-hover-btn hover:-translate-y-1
-            "
+              text-btn text-base uppercase font-roboto tracking-wider
+              transition-all border border-secondary md:bg-secondary
+              hover:bg-transparent group"
           >
             <DownloadIcon /> currículo
-          </a>
+
+            <div className="text-sm absolute group-hover:static opacity-0 group-hover:opacity-100 transition-all space-x-2 mt-4">
+              <a href={"/resumes/maxwell-curriculo.pdf"} download className="lowercase bg-white/20 p-2 rounded border border-secondary hover:bg-secondary">
+                português
+              </a>
+              <a href={"/resumes/Maxwell Curriculum(en).pdf"} download className="lowercase bg-white/20 p-2 rounded hover:bg-secondary">
+                english
+              </a>
+            </div>
+          </div>
 
           <Link href="/portfolio">
             <span
@@ -105,7 +102,6 @@ export function Intro() {
               Portfólio
             </span>
           </Link>
-
         </nav>
       </div>
 
@@ -125,5 +121,3 @@ export function Intro() {
     </motion.section>
   )
 }
-
-
