@@ -8,6 +8,7 @@ import styled_components from '../../public/skillsIcons/styled.svg';
 import tailwind from '../../public/skillsIcons/tailwind.svg';
 import ts from '../../public/skillsIcons/ts.svg';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   css: css,
   git: git,

@@ -74,23 +74,16 @@ export function Intro() {
         </p>
 
         <nav className="w-full flex flex-col gap-5 mt-10">
-          <div
-            className="flex-1 md:w-fit text-center px-6 py-3 rounded-md
+          <a
+            href={"/resumes/maxwell-frontend.pdf"} download
+            className="inline-block flex-1 md:w-fit text-center px-6 py-3 rounded-md
               text-btn text-base uppercase font-roboto tracking-wider
               transition-all border border-secondary md:bg-secondary
               hover:bg-transparent group"
           >
             <DownloadIcon /> currículo
-
-            <div className="text-sm absolute group-hover:static opacity-0 group-hover:opacity-100 transition-all space-x-2 mt-4">
-              <a href={"/resumes/maxwell-curriculo.pdf"} download className="lowercase bg-white/20 p-2 rounded border border-secondary hover:bg-secondary">
-                português
-              </a>
-              <a href={"/resumes/Maxwell Curriculum(en).pdf"} download className="lowercase bg-white/20 p-2 rounded hover:bg-secondary">
-                english
-              </a>
-            </div>
-          </div>
+         
+          </a>
 
           <Link href="/portfolio">
             <span

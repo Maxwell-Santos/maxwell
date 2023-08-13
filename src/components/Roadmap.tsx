@@ -75,6 +75,12 @@ export function Roadmap() {
     >
       <Stack
         primary
+        date={"▪ ago 2023 - atualmente"}
+        title={"Desenvolvimento de Software Multiplataforma"}
+        place={"FATEC Pref. Hirant Sanazar"}
+      />
+
+      <Stack
         date={"▪ fev 2019 - dez 2021"}
         title={"Tec. Desenvolvimento de Sistemas"}
         place={"ETEC Dr. Celso Giglio"}
@@ -83,42 +89,42 @@ export function Roadmap() {
       <Stack
         date={"▪ junho 2022"}
         title={"Introdução à computação e pensamentos computacionais"}
-        place={"DIO - Digital Inovation One"}
+        place={"DIO - Digital Innovation One"}
         id={"8F2BF556"}
       />
 
       <Stack
         date={"▪ junho 2022"}
         title={"Posicionando elementos com Flexbox em CSS"}
-        place={"DIO - Digital Inovation One"}
+        place={"DIO - Digital Innovation One"}
         id={"85C5664F"}
       />
 
       <Stack
         date={"▪ junho 2022"}
         title={"Módulo III - Dominando a Linguagem de Programação JavaScript"}
-        place={"DIO - Digital Inovation One"}
+        place={"DIO - Digital Innovation One"}
         id={"B67A3FE0"}
       />
 
       <Stack
         date={"▪ junho 2022"}
         title={"Módulo II - Fundamentos Web com HTML e CSS"}
-        place={"DIO - Digital Inovation One"}
+        place={"DIO - Digital Innovation One"}
         id={"C926A682"}
       />
 
       <Stack
         date={"▪ março 2022"}
         title={"Javascript ES6 essencial"}
-        place={"DIO - Digital Inovation One"}
+        place={"DIO - Digital Innovation One"}
         id={"890A1863"}
       />
 
       <Stack
         date={"▪ jan 2022"}
         title={"Programação para a internet com Javascript"}
-        place={"DIO - Digital Inovation One"}
+        place={"DIO - Digital Innovation One"}
         id={"ACFBADF4"}
       />
 
@@ -126,13 +132,6 @@ export function Roadmap() {
         date={"▪ jan 2023"}
         title={"CS50"}
         place={"Harvard - Material cedido pela Fundação Estudar"}
-        // id={"ACFBADF4"}
-        soon
-      />
-      <Stack
-        date={"▪ jan 2023"}
-        title={"Programação para a internet com Javascript"}
-        place={"Fundação Bradesco"}
         // id={"ACFBADF4"}
         soon
       />

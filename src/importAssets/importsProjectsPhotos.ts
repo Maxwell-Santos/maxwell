@@ -9,9 +9,11 @@ import CardapioDigital from '../../public/img/cardapio.png';
 import VitrineGames from '../../public/img/vitrinegames.png';
 import Forca from '../../public/img/forca.png';
 import GalleryPhotos from '../../public/img/galleryphoto.png';
-import Salon from '../../public/img/salon.png';
+import Salon from '../../public/img/salon.png'; 
+import Captureme from '../../public/img/captureme.jpg'; 
 
 export default {
+  Captureme,
   GalleryPhotos,
   Forca,
   VitrineGames,
